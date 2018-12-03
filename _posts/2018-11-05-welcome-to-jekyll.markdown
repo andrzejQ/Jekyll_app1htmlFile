@@ -13,5 +13,5 @@ Oznaczam je symbolami:
 - (x1) - "prawie" 1 plik - wymagający w swoim bliskim otoczeniu nieznacznej liczby dodatkowych, stałych plików (stosunkowo łatwy do uruchomienia zaraz po rozpakowaniu); logiczna treść jest w 1 pliku głównym.
 
 1. **Generator [QR Code](http://www.denso-wave.com/qrcode/faqpatent-e.html)** (o1) 
-- [spakowany plik html]({{ site.url }}/download/QRcode1.zip)
-- [wypróbuj QRcode1.html, zob. instrukcję]({{ site.url }}/download/QRcode1.html)
+- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
+- [wypróbuj QRcode1.html, zob. instrukcję]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
