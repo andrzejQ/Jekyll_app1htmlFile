@@ -22,4 +22,7 @@ Oznaczam je symbolami:
 - Plik <https://github.com/andrzejQ/markdown-mathjax>
 - Demo <https://andrzejQ.github.io/markdown-mathjax/editor/md-mhj.html>
 
-3. ...
+3. Edytor wizualny WYSIWYG html w przeglądarce
+- demo  (słabo dopracowane) na bazie przykładu [developer.mozilla.org...Editable_content](https://developer.mozilla.org/pl/docs/Web/Guide/HTML/Editable_content#Example_A_simple_but_complete_rich_text_editor)
+- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/EditInHtml1.zip)
+- [wypróbuj EditInHtml1.html]({{ site.url }}{{ site.baseurl }}/download/EditInHtml1.html)
