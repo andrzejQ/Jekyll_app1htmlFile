@@ -14,4 +14,12 @@ Oznaczam je symbolami:
 
 1. **Generator [QR Code](http://www.denso-wave.com/qrcode/faqpatent-e.html)** (o1) 
 - [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
-- [wypróbuj QRcode1.html, zob. instrukcję]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
+- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
+
+2. **markdown+mathjax** (i1)
+- edytor Markdown (marked.js) + wzory matematyczne MathJax
+- podgląd wynikowy HTML + eksport do pliku HTML
+- Plik <https://github.com/andrzejQ/markdown-mathjax>
+- Demo <https://andrzejQ.github.io/markdown-mathjax/editor/md-mhj.html>
+
+3. ...
