@@ -127,34 +127,26 @@ img.intLink { border: 0; }
 <option value="6">Very big</option>
 <option value="7">Maximum</option>
 </select>
-<select onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
+<select class="fontColor" onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
 <option class="heading" selected>- color -</option>
-<option value="red">Red</option>
-<option value="blue">Blue</option>
-<option value="green">Green</option>
-<option value="black">Black</option>
+<option style="color:Red;"  value="red"  ># Red</option>
+<option style="color:Blue"  value="blue" ># Blue</option>
+<option style="color:Green" value="green"># Green</option>
+<option style="color:Black" value="black"># Black</option>
 </select>
 <select onchange="formatDoc('backcolor',this[this.selectedIndex].value);this.selectedIndex=0;">
 <option class="heading" selected>- background -</option>
-<option value="red">Red</option>
-<option value="green">Green</option>
-<option value="black">Black</option>
+<option value="White"  style="background-color:White"  >White</option>
+<option value="Yellow" style="background-color:Yellow" >Yellow</option>
+<option value="Aqua"   style="background-color:Aqua"   >Aqua</option>
+<option value="Lime"   style="background-color:Lime"   >Lime</option>
+<option value="Fuchsia"style="background-color:Fuchsia">Fuchsia</option>
+<option value="Silver" style="background-color:Silver" >Silver</option>
 </select>
 </div>
 <div id="toolBar2">
-<img class="intLink" title="Zapisz jako..." onclick="toHTML();" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAABnRSTlMAgACAAIDTzS+jAAACcUlE
-QVQ4jc2UTUhUURTH//fe997Me/MGNahoEiKJciHYQmyTmxYVRAQt0oRCA0mIgtBWFQ350aYI0syI
-PmiRQUSuRIsQ1KhoU5vIdJNf0yqtUZmZ9+45LfxqnCctbNFZnXu553f+/3MvV8Tjcawv5Drr/w3C
-WM4+ya2DXOhp8gkU1MqQMJWsEBOlNBmMGOTCvjMH5zN67xYV2G0ooR1LHbjdW4osxIoRIjbhVzwY
-BTAy9WskkRxJJIcnf34Znx4enwa44v6oCZ+I1zQCIJlmOyzB/LDtGoQsLi7WWu87fOx195NdtbW2
-LZPp1fVZCCEwm9GupTRRQ7yFIIkIYCY+dPykR+SacjajhQgY0xICmPMoakml0N586dWzx44p2psv
-93c/7X/RZRoiaqk5j3IIfxoRmPc4zxK931JXmloX9ppaFpO+sbn8sJz3AQHwGggBpIijIRUf+HGR
-Z0wllRAQi1INiYJIKANBQq6JAJDWCJvi9E6zumxzwbkuJYUmEBgMgMH4MCAMpe6aJY5lnLA+BiAy
-HkJKVpdtnPo+nSbx9eqRwnw7xzsAxC48hxVkJMMUNiSl/U0Frk+c0mi7eWPo7bvy8j2VlVWe7wMs
-wdu2F3l65QFnqdCQEVN5mkOORcxEfPZ8w5v3VQ2NjZ7ve57HzEoC2QNduVQphCHVhohpSLGwFAKP
-7nWy9jvvdJiG4dh2xHHCYWdBcoCKkuTn6z2YSfmn8nawEJahbEPW1NXX1NXnzsJUMgCxmxNFE8MA
-bnUAgB3dX97ao4mJATAzL6oXsJR0LCMA4bqu67rLy6NTL3ObZ0UsthqRcyD2F8RS/B8f328rGfaL
-3V0VoQAAAABJRU5ErkJggg==">
+<img class="intLink" title="Zapisz jako..." onclick="toHTML();" src=
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAABnRSTlMAgACAAIDTzS+jAAACcUlEQVQ4jc2UTUhUURTH//fe997Me/MGNahoEiKJciHYQmyTmxYVRAQt0oRCA0mIgtBWFQ350aYI0syIPmiRQUSuRIsQ1KhoU5vIdJNf0yqtUZmZ9+45LfxqnCctbNFZnXu553f+/3MvV8Tjcawv5Drr/w3CWM4+ya2DXOhp8gkU1MqQMJWsEBOlNBmMGOTCvjMH5zN67xYV2G0ooR1LHbjdW4osxIoRIjbhVzwYBTAy9WskkRxJJIcnf34Znx4enwa44v6oCZ+I1zQCIJlmOyzB/LDtGoQsLi7WWu87fOx195NdtbW2LZPp1fVZCCEwm9GupTRRQ7yFIIkIYCY+dPykR+SacjajhQgY0xICmPMoakml0N586dWzx44p2psv93c/7X/RZRoiaqk5j3IIfxoRmPc4zxK931JXmloX9ppaFpO+sbn8sJz3AQHwGggBpIijIRUf+HGRZ0wllRAQi1INiYJIKANBQq6JAJDWCJvi9E6zumxzwbkuJYUmEBgMgMH4MCAMpe6aJY5lnLA+BiAyHkJKVpdtnPo+nSbx9eqRwnw7xzsAxC48hxVkJMMUNiSl/U0Frk+c0mi7eWPo7bvy8j2VlVWe7wMswdu2F3l65QFnqdCQEVN5mkOORcxEfPZ8w5v3VQ2NjZ7ve57HzEoC2QNduVQphCHVhohpSLGwFAKP7nWy9jvvdJiG4dh2xHHCYWdBcoCKkuTn6z2YSfmn8nawEJahbEPW1NXX1NXnzsJUMgCxmxNFE8MAbnUAgB3dX97ao4mJATAzL6oXsJR0LCMA4bqu67rLy6NTL3ObZ0UsthqRcyD2F8RS/B8f328rGfaL3V0VoQAAAABJRU5ErkJggg==">
 <img class="intLink" title="Drukuj" onclick="printDoc();" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oEBxcZFmGboiwAAAAIdEVYdENvbW1lbnQA9syWvwAAAuFJREFUOMvtlUtsjFEUx//n3nn0YdpBh1abRpt4LFqtqkc3jRKkNEIsiIRIBBEhJJpKlIVo4m1RRMKKjQiRMJRUqUdKPT71qpIpiRKPaqdF55tv5vvusZjQTjOlseUkd3Xu/3dPzusC/22wtu2wRn+jG5So/OCDh8ycMJDflehMlkJkVK7KUYN+ufzA/RttH76zaVocDptRxzQtNi3mRWuPc+6cKtlXZ/sddP2uu9uXlmYXZ6Qm8v4Tz8lhF1H+zDQXt7S8oLMXtbF4e8QaFHjj3kbP2MzkktHpiTjp9VH6iHiA+whtAsX5brpwueMGdONdf/2A4M7ukDs1JW662+XkqTkeUoqjKtOjm2h53YFL15pSJ04Zc94wdtibr26fXlC2mzRvBccEbz2kiRFD414tKMlEZbVGT33+qCoHgha81SWYsew0r1uzfNylmtpx80pngQQ91LwVk2JGvGnfvZG6YcYRAT16GFtW5kKKfo1EQLtfh5Q2etT0BIWF+aitq4fDbk+ImYo1OxvGF03waFJQvBCkvDffRyEtxQiFFYgAZTHS0zwAGD7fG5TNnYNTp8/FzvGwJOfmgG7GOx0SAKKgQgDMgKBI0NJGMEImpGDk5+WACEwEd0ywblhGUZ4Hw5OdUekRBLT7DTgdEgxACsIznx8zpmWh7k4rkpJcuHDxCul6MDsmmBXDlWCH2+XozSgBnzsNCEE4euYV4pwCpsWYPW0UHDYBKSWu1NYjENDReqtKjwn2+zvtTc1vMSTB/mvev/WEYSlASsLimcOhOBJxw+N3aP/SjefNL5GePZmpu4kG7OPr1+tOfPyUu3BecWYKcwQcDFmwFKAUo90fhKDInBCAmvqnyMgqUEagQwCoHBDc1rjv9pIlD8IbVkz6qYViIBQGTJPx4k0XpIgEZoRN1Da0cij4VfR0ta3WvBXH/rjdCufv6R2zPgPH/e4pxSBCpeatqPrjNiso203/5s/zA171Mv8+w1LOAAAAAElFTkSuQmCC">
 <img class="intLink" title="Wyczyść" onclick="if(validateMode()&&confirm('Usunąć cały tekst?')){oDoc.innerHTML=sDefTxt};" src="data:image/gif;base64,R0lGODlhFgAWAIQbAD04KTRLYzFRjlldZl9vj1dusY14WYODhpWIbbSVFY6O7IOXw5qbms+wUbCztca0ccS4kdDQjdTLtMrL1O3YitHa7OPcsd/f4PfvrvDv8Pv5xv///////////////////yH5BAEKAB8ALAAAAAAWABYAAAV84CeOZGmeaKqubMteyzK547QoBcFWTm/jgsHq4rhMLoxFIehQQSAWR+Z4IAyaJ0kEgtFoLIzLwRE4oCQWrxoTOTAIhMCZ0tVgMBQKZHAYyFEWEV14eQ8IflhnEHmFDQkAiSkQCI2PDC4QBg+OAJc0ewadNCOgo6anqKkoIQA7" />
 <img class="intLink" title="Cofnij" onclick="formatDoc('undo');" src="data:image/gif;base64,R0lGODlhFgAWAOMKADljwliE33mOrpGjuYKl8aezxqPD+7/I19DV3NHa7P///////////////////////yH5BAEKAA8ALAAAAAAWABYAAARR8MlJq7046807TkaYeJJBnES4EeUJvIGapWYAC0CsocQ7SDlWJkAkCA6ToMYWIARGQF3mRQVIEjkkSVLIbSfEwhdRIH4fh/DZMICe3/C4nBQBADs=" />
