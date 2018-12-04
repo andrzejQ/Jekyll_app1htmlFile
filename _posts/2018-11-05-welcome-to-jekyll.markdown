@@ -29,3 +29,21 @@ Oznaczam je symbolami:
 - demo pokazuje możliwość edycji stron www wyświetlanych w przeglądarce, którą też daje np. [skryptozakładka](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) [**Edit Website**](javascript:document.body.contentEditable='true';document.designMode='on';void%200), można też zmieniać kontrast tekstu [**-k**](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';if(document.createStyleSheet){document.createStyleSheet("javascript:'"+styles+"'");}else{newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);}})();)
 zob.więcej na [100+ Useful Bookmarklets](https://www.hongkiat.com/blog/100-useful-bookmarklets-for-better-productivity-ultimate-list/), [
 7is7.com_Bookmarklets](http://7is7.com/software/bookmarklets/)
+
+$$
+\begin{align*}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*}
+$$
+
