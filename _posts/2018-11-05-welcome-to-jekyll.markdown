@@ -34,5 +34,8 @@ można też zmieniać kontrast tekstu
 Więcej na [100+ Useful Bookmarklets](https://www.hongkiat.com/blog/100-useful-bookmarklets-for-better-productivity-ultimate-list/), [
 7is7.com_Bookmarklets](http://7is7.com/software/bookmarklets/)
 
+4. Skryptozakładka (tymczasowo tutaj) [sig+](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(e){document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click(),console.log(e);var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^\/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');if(r===t)return%20void%20alert(%22Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20w%20prostym%20trybie%20HTML%22);e.value=r,document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click()}else%20alert(%22Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20z%20prostym%20edytorem%20html%22)}();)
+zamienia pierszy napotkany obrazek `<img...` na znacznik galrii orazów w tym samym foderze co `<img`: `{gallery.../gallery}`.
+
 <style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px}</style>
 
