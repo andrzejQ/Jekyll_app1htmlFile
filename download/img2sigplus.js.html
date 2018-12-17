@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc2 {
+	color: #008000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc14 {
+	font-weight: bold;
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc2">//A. Kubaszek, 2018-06, lic. MIT
+//Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS
+//zamienia łącze wstawionego obrazka `&lt;img src="images...` na łącze galerii `sigplus`: `{gallery ... /gallery}`.
+//Na moment zamiany przełącza edytor z widoku HTML WYSIWYG na źródło HTML
+</span><span class="sc0">  </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">textarea1</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc7">'textarea#jform_articletext'</span><span class="sc10">)</span><span class="sc0">
+  </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!(</span><span class="sc11">textarea1</span><span class="sc10">))</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc7">'1. Coś jest nie tak \n - musisz być w trybie edycji html'</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc5">return</span><span class="sc10">;</span><span class="sc0">
+  </span><span class="sc10">}</span><span class="sc0">
+</span><span class="sc2">//&lt;span role="button" class="wf_editor_toggle" aria-labelledby="wf_editor_jform_articletext_toggle" style="cursor: pointer;"&gt;
+//  &lt;span id="wf_editor_jform_articletext_toggle"&gt;[Toggle Editor]&lt;/span&gt;&lt;/span&gt;
+</span><span class="sc0">  </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc7">'span#wf_editor_jform_articletext_toggle'</span><span class="sc10">).</span><span class="sc11">parentNode</span><span class="sc10">.</span><span class="sc11">click</span><span class="sc10">();</span><span class="sc0">
+</span><span class="sc2">//console.log(textarea1);
+</span><span class="sc0">  </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">s</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">textarea1</span><span class="sc10">.</span><span class="sc11">value</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc2">//console.log('s='+s);
+//s='&lt;p&gt;&lt;img src="images/galerie/2018-06-11_abc/201806.JPG" alt="201806" /&gt;&lt;/p&gt; aabbcc /&gt; ddddddd'
+</span><span class="sc0">  </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">s2</span><span class="sc10">=</span><span class="sc11">s</span><span class="sc10">.</span><span class="sc11">replace</span><span class="sc10">(</span><span class="sc14">/&lt;img src="images\/(.*?)\/[^/]+\/&gt;/</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc7">'{gallery maxcount=1 alignment="after-float" preview_width=120 preview_height=160}$1{/gallery}'</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc2">//console.log('s2='+s2);
+//s2='&lt;p&gt;{gallery maxcount=1 alignment="after-float" preview_width=120 preview_height=160}galerie/2018-06-11_abc{/gallery}&lt;/p&gt; aabbcc /&gt; ddddddd'
+</span><span class="sc0">  </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">s2</span><span class="sc10">===</span><span class="sc11">s</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc7">'2. Coś jest nie tak \n - może nie ma wstawionego obrazka...\n - a może edytor nie jest trybie HTML'</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc5">return</span><span class="sc10">;</span><span class="sc0">
+  </span><span class="sc10">}</span><span class="sc0">
+  </span><span class="sc11">textarea1</span><span class="sc10">.</span><span class="sc11">value</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">s2</span><span class="sc10">;</span><span class="sc0">
+  </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span class="sc7">'span#wf_editor_jform_articletext_toggle'</span><span class="sc10">).</span><span class="sc11">parentNode</span><span class="sc10">.</span><span class="sc11">click</span><span class="sc10">();</span><span class="sc0"></span></div>
+<code class="sc2">//(zob. http://bookmarklets.org - maker [x][x][x][_]):<br>
+//javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();</code></body>
+</html>
