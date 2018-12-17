@@ -1,5 +1,5 @@
 //A. Kubaszek, 2018-06, lic. MIT
-//Skryptozakładka dla edytora HTML w Joomla z dodatkiem SIGPLUS
+//Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS
 //zamienia łącze wstawionego obrazka `<img src="images...` na łącze galerii `sigplus`: `{gallery ... /gallery}`.
 //Na moment zamiany przełącza edytor z widoku HTML WYSIWYG na źródło HTML
   var textarea1 = document.querySelector('textarea#jform_articletext')
