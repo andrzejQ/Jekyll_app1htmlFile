@@ -1,4 +1,4 @@
-# Welcome to Jekyll!
+# Welcome to Jekyll x!
 #
 # This config file is meant for settings that affect your whole blog, values
 # which you are expected to set up once and rarely edit after that. If you find
@@ -13,11 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 1-plikowe aplikacje html
+title: 1-plikowe i 1-wierszowe aplikacje html
 email: kubaszek@prz.edu.pl
 description: >- # this means to ignore newlines until "baseurl:"
-  Aplikacje w postaci 1 pliku HTML uruchamianego lokalnie wykorzystujące silnik przeglądarki. 
-  Może to być jedyny, samodzielny plik HTML (off-line), albo 1 plik wykorzystujący jakieś otwarte zasoby internetowe.
+  Aplikacje w postaci 1 pliku HTML/JS uruchamianego lokalnie wykorzystujące silnik przeglądarki. 
 baseurl: "/Jekyll_app1htmlFile" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  andrzejQ
