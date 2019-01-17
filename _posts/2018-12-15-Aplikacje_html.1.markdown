@@ -1,15 +1,19 @@
 ---
 layout: post
 title:  "Aplikacje html.1"
-date:   2018-12-05 10:21:59 +0100
+date:   2019-01-16 10:21:59 +0100
 categories: jekyll update
 ---
 
 Zebrałem tu kilka aplikacji, które mają postać pojedynczego pliku HTML. 
 
-1. **Generator [QR Code](http://www.denso-wave.com/qrcode/faqpatent-e.html)** (o1) 
-- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
-- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
+1. **[QR Code ® Denso Wave Incorporated](http://www.denso-wave.com/qrcode/faqpatent-e.html)**
+	a. **Generator** (o1)
+		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
+		- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
+	b. **Czytnik** z użyciem kamery koputera/laptopa (o1)
+		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1.zip)
+		- [wypróbuj jsQR_Demo1.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1.html)
 
 2. **markdown+mathjax** (i1)
 - edytor Markdown (marked.js) + wzory matematyczne MathJax
