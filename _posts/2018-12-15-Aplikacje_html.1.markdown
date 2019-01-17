@@ -7,7 +7,7 @@ categories: jekyll update
 
 Zebrałem tu kilka aplikacji, które mają postać pojedynczego pliku HTML. 
 
-1. **[QR Code ® Denso Wave Incorporated](http://www.denso-wave.com/qrcode/faqpatent-e.html)**
+1. **QR Code** [(® <sub>Denso Wave Incorporated</sub>)](http://www.denso-wave.com/qrcode/faqpatent-e.html)
 	1. **Generator** (o1)
 		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
 		- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
