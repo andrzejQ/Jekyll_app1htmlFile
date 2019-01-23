@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Aplikacje html.1"
-date:   2019-01-16 10:21:59 +0100
+date:   2019-01-21 10:21:59 +0100
 categories: jekyll update
 ---
 
