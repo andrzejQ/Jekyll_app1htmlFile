@@ -12,8 +12,11 @@ Zebrałem tu kilka aplikacji, które mają postać pojedynczego pliku HTML.
 		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
 		- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
 	2. **Czytnik** z użyciem kamery koputera/laptopa (o1)
-		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1.zip)
-		- [wypróbuj jsQR_Demo1.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1.html)
+		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.zip)
+		- [wypróbuj jsQR_Demo1cam.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.html)
+	3. **Czytnik** odczytujący QR-kod z pliku graficznego, np. skanu. (o1)
+		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.zip)
+		- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html)
 
 2. **markdown+mathjax** (i1)
 - edytor Markdown (marked.js) + wzory matematyczne MathJax
