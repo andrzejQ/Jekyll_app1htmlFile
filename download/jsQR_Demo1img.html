@@ -4,17 +4,19 @@
   <title>jsQR_Demo1img.html</title>
   <style>
   p {margin: 6px 0;}
-  #canvasLeyers {width: 60%;}  canvas {width: 100%} 
+  #canvasLeyers {max-width: 640px; margin: 0 auto; position: relative; }
+  canvas {width: 100%} 
   button { margin: 7px 0px; border: double; padding: 5px; color: DarkBlue;}
   #files {font-weight:bold; background-color: Aqua; border: double; padding: 5px;}
   #fileBtns {color: DarkBlue;}
-  #oPliku{color: DarkTurquoise; font-size:small}
-  .instr {color: Blue; margin: 3px 2px; font-size:small; word-wrap: break-word; }
+  #oPliku{color: DarkTurquoise}
+  .instr {color: Blue; margin: 3px 2px; word-wrap: break-word; }
   #actvRectInfo { border-bottom: 1px dotted;}
   #output {padding: 3px;}  #output p {margin: 2px;} 
   #output div {padding: 5px;}  #output > div {border-left: thin dotted blue;}
   #errMsg {color:Red; font-weight: bold;}
   #githubLink {float: right; color:DarkBlue;font-size:small; margin: 0 0 8px 8px}
+  .smallTxt {font-size:small;}
   </style>
 </head>
 
@@ -25,7 +27,7 @@
   <a href="http://www.denso-wave.com/qrcode/faqpatent-e.html"><b>QR code<sup>®</sup></b> Denso Wave Incorporated</a>
 </div>
 <p><b>Odczyt QR-kodu z obrazu w pliku. </b></p>
-    <p><small> Obraz oprócz pojedynczego QR-kodu może  zawierać różne inne elementy. Jeśli jest klika QR-kodów to trzeba ograniczyć obszar rozpoznawania niebieskim prostokątem (lewy górny róg i rozmiary podane jako ułamek wymiarów obrazka):</small><span class="instr"> <span id="actvRectInfo" contenteditable="true"> ... </span> (tu można edytować te liczby).</span></p>
+    <p class="smallTxt"> Obraz oprócz pojedynczego QR-kodu może  zawierać różne inne elementy. Jeśli jest klika QR-kodów to trzeba ograniczyć obszar rozpoznawania niebieskim prostokątem (lewy górny róg i rozmiary podane jako ułamek wymiarów obrazka):<span class="instr"> <span id="actvRectInfo" contenteditable="true"> ... </span> (tu można edytować te liczby).</span></p>
 <div id='fileBtns'>
 <hr/>
 <input type="file" id="files" name="file" onchange="document.getElementById('readBytesButton0').click();" /> 
@@ -36,8 +38,8 @@
   <button id='readBytesButton0'>Ponownie generuj plik wynikowy</button> 
 </span>
 </div>
-<p><span class="instr">Uwaga - ta aplikacja działa jako lokalny plik HTML (off-line) i plik z obrazem QR-kodu musi być w tym samym folderze co plik HTML ! </span>
-<span id="oPliku">Nie odczytano żadnego pliku</span></p></p>
+<p><span class="instr smallTxt">Uwaga - ta aplikacja działa jako lokalny plik HTML (off-line) i plik z obrazem QR-kodu musi być w tym samym folderze co plik HTML ! </span>
+<span id="oPliku" class="smallTxt">Nie odczytano żadnego pliku</span></p></p>
 <hr/>
 <div id="output">
   <div>
@@ -133,7 +135,7 @@ img.onload = function(){
   
   function draw(){ /** console.log('draw(): ',wActive);/**/
     ctx.clearRect(0,0,canvasW,canvasH);
-    drawRect({x:xActive, y:yActive}, {dx:wActive, dy:hActive}, 'rgba(0, 0, 255, 0.3)', (canvasW+canvasH)/400);  //Blue, alpha=0.3
+    drawRect({x:xActive, y:yActive}, {dx:wActive, dy:hActive}, 'rgba(0, 0, 255, 0.4)', (canvasW+canvasH)/400);  //Blue, alpha=0.4
   }
   
   function drawRect(topLeft, size, color, lineWidth) {//({x: ,y: },{dx: ,dy: },
@@ -163,7 +165,7 @@ img.onload = function(){
     var loc = QRdata.location;
     drawPath([loc.topLeftCorner, loc.topRightCorner, loc.bottomRightCorner
         , loc.bottomLeftCorner, loc.topLeftCorner]
-        , 'rgba(0, 255, 0, 0.4)', (canvasW+canvasH)/400, offset); //Lime, alpha=0.4
+        , 'rgba(0, 255, 0, 0.5)', (canvasW+canvasH)/400, offset); //Lime, alpha=0.5
   }
 
   var inputQR1 = ctx0.getImageData(xActive, yActive, wActive, hActive); /** console.log("inputQR1: ", inputQR1); /**/
