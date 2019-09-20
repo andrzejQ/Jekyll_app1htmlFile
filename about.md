@@ -8,7 +8,7 @@ W tym blogu zamieszczam aplikacje w postaci 1 pliku HTML uruchamianego lokalnie 
 
 Może to być jedyny, samodzielny plik HTML (off-line), albo 1 plik wykorzystujący jakieś otwarte zasoby internetowe.
 
-Pewną odmianą takich mikro-aplikacji są też skryptozakładki, czyli 1-wierszowe aplikacje js.
+Pewną odmianą takich mikro-aplikacji są też skryptozakładki, czyli 1-wierszowe aplikacje js. 
 
 ----
 
