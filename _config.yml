@@ -23,7 +23,7 @@
 minima:
   date_format: "%d.%m.%Y"
 
-show_excerpts: true
+# show_excerpts: true - jakoś fatalnie działa w github - wyświetla całe artykuły
 
 title: 1-plikowe i 1-wierszowe aplikacje html
 lang: pl
