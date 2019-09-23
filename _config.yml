@@ -19,6 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: 1-plikowe i 1-wierszowe aplikacje html
+lang: pl
 email: kubaszek@prz.edu.pl
 description: >- # this means to ignore newlines until "baseurl:"
   Aplikacje w postaci 1 pliku HTML/JS uruchamianego lokalnie wykorzystujące silnik przeglądarki. 
