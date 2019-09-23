@@ -18,6 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# Minima date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%d.%m.%Y"
+
+show_excerpts: true
+
 title: 1-plikowe i 1-wierszowe aplikacje html
 lang: pl
 email: kubaszek@prz.edu.pl

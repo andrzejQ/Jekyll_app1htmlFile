@@ -4,6 +4,7 @@ title:  "Kategorie aplikacji"
 date:   2018-12-17 10:21:59 +0100
 categories: jekyll update
 ---
+Symbole kategorii 1-plikowych aplikacji, które stosuję w tym blogu.
 
 W tym blogu zebrałem tu kilka aplikacji, które mają postać pojedynczego pliku [HTML](https://pl.wikipedia.org/wiki/HTML)/[JS](https://pl.wikipedia.org/wiki/JavaScript) (lub 1 wiersza JS).
 
