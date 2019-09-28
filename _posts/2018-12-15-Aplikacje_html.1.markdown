@@ -27,7 +27,6 @@ Zebrałem tu kilka aplikacji, które mają postać pojedynczego pliku HTML.
 3. **Zaawansowane zmiany w tekście - wyrażenia regularne** (o1)
 - Formularz zmiany tekstu na podstawie wielokrotnych [wyrażeń regularnych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp).
 - Formularz działa też w trybie off-line. Tylko z wykorzystaniem silnika przeglądarki. Nic nie jest wysyłane do Internetu. Wszystko jest w pojedynczym pliku HTML.
-- Wypróbuj czy to działa - tj. czy tekst jest przetwarzany wg. podanych wyrażeń regularnych. Wstaw dane i swoją konfigurację. Można to potem zapisać jako nowy plik HTML w Firefox. Można też podstawić swoją nową konfigurację w `<textarea id="regExpPat" ...` w kopii pliku "MultiRegExpRepl.html". <small>Przed zapisaniem nowej wersji warto usunąć tekst pierwotny.</small>
 		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.zip)
 		- [wypróbuj MultiRegExpRepl.html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.html)
 
