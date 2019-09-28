@@ -20,11 +20,19 @@ Zebrałem tu kilka aplikacji, które mają postać pojedynczego pliku HTML.
 
 2. **markdown+mathjax** (i1)
 - edytor Markdown (marked.js) + wzory matematyczne MathJax
-- podgląd wynikowy HTML + eksport do pliku HTML
+- podgląd wynikowy HTML + eksport do pliku HTML (i możliwość wydruku do PDF)
 - Plik <https://github.com/andrzejQ/markdown-mathjax>
 - Demo <https://andrzejQ.github.io/markdown-mathjax/editor/md-mhj.html>
 
-3. **Edytor wizualny WYSIWYG html w przeglądarce** (o1)
+3. **Zaawansowane zmiany w tekście - wyrażenia regularne** (o1)
+- Formularz zmiany tekstu na podstawie wielokrotnych [wyrażeń regularnych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp).
+- Formularz działa też w trybie off-line. Tylko z wykorzystaniem silnika przeglądarki. Nic nie jest wysyłane do Internetu. Wszystko jest w pojedynczym pliku HTML.
+- Wypróbuj czy to działa - tj. czy tekst jest przetwarzany wg. podanych wyrażeń regularnych. Wstaw dane i swoją konfigurację. Można to potem zapisać jako nowy plik HTML w Firefox. Można też podstawić swoją nową konfigurację w `<textarea id="regExpPat" ...` w kopii tego pliku HTML. <small>Przed zapisaniem nowej wersji warto usunąć tekst pierwotny.</small>
+		- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.zip)
+		- [wypróbuj MultiRegExpRepl.html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.html)
+
+
+4. **Edytor wizualny WYSIWYG html w przeglądarce** (o1)
 - demo  (słabo dopracowane) na bazie przykładu [developer.mozilla.org...Editable_content](https://developer.mozilla.org/pl/docs/Web/Guide/HTML/Editable_content#Example_A_simple_but_complete_rich_text_editor)
 - [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/EditInHtml1.zip)
 - [wypróbuj EditInHtml1.html]({{ site.url }}{{ site.baseurl }}/download/EditInHtml1.html)

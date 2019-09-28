@@ -1,0 +1,87 @@
+﻿<!doctype html>
+
+<html lang="pl-PL">
+<head>
+  <meta charset="utf-8">
+  <script>
+  function multiReplace(regEl,inpEl,outEl){
+  //wykonuje wielokrotnie przetwarzanie tekstu z inpEl na bazie wyrażeń regularnych w regEl
+    var re_trn=/\\[trn]/g;
+    var regE=document.getElementById(regEl).value;
+    var regLines = regE.replace(/\r\n/g,"\n").split("\n");
+    var s=document.getElementById(inpEl).value;
+    while (regLines.length % 3 != 0) {
+      regLines.push('');
+    }
+    for (i = 0; i < regLines.length; i+=3) {
+      f=regLines[i+2].replace(/~.*/,'');
+      t=regLines[i+1].replace(re_trn, function(m){return replaceChar(m)});
+      s = s.replace(new RegExp(regLines[i+0],f),t);
+    }
+    document.getElementById(outEl).value = s;
+  }
+
+  function replaceChar(match){
+    if      (match=="\\t") return "\t"
+    else if (match=="\\r") return "\r"
+    else if (match=="\\n") return "\n"
+  }
+  </script>
+  <style>
+    div {float: left;}
+  </style>
+</head>  
+<body>  
+  <h2>Formularz zmiany tekstu na podstawie wielokrotnych <a href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp">wyrażeń regularnych</a></h2>
+  <p>
+  Formularz działa też w trybie off-line. Tylko z wykorzystaniem silnika przeglądarki. Nic nie jest wysyłane do Internetu. Wszystko jest w pojedynczym pliku HTML.</p>
+  <p>
+  Wypróbuj czy to działa - tj. czy tekst jest przetwarzany wg. podanych wyrażeń regularnych. Wstaw dane i swoją konfigurację. Można to potem zapisać jako nowy plik HTML w Firefox. Można też podstawić swoją nową konfigurację w <code> &lt;textarea id="regExpPat" ... </code>  w kopii tego pliku HTML. <small><br>
+  Przed zapisaniem nowej wersji warto usunąć tekst pierwotny.</small> </p>
+  <div>
+    <div>
+      <h3> Tekst pierwotny: </h3>
+
+      <textarea id="inpTxt" rows="10" cols="50" placeholder="Tu skopiuj tekst źródłowy">000 000 1234567 Abc ąćę
+ąćęłńóśź abc
+ABC ĄĆĘŁŃÓŚŹ
+<script>x
+y
+z</script> 
+ABC <script>xyz</script>koniec.</textarea>
+
+      <button onclick="multiReplace('regExpPat','inpTxt','outTxt');">&gt;&gt;</button>
+
+    </div>
+    <div>
+      <h3> Tekst po zmianie: </h3>
+
+      <textarea id="outTxt" rows="10" cols="50" placeholder="Tu pojawi się tekst wynikowy"></textarea>
+
+    </div>
+    <div>
+      <h3>Konfiguracja - wyrażenia regularne:</h3>
+      <p> wielokrotne trójki wierszy:<br>
+        1. wzorzec do znalezienia (javascript: <a href='https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp'>new RegExp(wzorzec, flagi)</a>) <br>
+        2. tekst zastępujący (javascript: replace(), można używać $1, $2... dla nawiasów wychwytujących we wzorcu i dodatkowo \t \r \n) <br>
+        3. flagi (g=globalna zamiana tj.wielokrotnie, i=ignoruj wielkość liter, m=multilinie, tu tekst od "~" jest usuwany)
+      </p>
+
+      <textarea id="regExpPat" rows="12" cols="50" placeholder="Konfiguracja - trójki wierszy">\d{3}
+xxx
+g~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AB
+--
+gi~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^(ą.+)$\s^
+$1 #### 
+gm~~~~znak nowego wiersza jest tu w \s
+<script[\s\S]+?</script>
+
+gm~~~~usuwanie wielowierszowych fragmentów</textarea>
+<!-- Można sobie wpisać własne domyślne wyrażenia reg. - UWAGA nie dopisywać niepotrzebnych spacji i tabulacji ! -->
+
+    </div>
+  </div>
+</body>  
+</html>
