@@ -6,6 +6,8 @@ categories: jekyll update
 ---
 [Skryptozakładki](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej.
 
+Można też klikać na zakładki wewnątrz tego tekstu i obserwować działanie, np. [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}.
+
 Tutaj kilka przykładów stworzonych na doraźne potrzeby.
 
 1. **sig+** (b1)
