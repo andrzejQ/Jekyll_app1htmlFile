@@ -37,7 +37,7 @@ Edytor Markdown (marked.js) + wzory matematyczne MathJax.
 
 ### Zaawansowane zmiany w tekście - wyrażenia regularne (o1)
 
-- Formularz zmiany tekstu na podstawie wielokrotnych [wyrażeń regularnych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp).
+- Formularz zmiany tekstu na podstawie wielokrotnych [wyrażeń regularnych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp) zapamiętywanych w oknie konfiguracji.
 - Formularz działa w trybie off-line - tylko z wykorzystaniem silnika przeglądarki. Nic nie jest wysyłane do Internetu. Wszystko jest w pojedynczym pliku HTML.
 	- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.zip)
 	- [wypróbuj MultiRegExpRepl.html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.html)
