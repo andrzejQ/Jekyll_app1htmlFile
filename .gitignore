@@ -3,3 +3,4 @@ _site
 .jekyll-*
 .tmp
 /download/img2sigplus.js
+/*.URL

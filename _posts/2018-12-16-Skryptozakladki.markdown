@@ -4,7 +4,6 @@ title:  "Skryptozakładki"
 date:   2018-12-16 10:21:59 +0100
 categories: jekyll update
 ---
-
 [Skryptozakładki](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej.
 
 Tutaj kilka przykładów stworzonych na doraźne potrzeby.

@@ -23,7 +23,8 @@
 minima:
   date_format: "%d.%m.%Y"
 
-# show_excerpts: true - jakoś fatalnie działa w github - wyświetla całe artykuły
+show_excerpts: true
+# - UWAGA - gdy końce wierszy: \r\n to fatalnie działa w jekyll - wyświetla całe artykuły; muszą być \n na końcu
 
 title: 1-plikowe i 1-wierszowe aplikacje html
 lang: pl
@@ -34,9 +35,11 @@ description: >- # this means to ignore newlines until "baseurl:"
   (Uaktualnienie Gemfile - 2019-09-23)
 
 baseurl: "/Jekyll_app1htmlFile" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://andrzejq.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  andrzejQ
 
+# disqus:
+#  shortname: aq-jekyll_app1html
 # Build settings
 markdown: kramdown
 theme: minima
