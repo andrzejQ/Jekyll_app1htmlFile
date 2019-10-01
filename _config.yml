@@ -38,8 +38,8 @@ baseurl: "/Jekyll_app1htmlFile" # the subpath of your site, e.g. /blog
 url: "https://andrzejq.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  andrzejQ
 
-# disqus:
-#  shortname: aq-jekyll_app1html
+disqus:
+  shortname: aq-app1html
 # Build settings
 markdown: kramdown
 theme: minima
