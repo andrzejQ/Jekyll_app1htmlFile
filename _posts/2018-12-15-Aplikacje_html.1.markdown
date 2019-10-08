@@ -50,7 +50,7 @@ Edytor Markdown (marked.js) + wzory matematyczne MathJax.
 	- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/EditInHtml1.zip)
 	- [wypróbuj EditInHtml1.html]({{ site.url }}{{ site.baseurl }}/download/EditInHtml1.html)
 - demo pokazuje możliwość edycji stron www wyświetlanych w przeglądarce, którą też daje np. 
-[skryptozakładka]({{ site.baseurl }}{% link _posts/2018-12-16-Skryptozakladki.markdown %}) 
+[skryptozakładka]( {% if jekyll.environment=="production" %}{{ site.baseurl }}{% endif %}{% post_url 2018-12-16-Skryptozakladki %}) 
 [\[Edit Website\]](javascript:document.body.contentEditable='true';document.designMode='on';void(0);){: .favlet}.
 
 <style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px}</style>
