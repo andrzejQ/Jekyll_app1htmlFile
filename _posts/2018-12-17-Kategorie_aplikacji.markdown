@@ -2,7 +2,7 @@
 layout: post
 title:  "Kategorie aplikacji"
 date:   2018-12-17 10:21:59 +0100
-categories: jekyll update
+categories: jekyll onefileapp
 ---
 Moje symbole kategorii 1-plikowych aplikacji: **(o1)** - 1 plik off-line; **(i1)** 1 plik i otwarte zasoby internetowe; **(x1)** - "prawie" 1 plik + kilka statycznych plików; **(b1)** skryptozakładka
 

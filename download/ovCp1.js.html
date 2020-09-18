@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 9pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc2 {
+	color: #008000;
+}
+.sc4 {
+	color: #FF0000;
+}
+.sc5 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+}
+.sc11 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc10">(</span><span class="sc5">function</span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+</span><span class="sc2">//https://makandracards.com/makandra/46962-javascript-bookmarklet-to-click-an-element-and-copy-its-text-contents
+</span><span class="sc0">  </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc1">/*overlay*/</span><span class="sc0"> </span><span class="sc11">ov</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">createElement</span><span class="sc10">(</span><span class="sc7">'div'</span><span class="sc10">);</span><span class="sc0">
+  </span><span class="sc11">Object</span><span class="sc10">.</span><span class="sc11">assign</span><span class="sc10">(</span><span class="sc11">ov</span><span class="sc10">.</span><span class="sc11">style</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">position</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'fixed'</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">top</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">left</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'100vw'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">height</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'100vh'</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">zIndex</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc4">99999999</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">background</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'transparent'</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">cursor</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'crosshair'</span><span class="sc0">
+  </span><span class="sc10">});</span><span class="sc0">
+  </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">body</span><span class="sc10">.</span><span class="sc11">append</span><span class="sc10">(</span><span class="sc11">ov</span><span class="sc10">);</span><span class="sc0">
+
+  </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">getEl</span><span class="sc10">(</span><span class="sc11">ev</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">ov</span><span class="sc10">.</span><span class="sc11">style</span><span class="sc10">.</span><span class="sc11">pointerEvents</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc7">'none'</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">el</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">elementFromPoint</span><span class="sc10">(</span><span class="sc11">ev</span><span class="sc10">.</span><span class="sc11">clientX</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">ev</span><span class="sc10">.</span><span class="sc11">clientY</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">ov</span><span class="sc10">.</span><span class="sc11">style</span><span class="sc10">.</span><span class="sc11">pointerEvents</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc7">'auto'</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">el</span><span class="sc10">;</span><span class="sc0">
+  </span><span class="sc10">}</span><span class="sc0">
+
+  </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span class="sc10">(</span><span class="sc7">'mousemove'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc10">(</span><span class="sc11">ev</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">el</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">getEl</span><span class="sc10">(</span><span class="sc11">ev</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span class="sc11">el</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">return</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc1">/*position*/</span><span class="sc0"> </span><span class="sc11">po</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">el</span><span class="sc10">.</span><span class="sc11">getBoundingClientRect</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc11">Object</span><span class="sc10">.</span><span class="sc11">assign</span><span class="sc10">(</span><span class="sc11">ov</span><span class="sc10">.</span><span class="sc11">style</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+      </span><span class="sc11">background</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'rgba(0, 128, 255, 0.25)'</span><span class="sc10">,</span><span class="sc0">
+      </span><span class="sc11">outline</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'1px solid rgba(0, 128, 255, 0.5)'</span><span class="sc10">,</span><span class="sc0">
+      </span><span class="sc11">top</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">''</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">po</span><span class="sc10">.</span><span class="sc11">top</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">'px'</span><span class="sc10">,</span><span class="sc0">
+      </span><span class="sc11">left</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">''</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">po</span><span class="sc10">.</span><span class="sc11">left</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">'px'</span><span class="sc10">,</span><span class="sc0">
+      </span><span class="sc11">width</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">''</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">po</span><span class="sc10">.</span><span class="sc11">width</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">'px'</span><span class="sc10">,</span><span class="sc0">
+      </span><span class="sc11">height</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">''</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">po</span><span class="sc10">.</span><span class="sc11">height</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc7">'px'</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+  </span><span class="sc10">});</span><span class="sc0">
+
+</span><span class="sc2">//https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html/34192073
+</span><span class="sc0">  </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">cpToClp1</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">el</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">  
+    </span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">getSelection</span><span class="sc10">().</span><span class="sc11">removeAllRanges</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">range</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">createRange</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc11">range</span><span class="sc10">.</span><span class="sc11">selectNode</span><span class="sc10">(</span><span class="sc11">el</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">getSelection</span><span class="sc10">().</span><span class="sc11">addRange</span><span class="sc10">(</span><span class="sc11">range</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">execCommand</span><span class="sc10">(</span><span class="sc7">'copy'</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">window</span><span class="sc10">.</span><span class="sc11">getSelection</span><span class="sc10">().</span><span class="sc11">removeAllRanges</span><span class="sc10">();</span><span class="sc0">
+  </span><span class="sc10">}</span><span class="sc0">
+  
+  </span><span class="sc11">ov</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span class="sc10">(</span><span class="sc7">'click'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc10">(</span><span class="sc11">ev</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">el</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">getEl</span><span class="sc10">(</span><span class="sc11">ev</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">document</span><span class="sc10">.</span><span class="sc11">body</span><span class="sc10">.</span><span class="sc11">removeChild</span><span class="sc10">(</span><span class="sc11">ov</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">cpToClp1</span><span class="sc10">(</span><span class="sc11">el</span><span class="sc10">);</span><span class="sc0">
+  </span><span class="sc10">});</span><span class="sc0">
+</span><span class="sc10">})();</span></div></body>
+</html>

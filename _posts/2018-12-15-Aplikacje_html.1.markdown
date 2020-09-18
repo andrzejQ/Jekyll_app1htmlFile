@@ -2,7 +2,7 @@
 layout: post
 title:  "Aplikacje html.1"
 date:   2019-01-21 10:21:59 +0100
-categories: jekyll update
+categories: jekyll onefileapp
 ---
 Aplikacje w postaci pliku HTML - [QR Code - generator i czytnik off-line (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#qr-code---generator-i-czytnik-off-line); [Edytor Markdown (marked.js) + MathJax (i1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-markdown-markedjs--mathjax-i1); [Zaawansowane zmiany w tekście - wyrażenia regularne (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zaawansowane-zmiany-w-tekście---wyrażenia-regularne-o1); [Edytor wizualny WYSIWYG html w przeglądarce (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-wizualny-wysiwyg-html-w-przeglądarce-o1)
 
