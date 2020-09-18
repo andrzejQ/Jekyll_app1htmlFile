@@ -20,20 +20,19 @@ Tutaj kilka przykładów stworzonych na doraźne potrzeby.
 
 3. **Kopiowanie fragmentów strony www** (b1)  
 Kopiowanie może być utrudnione w rozbudowanych aplikacjach. Może też być trudność w kopiowaniu tabel - gdy mamy niezbyt starannie napisaną stronę www z tabelami zawierającymi komórki wypełnione kolejnymi tabelami, to może pomóc ich skopiowanie do Excela czy Worda, gdzie można je dalej przetwarzać.  
-Poniższe skrytozakładki oznaczają obszar strony podczas poruszaniu nad nią myszą, a po kliknięciu kopiują ten obszar do schowka
-- skryptozakładka
+Poniższe skrytozakładki oznaczają obszar strony podczas poruszaniu nad nią myszą, a po kliknięciu kopiują ten obszar do schowka:
+- Skryptozakładka
 [\[ovHsrc\]](javascript:(function(){var ov=document.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});document.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=document.elementFromPoint(ev.clientX,ev.clientY);ov.style.pointerEvents='auto';return el;} document.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0, 128, 255, 0.25)',outline:'1px solid rgba(0, 128, 255, 0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});ov.addEventListener('click',function(ev){var tx=getEl(ev).outerHTML;document.body.removeChild(ov);navigator.clipboard.writeText(tx);});})()){: .favlet}
 kopiuje tekst źródła html oznaczonego obszaru 
-([ovHsrc.js]({{ site.url }}{{ site.baseurl }}/download/ovHsrc.js.html)).
+<small>([ovHsrc.js]({{ site.url }}{{ site.baseurl }}/download/ovHsrc.js.html))</small>.
 Można go skopiować do notatnika i zapisać jako `*.html`, po czym otworzyć w przeglądarce internetowej i dalej kopiować do aplikacji biurowych.
-- skryptozakładki
+- Skryptozakładki
 [\[ovCp1\]](javascript:(function(){var ov=document.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});document.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=document.elementFromPoint(ev.clientX,ev.clientY);ov.style.pointerEvents='auto';return el;} document.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0, 128, 255, 0.25)',outline:'1px solid rgba(0, 128, 255, 0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});function cpToClp1(el){window.getSelection().removeAllRanges();var range=document.createRange();range.selectNode(el);window.getSelection().addRange(range);document.execCommand('copy');window.getSelection().removeAllRanges();} ov.addEventListener('click',function(ev){var el=getEl(ev);document.body.removeChild(ov);cpToClp1(el);});})()){: .favlet}
 ,
 [\[ovCp2\]](javascript:(function(){var ov=document.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});document.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=document.elementFromPoint(ev.clientX,ev.clientY);ov.style.pointerEvents='auto';return el;} document.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0, 128, 255, 0.25)',outline:'1px solid rgba(0, 128, 255, 0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});function cpToClp2(el){var aux=document.createElement('div');aux.setAttribute("contentEditable",true);aux.innerHTML=el.outerHTML;aux.setAttribute("onfocus","document.execCommand('selectAll',false,null)");document.body.appendChild(aux);aux.focus();document.execCommand('copy');document.body.removeChild(aux);} ov.addEventListener('click',function(ev){var el=getEl(ev);document.body.removeChild(ov);cpToClp2(el);});})()){: .favlet} 
-kopiują treść oznaczonego obszaru
-([ovCp1.js]({{ site.url }}{{ site.baseurl }}/download/ovCp1.js.html), [ovCp2.js]({{ site.url }}{{ site.baseurl }}/download/ovCp2.js.html))
-, którą można go skopiować wprost do aplikacji biurowych. 
-Można próbować różne wersje i różne przeglądarki - nie zawsze jest to skuteczne.
+kopiują treść oznaczonego obszaru, którą można wkleić wprost do aplikacji biurowych
+<small>([ovCp1.js]({{ site.url }}{{ site.baseurl }}/download/ovCp1.js.html), [ovCp2.js]({{ site.url }}{{ site.baseurl }}/download/ovCp2.js.html))</small>.
+Można próbować te różne wersje w różnych przeglądarkach (nie zawsze działają skutecznie).
 		* test kopiowania:  
 		kliknij na skryptozakładkę z p.3 i przesuwaj kursor myszy na poniższym obszarem;  
 		kliknij (następuje skopiowanie do schowka) i wklej w aplikacji biurowej;
