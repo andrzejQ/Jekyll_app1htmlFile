@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Aplikacje html.1"
-date:   2019-01-21 10:21:59 +0100
+date:   2020-09-09 10:21:59 +0100
 categories: jekyll onefileapp
 ---
 Aplikacje w postaci pliku HTML - [QR Code - generator i czytnik off-line (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#qr-code---generator-i-czytnik-off-line); [Edytor Markdown (marked.js) + MathJax (i1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-markdown-markedjs--mathjax-i1); [Zaawansowane zmiany w tekście - wyrażenia regularne (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zaawansowane-zmiany-w-tekście---wyrażenia-regularne-o1); [Edytor wizualny WYSIWYG html w przeglądarce (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-wizualny-wysiwyg-html-w-przeglądarce-o1)
@@ -32,6 +32,16 @@ Edytor Markdown (marked.js) + wzory matematyczne MathJax.
 - podgląd wynikowy HTML + eksport do pliku HTML (i możliwość wydruku do PDF)
 - Plik <https://github.com/andrzejQ/markdown-mathjax>
 - Demo <https://andrzejQ.github.io/markdown-mathjax/editor/md-mhj.html>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+### Konwersja HTML -> Markdown (i1)
+
+Na stronie projektu konwertera HTML -> Markdown "**turndown**" (<https://github.com/domchristie/turndown>) Dom Christie zamieścił przykład użycia swojej biblioteki.
+Tutaj to demo z włączonymi dodatkami (table, listy zadań, ...):
+
+- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/turndown_html2md.zip)
+- [wypróbuj turndown_html2md.html]({{ site.url }}{{ site.baseurl }}/download/turndown_html2md.html)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
