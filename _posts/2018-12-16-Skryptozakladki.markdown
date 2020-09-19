@@ -33,6 +33,10 @@ Można go skopiować do notatnika i zapisać jako `*.html`, po czym otworzyć w 
 kopiują treść oznaczonego obszaru, którą można wkleić wprost do aplikacji biurowych
 <small>([ovCp1.js]({{ site.url }}{{ site.baseurl }}/download/ovCp1.js.html), [ovCp2.js]({{ site.url }}{{ site.baseurl }}/download/ovCp2.js.html))</small>.
 Można próbować te różne wersje w różnych przeglądarkach (nie zawsze działają skutecznie).
+		* Uwagi:
+			* `ovHsrc` działa stosunkowo skutecznie nawet na stronach z zablokowanym zaznaczaniem/kopiowaniem. Jest praktycznie odpowiednikiem operacji "Zbadaj element" \ "kopiuj zewnętrzny html"
+			* `ovCp1` - jeśli działa to jest wygodne w użyciu, ale raczej nie działa na zablokowanych stronach
+			* `ovCp2` - [nie działa w FF](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#Security); gdy już działa to raczej działa na zablokowanych stronach; po kliknięciu przewija stronę na dół co może być trochę nieoczekiwane.
 		* test kopiowania:  
 		kliknij na skryptozakładkę z p.3 i przesuwaj kursor myszy na poniższym obszarem;  
 		kliknij (następuje skopiowanie do schowka) i wklej w aplikacji biurowej;
@@ -48,6 +52,7 @@ nagłówek | tabeli | z formatowaniem
 ---------|-------:|:---------------:
   0      |      1 | **2**
   3      | 4      | *5*
+
 
 
 <style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px}</style>
