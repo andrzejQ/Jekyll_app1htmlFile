@@ -38,7 +38,8 @@
   });
 
 //https://stackoverflow.com/questions/2044616/select-a-complete-table-with-javascript-to-be-copied-to-clipboard
-  function cpToClp2 (el) {    
+  function cpToClp2 (el) {
+    var x = window.scrollX, y = window.scrollY;
     var aux = document.createElement('div');
     aux.setAttribute("contentEditable", "true");
     aux.innerHTML = el.outerHTML;
@@ -47,6 +48,7 @@
     aux.focus();
     document.execCommand('copy');
     document.body.removeChild(aux);
+    window.scrollTo(x,y);
   }
 
   ov.addEventListener('click', function(ev) {
