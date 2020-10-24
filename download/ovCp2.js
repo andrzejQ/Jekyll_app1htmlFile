@@ -46,7 +46,7 @@
     var aux = d.createElement('div');
     aux.setAttribute("contentEditable", "true");
     aux.innerHTML = el.outerHTML;
-    aux.setAttribute("onfocus", "d.execCommand('selectAll',false,null)"); 
+    aux.setAttribute("onfocus", "document.execCommand('selectAll',false,null)"); 
     d.body.appendChild(aux);
     aux.focus();
     d.execCommand('copy');
