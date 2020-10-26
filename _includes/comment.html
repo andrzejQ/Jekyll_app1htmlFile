@@ -8,7 +8,7 @@
     <span class="comment__date">
       {%- if include.date -%}
         <a href="#{{ comment_id}}" title="Permalink to this comment">
-        {{- include.date | date:"%B %eth, %Y %H:%M" -}}
+        {{- include.date | date:"%Y-%m-%d %H:%M" -}}
         </a>
       {%- endif -%}
     </span>
@@ -22,7 +22,7 @@
 </article>
 {% else %}
     <div class="comment__meta">
-      <a rel="nofollow" class="comment__reply-link" onclick="return addComment.moveForm('{{ comment_id }}', 'respond', '{{ page.slug }}', '{{ include.uid }}')">↪&#xFE0E; Reply to {{ include.name }}</a>
+      <a rel="nofollow" class="comment__reply-link" onclick="return addComment.moveForm('{{ comment_id }}', 'respond', '{{ page.slug }}', '{{ include.uid }}')">↪&#xFE0E; Odpowiedź do: {{ include.name }}</a>
     </div>
 </article>
 
