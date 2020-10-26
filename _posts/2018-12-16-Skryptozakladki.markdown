@@ -67,7 +67,7 @@ można konwertować całe strony HTML na dokument Markdown.
 to skryptozakładka z przykładu na
 [reddit.com](https://www.reddit.com/r/RoamResearch/comments/hsitd3/bookmarklet_copy_all_the_page_content_to_the/#CommentTopMeta--Created--t1_fz0j2r4)
 z włączonymi dodatkami (table, listy zadań, ...)
-<small>([TurnDownAll.js]({{ site.url }}{{ site.baseurl }}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown - można sbie skopiować dowolny fragment. Na koniec [F5].  
+<small>([TurnDownAll.js]({{ site.url }}{{ site.baseurl }}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
 Nie zawsze to działa idealnie...
 
 #### 4. JOOMLA galeria SIGPLUS (b1)
