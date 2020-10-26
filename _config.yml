@@ -31,8 +31,6 @@ lang: pl
 email: kubaszek@prz.edu.pl
 description: >- # this means to ignore newlines until "baseurl:"
   Aplikacje w postaci 1 pliku HTML/JS uruchamianego lokalnie wykorzystujące silnik przeglądarki. 
-  
-  (Uaktualnienie Gemfile - 2019-09-23)
 
 baseurl: "/Jekyll_app1htmlFile" # the subpath of your site, e.g. /blog
 url: "https://andrzejq.github.io" # the base hostname & protocol for your site, e.g. http://example.com
