@@ -68,12 +68,11 @@ plugins:
 
 #######################################################################################################
 # Front Matter Defaults
-#defaults:
-#  -
-#    scope:
-#      path: "_posts"
-#    values:
-#      comments: true
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      comments: true
 
 # The URL for the staticman API bridge endpoint
 # You will want to modify some of the values:

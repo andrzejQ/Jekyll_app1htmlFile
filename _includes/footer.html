@@ -3,7 +3,7 @@
 
   <div class="wrapper">
 
-    {%- if page.comments != false -%}
+    {%- if page.comments == true -%}
 		<p style="font-size:small"> Włącz się do dyskusji. Komentarze są moderowane - będą się pokazywały te, które jakoś dotyczą treści na blogu. </p>
       {%- include comments.html -%}
     {%- endif -%}
