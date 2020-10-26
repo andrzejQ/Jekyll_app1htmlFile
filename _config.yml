@@ -65,3 +65,32 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+#######################################################################################################
+# Front Matter Defaults
+#defaults:
+#  -
+#    scope:
+#      path: "_posts"
+#    values:
+#      comments: true
+
+# The URL for the staticman API bridge endpoint
+# You will want to modify some of the values:
+#  ${github-username}: the username of the account with which you publish your blog
+#  ${blog-repo}: the name of your blog repository in github
+#  master: this the branch out of which your blog is published, often master or gh-pages
+#  ${bridge_app_name}: the name you chose in Heroku for your bridge API
+#  comments: the so-called property, this defines the key in staticman.yml where the configuration is found
+#
+# for me, this line reads:
+# https://staticman-travisdownsio.herokuapp.com/v2/entry/travisdowns/travisdowns.github.io/master/comments
+#staticman_url: https://${bridge_app_name}.herokuapp.com/v2/entry/${github-username}/${blog-repo}/master/comments
+staticman_url: https://commentofst.herokuapp.com/v2/entry/andrzejQ/Jekyll_app1htmlFile/master/comments
+
+# reCaptcha configuration info: the exact same site key and *encrypted* secret that you used in staticman.yml
+# I personally don't think the secret needs to be included in the generated site, but the staticman API bridge uses
+# it to ensure the site configuration and bridge configuration match (but why not just compare the site key?)
+reCaptcha:
+  siteKey: 6LcHRdsZAAAAADb0O8lAN3N3a_aYwAsUmhDbj2vP
+  secret: nYfEhYuRsH4U1R5c6AhpiVihBDZ74rfNFcQgxveJ7AoREs1uL5BFeIqaVkpv6BGjiD9sssPddU/k/cje08T4DOWDuzOBF+av7NAC1rWxh0zhGGLyBYVlZXh0IJPx2vpExfWCytWBjfWPvLsVyGEq9/eBlKi1ULLKOgxYErTUrMYAK8Jt7bAwnograjcpMfdYkTRcU6fLTilctDq66Nq9ECED2emUDZVvsA+8ngk/ocz4x/e9PxWTYrR+M3z2oe1yZVELhkCKIabcmzWqqczQ5Yi3plweKqGNidyz4lxE37Fd3rQm6ZeeIQhThCiviykcsbXM+IKedJtKh1+FZ4Uns8vE96OZ9Owy7+kBe/pM5mvr5TImK2gZousxX9kLQMNiEyS8TpLuGBQ/eIPNuQgx+1J8ny9+hfvRvILocburm9XgagYesda755cUZXX2wP/9QFmOVZglHVpHIJB7RDyc6LEyEZbsRjG8Iwv78tXpKkboX/lCz05GpniUHCdHbE8nEikeXK3+yIOVaAInlvgo7zdzU7gTB9JuFQXGYpBvGH3qUQT9rP1ixLvHR4hSCHXGxZu+5cp5bge7coaSeuqfuJazHylDgaeGLnkewt/AHoQF21lOgNxVpwQG/qvox228LPcTGa1InSodoB1xnncqtgQm3/7Y+rQqWTZpjSwrfA8=
