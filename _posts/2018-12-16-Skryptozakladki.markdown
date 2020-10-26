@@ -4,7 +4,7 @@ title:  "Skryptozakładki"
 date:   2020-09-18 10:21:59 +0100
 categories: jekyll onefileapp
 ---
-[Skryptozakładki](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - przeciągając wybraną skryptozakładkę do paska zakładek.
+[**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek**.
 
 Dla testu można klikać na zakładki wewnątrz tego tekstu i obserwować działanie, np. [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}. **Przywrócenie** pierwotnej strony: **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
 
@@ -67,12 +67,14 @@ można konwertować całe strony HTML na dokument Markdown.
 to skryptozakładka z przykładu na
 [reddit.com](https://www.reddit.com/r/RoamResearch/comments/hsitd3/bookmarklet_copy_all_the_page_content_to_the/#CommentTopMeta--Created--t1_fz0j2r4)
 z włączonymi dodatkami (table, listy zadań, ...)
-<small>([TurnDownAll.js]({{ site.url }}{{ site.baseurl }}/download/TurnDownAll.js.html))</small>.  
+<small>([TurnDownAll.js]({{ site.url }}{{ site.baseurl }}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown - można sbie skopiować dowolny fragment. Na koniec [F5].  
 Nie zawsze to działa idealnie...
 
 #### 4. JOOMLA galeria SIGPLUS (b1)
 
-Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`. <small>(Zob. też [plik źródłowy img2sigplus.js]({{ site.url }}{{ site.baseurl }}/download/img2sigplus.js.html) )</small>
+Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
+Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera, który zawiera obrazy do galerii i kliknąć `[sig+]`.  
+<small>(Zob. też [plik źródłowy img2sigplus.js]({{ site.url }}{{ site.baseurl }}/download/img2sigplus.js.html) )</small>
 
 
 <style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px}</style>
