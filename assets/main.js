@@ -8,7 +8,7 @@
 
 
     $("#comment-form-submit").html(
-      '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...'
+      '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Wysyłam...'
     );
     $(form).addClass('disabled');
 
@@ -18,7 +18,7 @@
       data: $(this).serialize(),
       contentType: 'application/x-www-form-urlencoded',
       success: function (data) {
-        showModal('Comment submitted', 'Thanks! Your comment is <a href="https://github.com/travisdowns/travisdowns.github.io/pulls">pending</a>. It will appear when approved.');
+        showModal('Komentarz wysłany. Comment submitted', 'Twój komentarz czeka teraz na moją <a href="https://github.com/andrzejQ/Jekyll_app1htmlFile/pulls">akceptację</a>.');
 
         $("#comment-form-submit")
           .html("Submit");
