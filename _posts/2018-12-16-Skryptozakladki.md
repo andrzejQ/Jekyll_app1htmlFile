@@ -4,7 +4,15 @@ title:  "Skryptozakładki"
 date:   2020-09-18 10:21:59 +0100
 categories: jekyll onefileapp
 ---
-[**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek**.
+[**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek**. 
+* [1. Kilka skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-kilka-skryptozakładek-)
+* [2. Kopiowanie fragmentów strony www]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-kopiowanie-fragmentów-strony-www-b1)
+* [3. Konwersja strony HTML na Markdown]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-konwersja-strony-html-na-markdown-b1-i1)
+* [4. Lista członków grup MS Teams]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-lista-członków-grup-ms-teams-b1)
+* [5. JOOMLA galeria SIGPLUS]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-joomla-galeria-sigplus-b1)
+
+
+<h4 id="1-kilka-skryptozakładek-">1. Kilka skryptozakładek …</h4>
 
 Dla testu można klikać na zakładki wewnątrz tego tekstu i obserwować działanie, np. [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}. **Przywrócenie** pierwotnej strony: **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
 
@@ -70,12 +78,56 @@ z włączonymi dodatkami (table, listy zadań, ...)
 <small>([TurnDownAll.js]({{ site.url }}{{ site.baseurl }}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
 Nie zawsze to działa idealnie...
 
-#### 4. JOOMLA galeria SIGPLUS (b1)
+
+#### 4. Lista członków grup **MS Teams** (b1)
+
+Jest to jeden ze sposobów pobrania listy członków grup z nazwami i loginami Office365. Opiera się na wyłuskiwaniu danych ze strony HTML, czyli zakłada uruchomienie Teams w przeglądarce: 
+<https://teams.microsoft.com/>. <small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - to nie przeszkadza)</small>.
+
+Trzeba w oknie głównym widzieć listę "Właściciele" i "Członkowie i goście" (można rozwinąć obie listy):
+
+Menu zespołu: (...) "Zarządzanie zespołem"  
+albo  
+(i) "Wyświetl wszystkich członków"
+
+**I sposób - skryptozakładka**
+
+Po kliknięciu skryptozakładki 
+[\[TeamsLst\]](javascript:(function(){var x=document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");var t=x[0].innerHTML;var re=/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>Name</th><th>o365</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
+<small>([TeamsLst.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLst.js.html))</small>
+strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela. <small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli widzimy błąd `x[0] is undefined`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
+
+Aby powrócić do pierwotnego wyglądu, trzeba odświeżyć stronę np. naciskając [F5].
+
+
+**II sposób - bez skryptozakładki**
+
+
+Naciskamy [F12] i wybieramy kartę "Konsola".
+(<small>Konsola pozwala wykrywać błędy skryptów, a także skryptozakładek.</small>).
+
+Wklejamy poniższy kod i uruchamiamy ([Enter], czasem [Ctrl+Enter], albo ikonka ">" (run/wykonaj)) :
+
+````js
+var x = document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");
+var t = x[0].innerHTML;
+var re =/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;
+var y = [...t.matchAll(re)].map(function(ar) {return ar.slice(1,).join("\t");});
+document.body.innerHTML = '<pre>'+y.join("\n")+'</pre>';
+````
+
+<small>
+Uwaga - czasem podczas tej operacji pojawia się jednorazowe wezwanie do wpisania czegoś w celu odblokowania konsoli - po prostu przepisujemy ten tekst w konsoli.
+</small>
+
+Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem z Notatnika do Excela). Odświeżamy stronę: [F5].
+
+#### 5. JOOMLA galeria SIGPLUS (b1)
 
 Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
 Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera, który zawiera obrazy do galerii i kliknąć `[sig+]`.  
 <small>(Zob. też [plik źródłowy img2sigplus.js]({{ site.url }}{{ site.baseurl }}/download/img2sigplus.js.html) )</small>
 
 
-<style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px}</style>
+<style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px} pre.highlight code{font-size:smaller;}</style>
 
