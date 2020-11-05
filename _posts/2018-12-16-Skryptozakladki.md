@@ -93,7 +93,7 @@ albo
 **I sposób - skryptozakładka**
 
 Po kliknięciu skryptozakładki 
-[\[TeamsLst\]](javascript:(function(){var x=document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");var t=x[0].innerHTML;var re=/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>Name</th><th>o365</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
+[\[TeamsLst\]](javascript:(function(){var x=document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");var t=x[0].innerHTML;var re=/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
 <small>([TeamsLst.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLst.js.html))</small>
 strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela. <small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli widzimy błąd `x[0] is undefined`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
 
@@ -112,7 +112,7 @@ Wklejamy poniższy kod i uruchamiamy ([Enter], czasem [Ctrl+Enter], albo ikonka 
 var x = document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");
 var t = x[0].innerHTML;
 var re =/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;
-var y = [...t.matchAll(re)].map(function(ar) {return ar.slice(1,).join("\t");});
+var y = [...t.matchAll(re)].map(function(a) {return a[2]+"\t"+a[1];});
 document.body.innerHTML = '<pre>'+y.join("\n")+'</pre>';
 ````
 
