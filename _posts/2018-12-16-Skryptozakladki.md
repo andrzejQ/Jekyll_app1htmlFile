@@ -81,8 +81,9 @@ Nie zawsze to działa idealnie...
 
 #### 4. Lista członków grup **MS Teams** (b1)
 
-Jest to jeden ze sposobów pobrania listy członków grup z nazwami i loginami Office365. Opiera się na wyłuskiwaniu danych ze strony HTML, czyli zakłada uruchomienie Teams w przeglądarce: 
-<https://teams.microsoft.com/>. <small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - to nie przeszkadza)</small>.
+Jest to jeden ze sposobów pobrania listy członków grup z nazwami i loginami Office365. Opiera się na wyłuskiwaniu danych ze strony HTML, czyli zakłada uruchomienie Teams w przeglądarce:  
+![TeamsApp.png]({{ site.baseurl }}/assets/img/TeamsApp.png "TeamsApp.png"){:style="width:25px;"} <https://teams.microsoft.com/>.  
+<small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - działają równolegle obie wersje).</small>.
 
 Trzeba w oknie głównym widzieć listę "Właściciele" i "Członkowie i goście" (można rozwinąć obie listy):
 
@@ -90,17 +91,26 @@ Menu zespołu: (...) "Zarządzanie zespołem"
 albo  
 (i) "Wyświetl wszystkich członków"
 
-**I sposób - skryptozakładka**
+**I sposób - skryptozakładka** (zalecane)
 
 Po kliknięciu skryptozakładki 
-[\[TeamsLst\]](javascript:(function(){var x=document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");var t=x[0].innerHTML;var re=/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
+[\[TeamsLst\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
 <small>([TeamsLst.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLst.js.html))</small>
-strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela. <small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli widzimy błąd `x[0] is undefined`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
+strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela.  
+<small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli (zob. niżej) widzimy błąd `x is null`{:style="font-size:smaller;"}, czy `Cannot read property of null`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
 
 Aby powrócić do pierwotnego wyglądu, trzeba odświeżyć stronę np. naciskając [F5].
 
+Skryptozakładki 
+[\[TeamsLi\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?" upn="(.*?)"[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>'+['o365','name','title','loc','role'].join("</th><th>")+("</th></tr>\n")+y.join("")+'</table>';})();){: .favlet} 
+<small>([TeamsLi.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLi.js.html))</small>
+i
+[\[TeamsLImg\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+("</th></tr>\n")+y.join("")+'</table>';})();){: .favlet} 
+<small>([TeamsLImg.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLImg.js.html))</small>
+działają podobnie, a dają więcej kolumn tabeli.
 
-**II sposób - bez skryptozakładki**
+
+**II sposób - bez skryptozakładki** (dla dociekliwych)
 
 
 Naciskamy [F12] i wybieramy kartę "Konsola".
@@ -109,9 +119,9 @@ Naciskamy [F12] i wybieramy kartę "Konsola".
 Wklejamy poniższy kod i uruchamiamy ([Enter], czasem [Ctrl+Enter], albo ikonka ">" (run/wykonaj)) :
 
 ````js
-var x = document.getElementsByClassName("td-members-tab team-dashboard-tab flex-fill");
-var t = x[0].innerHTML;
-var re =/\<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;
+var x = document.querySelector("div[class^='td-members-']") ;
+var t = x.innerHTML;
+var re =/<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;
 var y = [...t.matchAll(re)].map(function(a) {return a[2]+"\t"+a[1];});
 document.body.innerHTML = '<pre>'+y.join("\n")+'</pre>';
 ````
