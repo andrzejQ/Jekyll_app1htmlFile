@@ -7,5 +7,5 @@ var re =/<div class="td\-member\-name".*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<di
 // 3. [\,"] - the value `aria-label` usually contains `,`, and certainly ends with `"`
 // 4. (?:..userLocation..)? - such text may not appear in some cases
 var y = [...t.matchAll(re)].map(function(a) {return "<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});
-document.body.innerHTML = '<table border="1"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+("</th></tr>\n")+ y.join("") +'</table>';
+document.body.innerHTML = '<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+'</th></tr></thead>\n'+ y.join("") +'</table>';
 })();
