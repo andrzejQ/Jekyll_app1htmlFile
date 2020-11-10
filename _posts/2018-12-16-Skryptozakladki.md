@@ -5,22 +5,20 @@ date:   2020-09-18 10:21:59 +0100
 categories: jekyll onefileapp
 ---
 [**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek**. 
-* [1. Kilka skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-kilka-skryptozakładek-)
+* [1. Biblioteki skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-biblioteki-skryptozakładek-)
 * [2. Kopiowanie fragmentów strony www]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-kopiowanie-fragmentów-strony-www-b1)
 * [3. Konwersja strony HTML na Markdown]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-konwersja-strony-html-na-markdown-b1-i1)
 * [4. Lista członków grup MS Teams]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-lista-członków-grup-ms-teams-b1)
 * [5. JOOMLA galeria SIGPLUS]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-joomla-galeria-sigplus-b1)
 
 
-<h4 id="1-kilka-skryptozakładek-">1. Kilka skryptozakładek …</h4>
+Dla testu można klikać na zakładki wewnątrz tego tekstu i obserwować działanie, np. [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}.  
+**Przywrócenie** pierwotnej strony: **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
 
-Dla testu można klikać na zakładki wewnątrz tego tekstu i obserwować działanie, np. [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}. **Przywrócenie** pierwotnej strony: **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
+#### 1. Biblioteki skryptozakładek ...
 
-Tutaj kilka przykładów stworzonych na doraźne potrzeby.
 
-#### 1. Kilka skryptozakładek ...
-
-z wielu przykładów, które można znaleźć m.in. na  
+Wiele przykładów, można znaleźć m.in. na  
 [100+ Useful Bookmarklets](https://www.hongkiat.com/blog/100-useful-bookmarklets-for-better-productivity-ultimate-list/),   
 [7is7.com_Bookmarklets](http://7is7.com/software/bookmarklets/),  
 [bookmarklets.org](http://bookmarklets.org/):
