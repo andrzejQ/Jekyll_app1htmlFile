@@ -11,9 +11,11 @@ categories: jekyll onefileapp
 * [4. Lista członków grup MS Teams]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-lista-członków-grup-ms-teams-b1)
 * [5. JOOMLA galeria SIGPLUS]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-joomla-galeria-sigplus-b1)
 
+![Firefox-pasek-zakladek.png]({{ site.baseurl }}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){:style="float:right;width:252px; position:relative;top:-35px;"}
+<small>Pasek zakładek (Bookmarks Tsoolbar) można włączać/wył. w przeglądarce **Google Chrome** lub w **Microsoft Edge** (Chromium) za pomocą klawiszy **[Ctrl+Shift+B]**. W **Firefox** można to włączyć klikając prawym klawiszem na ikonę "Odśwież" (rys.).</small>
 
-Dla testu można klikać na zakładki wewnątrz tego tekstu i obserwować działanie, np. [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}.  
-**Przywrócenie** pierwotnej strony: **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
+**Przywrócenie** pierwotnej strony po użyciu skryptozakładki:  
+**[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
 
 #### 1. Biblioteki skryptozakładek ...
 
