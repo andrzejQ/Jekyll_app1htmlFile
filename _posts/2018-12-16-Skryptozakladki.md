@@ -139,6 +139,16 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 
 **Wpisanie czy korekta imienia i nazwiska** w Teams/Office365 nie zawsze jest możliwe, ale można próbować wg. [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
 
+
+**Teams - odświeżanie danych:**
+
+* Wyloguj się i zaloguj ponownie
+* albo: Zmień na chwilę organizację (jeśli masz kilka)
+* albo: ręczna czyszczenie danych podręcznych (cache) MS Teams apl. klasyczna:
+	- Zamknij aplikację Teams (także w zasobniku obok zegara)
+	- Usuń wszystko z `%AppData%\Microsoft\Teams`
+
+
 #### 5. JOOMLA galeria SIGPLUS (b1)
 
 Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
