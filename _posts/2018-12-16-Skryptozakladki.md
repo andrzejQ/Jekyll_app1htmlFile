@@ -83,7 +83,7 @@ Nie zawsze to działa idealnie...
 
 Jest to jeden ze sposobów pobrania listy członków grup z nazwami i loginami Office365. Opiera się na wyłuskiwaniu danych ze strony HTML, czyli zakłada uruchomienie Teams w przeglądarce:  
 ![TeamsApp.png]({{ site.baseurl }}/assets/img/TeamsApp.png "TeamsApp.png"){:style="width:25px;"} <https://teams.microsoft.com/>.  
-<small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - obie wersje mogą działać równolegle).</small>
+<small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - obie wersje mogą działać równolegle).</small>  
 
 Trzeba w oknie głównym widzieć listę "Właściciele" i "Członkowie i goście" (można rozwinąć obie listy):
 
@@ -95,6 +95,7 @@ albo
 
 ![i_.png]({{ site.baseurl }}/assets/img/i_.png "i_.png"){:style="width:20px;"} w prawym górnym rogu \ "Wyświetl wszystkich członków" (łącze na samym dole listy)  
 ![i_PokazInfOKanale.png]({{ site.baseurl }}/assets/img/i_PokazInfOKanale.png "i_PokazInfOKanale.png"){:style="width:39%;"}
+
 
 **I sposób - skryptozakładka** (zalecane)
 
@@ -113,6 +114,11 @@ i
 [\[TeamsLImg\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+'</th></tr></thead>\n'+y.join("")+'</table>';})();){: .favlet} 
 <small>([TeamsLImg.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLImg.js.html))</small>
 działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabelę wraz z awatarami do Worda/Excela trzeba najpierw zapisać całą stronę jako HTML na lokalnym dysku, otworzyć (w Firefox?) i wtedy kopiować.</small>
+
+<small>
+_Można też pobrać listę za pomocą skryptu - zob. [MicrosoftTeams PowerShell w praktyce](https://andrzejq.github.io/El_Prog/programowanie/2020/11/24/PowerShell-bibl-MicrosoftTeams.html). Nawet można automatycznie załadować listę członków z pomocą skryptu PowerShell._
+</small>
+
 
 
 **II sposób - bez skryptozakładki** (dla dociekliwych)
