@@ -115,9 +115,9 @@ i
 <small>([TeamsLImg.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLImg.js.html))</small>
 działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabelę wraz z awatarami do Worda/Excela trzeba najpierw zapisać całą stronę jako HTML na lokalnym dysku, otworzyć (w Firefox?) i wtedy kopiować.</small>
 
-<small>
-_Można też pobrać listę za pomocą skryptu - zob. [MicrosoftTeams PowerShell w praktyce](https://andrzejq.github.io/El_Prog/programowanie/2020/11/24/PowerShell-bibl-MicrosoftTeams.html). Nawet można automatycznie załadować listę członków z pomocą skryptu PowerShell._
-</small>
+
+- <small> _Można też pobrać listę za pomocą skryptu - zob. [MicrosoftTeams PowerShell w praktyce](https://andrzejq.github.io/El_Prog/programowanie/2020/11/24/PowerShell-bibl-MicrosoftTeams.html). Nawet można automatycznie załadować listę członków z pomocą skryptu PowerShell._ </small>
+- <small> _Poniżej jest opisany sposób dodawania listy członków z pomocą dodatku do przeglądarki._ </small>
 
 
 
@@ -143,15 +143,17 @@ Uwaga - czasem podczas tej operacji pojawia się jednorazowe wezwanie do wpisani
 
 Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem z Notatnika do Excela). Odświeżamy stronę: [F5].
 
-**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować wg. [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
+- - - -
 
-![Add_Users_Bulk_import.png]({{ site.baseurl }}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){:style="float:right;width:352px;"}
+**Dopisywanie wielu osób do zespołu Teams:** 
+![Add_Users_Bulk_import.png]({{ site.baseurl }}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){:style="float:right;width:352px; position:relative;top:12px;"}
 
-**Dopisywanie wielu osób do zespołu Teams:**
-
-Gdy mamy listę loginów użytkowników (tych z "@", tutaj w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych spacja+średnik+spacja (ale też chyba ENTER) i dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
+Gdy mamy listę loginów użytkowników (tych z "@", tutaj w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych znakami nowego wiersza lub średnikami (a inne białe znaki okalające są pomijane), co pozwala dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
 "**Refined Microsoft Teams**" do przeglądarki Google Chrome lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import] ->**
 
+- - - -
+.  
+**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować wg. [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
 
 **Teams - odświeżanie danych:**
 
