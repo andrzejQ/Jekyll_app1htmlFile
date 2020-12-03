@@ -143,7 +143,14 @@ Uwaga - czasem podczas tej operacji pojawia się jednorazowe wezwanie do wpisani
 
 Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem z Notatnika do Excela). Odświeżamy stronę: [F5].
 
-**Wpisanie czy korekta imienia i nazwiska** w Teams/Office365 nie zawsze jest możliwe, ale można próbować wg. [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
+**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować wg. [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
+
+![Add_Users_Bulk_import.png]({{ site.baseurl }}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){:style="float:right;width:352px;"}
+
+**Dopisywanie wielu osób do zespołu Teams:**
+
+Gdy mamy listę loginów użytkowników (tych z "@", tutaj w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych spacja+średnik+spacja (ale też chyba ENTER) i dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
+"**Refined Microsoft Teams**" do przeglądarki Google Chrome lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import] ->**
 
 
 **Teams - odświeżanie danych:**
