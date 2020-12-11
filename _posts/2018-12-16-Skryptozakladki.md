@@ -153,13 +153,13 @@ Gdy mamy listę loginów użytkowników (tych z "@", tutaj w kolumnie "o365") to
 
 - - - -
 .  
-**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować wg. [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
+**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować według [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
 
 **Teams - odświeżanie danych:**
 
 * Wyloguj się i zaloguj ponownie
-* albo: Zmień na chwilę organizację (jeśli masz kilka)
-* albo: ręczna czyszczenie danych podręcznych (cache) MS Teams apl. klasyczna:
+* albo: zmień na chwilę organizację (jeśli masz kilka)
+* albo w ostateczności: wyczyść dane podręczne (cache) aplikacji klasycznej MS Teams:
 	- Zamknij aplikację Teams (także w zasobniku obok zegara)
 	- Usuń wszystko z `%AppData%\Microsoft\Teams`
 
