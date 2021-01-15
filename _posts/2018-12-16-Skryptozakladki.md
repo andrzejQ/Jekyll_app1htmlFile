@@ -120,29 +120,31 @@ działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabel�
 - <small> _Poniżej jest opisany sposób dodawania listy członków z pomocą dodatku do przeglądarki._ </small>
 
 
-
-**II sposób - bez skryptozakładki** (dla dociekliwych)
-
+<details>
+<summary> <small><b> II sposób - bez skryptozakładki</b> (dla dociekliwych) </small> </summary>
 
 Naciskamy [F12] i wybieramy kartę "Konsola".
 (<small>Konsola pozwala wykrywać błędy skryptów, a także skryptozakładek.</small>).
 
 Wklejamy poniższy kod i uruchamiamy ([Enter], czasem [Ctrl+Enter], albo ikonka ">" (run/wykonaj)) :
 
-````js
-var x = document.querySelector("div[class^='td-members-']") ;
-var t = x.innerHTML;
-var re =/<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;
-var y = [...t.matchAll(re)].map(function(a) {return a[2]+"\t"+a[1];});
-document.body.innerHTML = '<pre>'+y.join("\n")+'</pre>';
-````
 
-<small>
+<div><pre><code style="font-size:smaller;">var x = document.querySelector(&quot;div[class^=&apos;td-members-&apos;]&quot;) ;
+var t = x.innerHTML;
+var re =/&lt;div class=&quot;td\-member\-name&quot;.*?aria\-label=&quot;(.*?)[\,&quot;].*?upn=&quot;(.*?)&quot;/g;
+var y = [...t.matchAll(re)].map(function(a) {return a[2]+&quot;\t&quot;+a[1];});
+document.body.innerHTML = &apos;&lt;pre&gt;&apos;+y.join(&quot;\n&quot;)+&apos;&lt;/pre&gt;&apos;;
+</code></pre></div>
+
+<p><small>
 Uwaga - czasem podczas tej operacji pojawia się jednorazowe wezwanie do wpisania czegoś w celu odblokowania konsoli - po prostu przepisujemy ten tekst w konsoli.
-</small>
+</small></p>
 
 Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem z Notatnika do Excela). Odświeżamy stronę: [F5].
+</details>  
 
+
+...  
 - - - -
 
 **Dopisywanie wielu osób do zespołu Teams:** 
