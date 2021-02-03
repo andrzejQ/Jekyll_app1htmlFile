@@ -4,15 +4,20 @@ title:  "Skryptozakładki"
 date:   2020-09-18 10:21:59 +0100
 categories: jekyll onefileapp
 ---
+
 [**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek**. 
+
+<video src="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.mp4" width="320" height="200" style="float:right"  controls preload></video>
+
 * [1. Biblioteki skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-biblioteki-skryptozakładek-)
 * [2. Kopiowanie fragmentów strony www]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-kopiowanie-fragmentów-strony-www-b1)
 * [3. Konwersja strony HTML na Markdown]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-konwersja-strony-html-na-markdown-b1-i1)
 * [4. Lista członków grup MS Teams]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-lista-członków-grup-ms-teams-b1)
 * [5. JOOMLA galeria SIGPLUS]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-joomla-galeria-sigplus-b1)
 
-![Firefox-pasek-zakladek.png]({{ site.baseurl }}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){:style="float:right;width:252px; position:relative;top:-35px;"}
-<small>Pasek zakładek (Bookmarks Tsoolbar) można włączać/wył. w przeglądarce **Google Chrome** lub w **Microsoft Edge** (Chromium) za pomocą klawiszy **[Ctrl+Shift+B]**. W **Firefox** można to włączyć klikając prawym klawiszem na ikonę "Odśwież" (rys.).</small>
+<small>Pasek zakładek (Bookmarks Tsoolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W starszych wersjach **Firefox** - klikając prawym klawiszem na ikonę "Odśwież" (rys.).</small>
+![Firefox-pasek-zakladek.png]({{ site.baseurl }}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){:style="float:right;width:252px;"}
+
 
 **Przywrócenie** pierwotnej strony po użyciu skryptozakładki:  
 **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
