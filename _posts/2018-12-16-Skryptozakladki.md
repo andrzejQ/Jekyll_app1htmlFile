@@ -5,9 +5,9 @@ date:   2020-09-18 10:21:59 +0100
 categories: jekyll onefileapp
 ---
 
-[**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek**. 
+[**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek** <small>(wideo)</small>.
 
-<video src="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.mp4" width="320" height="200" style="float:right"  controls preload></video>
+<video src="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.mp4" height="200" style="float:right"  controls preload></video>
 
 * [1. Biblioteki skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-biblioteki-skryptozakładek-)
 * [2. Kopiowanie fragmentów strony www]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-kopiowanie-fragmentów-strony-www-b1)
@@ -15,7 +15,7 @@ categories: jekyll onefileapp
 * [4. Lista członków grup MS Teams]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-lista-członków-grup-ms-teams-b1)
 * [5. JOOMLA galeria SIGPLUS]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-joomla-galeria-sigplus-b1)
 
-<small>Pasek zakładek (Bookmarks Tsoolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W starszych wersjach **Firefox** - klikając prawym klawiszem na ikonę "Odśwież" (rys.).</small>
+<small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W&nbsp;starszych wersjach Firefox - klikając prawym klawiszem na ikonę "Odśwież" (rys.)</small>
 ![Firefox-pasek-zakladek.png]({{ site.baseurl }}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){:style="float:right;width:252px;"}
 
 
