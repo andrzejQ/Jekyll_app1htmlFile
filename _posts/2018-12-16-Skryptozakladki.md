@@ -108,7 +108,7 @@ Po kliknięciu skryptozakładki
 [\[TeamsLst\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
 <small>([TeamsLst.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLst.js.html))</small>
 strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela.  
-<small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli (zob. niżej) widzimy błąd `x is null`{:style="font-size:smaller;"}, czy `Cannot read property of null`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
+<small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli (zob. niżej) widzimy błąd `x is null`{:style="font-size:smaller;"}, albo `Cannot read property of null`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
 
 Aby powrócić do pierwotnego wyglądu, trzeba odświeżyć stronę np. naciskając [F5].
 
@@ -126,7 +126,7 @@ działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabel�
 
 
 <details>
-<summary> <small><b> II sposób - bez skryptozakładki</b> (dla dociekliwych) </small> </summary>
+<summary> <small><b> II sposób - konsola, bez skryptozakładki</b> (dla dociekliwych) </small> </summary>
 
 Naciskamy [F12] i wybieramy kartę "Konsola".
 (<small>Konsola pozwala wykrywać błędy skryptów, a także skryptozakładek.</small>).
