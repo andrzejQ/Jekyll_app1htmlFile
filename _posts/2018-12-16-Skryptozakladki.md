@@ -7,7 +7,7 @@ categories: jekyll onefileapp
 
 [**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek** <small>(wideo)</small>.
 
-<video src="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.mp4" height="200" style="float:right"  controls preload></video>
+<video src="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.mp4" poster="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.jpg" height="200" style="float:right"  controls preload></video>
 
 * [1. Biblioteki skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-biblioteki-skryptozakładek-)
 * [2. Kopiowanie fragmentów strony www]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-kopiowanie-fragmentów-strony-www-b1)
