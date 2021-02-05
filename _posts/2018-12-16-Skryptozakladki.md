@@ -118,7 +118,7 @@ Skryptozakładki
 i
 [\[TeamsLImg\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+'</th></tr></thead>\n'+y.join("")+'</table>';})();){: .favlet} 
 <small>([TeamsLImg.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLImg.js.html))</small>
-działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabelę wraz z awatarami do Worda/Excela trzeba najpierw zapisać całą stronę jako HTML na lokalnym dysku, otworzyć (w Firefox?) i wtedy kopiować.</small>
+działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabelę wraz z awatarami do Worda/Excela trzeba najpierw zapisać całą stronę jako HTML na lokalnym dysku, otworzyć (Firefox działa w tym przypadku najlepiej) i wtedy kopiować.</small>
 
 
 - <small> _Można też pobrać listę za pomocą skryptu - zob. [MicrosoftTeams PowerShell w praktyce](https://andrzejq.github.io/El_Prog/programowanie/2020/11/24/PowerShell-bibl-MicrosoftTeams.html). Nawet można automatycznie załadować listę członków z pomocą skryptu PowerShell._ </small>
@@ -152,15 +152,17 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 ...  
 - - - -
 
-**Dopisywanie wielu osób do zespołu Teams:** 
-![Add_Users_Bulk_import.png]({{ site.baseurl }}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){:style="float:right;width:352px; position:relative;top:12px;"}
+**Dopisywanie wielu osób do zespołu Teams:**
+![Add_Users_Bulk_import.png]({{ site.baseurl }}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){:style="float:right;width:362px; position:relative;top:12px;"}
 
-Gdy mamy listę loginów użytkowników (tych z "@", tutaj w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych znakami nowego wiersza lub średnikami (a inne białe znaki okalające są pomijane), co pozwala dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
-"**Refined Microsoft Teams**" do przeglądarki Google Chrome lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import] ->**
+Gdy mamy listę loginów użytkowników (wraz z "@" jak w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych znakami nowego wiersza lub średnikami (a inne białe znaki okalające są pomijane), co pozwala dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
+"**Refined Microsoft Teams**" do przeglądarki Google Chrome, Microsoft Edge (Chromium) lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import]**. [Zobacz instrukcję]({{ site.url }}{{ site.baseurl }}/download/Teams-dodawanie_listy_osob.pdf).
+
 
 - - - -
 .  
 **Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować według [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
+
 
 **Teams - odświeżanie danych:**
 
