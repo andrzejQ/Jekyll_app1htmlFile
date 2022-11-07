@@ -21,7 +21,7 @@ QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode
 	- [wypróbuj jsQR_Demo1cam.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.html)
 3. **Czytnik** odczytujący QR-kod z pliku graficznego, np. skanu. (o1)
 - [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.zip)
-- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html) <small>- Uwaga - ta aplikacja działa jako lokalny plik HTML (off-line) i plik z obrazem QR-kodu musi być w tym samym folderze co plik HTML. Aby testowo ją uruchomić bez ściągania na lokalny komputer należy stworzyć na swoim komputerze plik "test.png" o dowolnej zawartości (będzie zignorowana) i przeciągnąć go na przycisk "Przeglądaj...". Zostanie odczytany plik o tej samej nazwie znajdujący się na serwerze.</small>
+- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html) 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
