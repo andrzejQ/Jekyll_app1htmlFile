@@ -21,8 +21,10 @@ QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode
 	- [wypróbuj jsQR_Demo1cam.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.html)
 3. **Czytnik** odczytujący QR-kod z pliku graficznego, np. skanu. (o1)
 - [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.zip)
-- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html) 
-
+- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html); 
+<small> 
+Ogólnie czytnik działa błyskawicznie. Tak jest zawsze, gdy przekazujemy plik metodą "przeciągnij i upuść". Ale gdy klikamy [ Przeglądaj ] i otworzy się nam okno wyszukiwania plików, to po wybraniu pliku z obrazem QR-kodu zdarza się, że aplikacja może jakby zawisnąć na ponad 5 sek. Przyczyną tego mogą być przypięte w "Szybki dostęp" (niebieska gwiazdka) skróty do folderów sieciowych, które są w danej chwili niedostępne. Po  odpięciu tych skrótów problem powinien zniknąć. Czasem odpięcie się nie udaje. Wtedy można w Eksploratorze \ Widok \ Opcje \ Zmień opcje folderów i wyszukiwania na chwilę trzeba odznaczyć [_] Pokaż często używane foldery na pasku szybki dostęp. Wtedy udaje się odpiąć kłopotliwy skrót.
+</small>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Edytor Markdown (marked.js) + MathJax (i1)
