@@ -11,7 +11,8 @@ Aplikacje w postaci pliku HTML - [QR Code - generator i czytnik off-line (o1)]({
 
 ### QR Code - generator i czytnik off-line
 
-QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode/faqpatent-e.html) działajacy off-line z wykorzystaniem silnika przegląarki.
+QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode/faqpatent-e.html) działający off-line z wykorzystaniem silnika przeglądarki. <br>
+<small>Można go używać do przenoszenia tekstów pomiędzy telefonem, a laptopem nawet gdy nie ma zasięgu sieci.</small>
 
 1. **Generator** (o1)
 	- [spakowany plik html]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip)
