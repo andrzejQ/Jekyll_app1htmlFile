@@ -4,15 +4,19 @@ title:  "Aplikacje html.1"
 date:   2020-09-09 10:21:59 +0100
 categories: jekyll onefileapp
 ---
-Aplikacje w postaci pliku HTML - [QR Code - generator i czytnik off-line (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#qr-code---generator-i-czytnik-off-line); [Edytor Markdown (marked.js) + MathJax (i1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-markdown-markedjs--mathjax-i1); [Zaawansowane zmiany w tekście - wyrażenia regularne (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zaawansowane-zmiany-w-tekście---wyrażenia-regularne-o1); [Edytor wizualny WYSIWYG html w przeglądarce (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-wizualny-wysiwyg-html-w-przeglądarce-o1)
-
+Aplikacje w postaci pliku HTML<br>
+ [1.&nbsp;QR Code - generator i czytnik off-line (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#qr-code---generator-i-czytnik-off-line) <br>
+ [2.&nbsp;Edytor Markdown (marked.js) + MathJax (i1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-markdown-markedjs--mathjax-i1) <br>
+ [3.&nbsp;Zaawansowane zmiany w tekście - wyrażenia regularne (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zaawansowane-zmiany-w-tekście---wyrażenia-regularne-o1) <br>
+ [4.&nbsp;Edytor wizualny WYSIWYG html w przeglądarce (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-wizualny-wysiwyg-html-w-przeglądarce-o1)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### QR Code - generator i czytnik off-line
 
-QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode/faqpatent-e.html) działający off-line z wykorzystaniem silnika przeglądarki. <br>
-<small>Można go używać do przenoszenia tekstów pomiędzy telefonem, a laptopem nawet gdy nie ma zasięgu sieci.</small>
+QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode/faqpatent-e.html) - kody QR działające off-line z wykorzystaniem silnika przeglądarki. <br>
+<small>Można je używać do przenoszenia tekstów pomiędzy telefonem, a laptopem nawet gdy nie ma zasięgu sieci. Aplikacje JavaScript są w pojedynczych plikach HTML, które można zapamiętać na dysku lokalnym i uruchamiać w swojej przeglądarce.
+</small>
 
 1. **Generator** (o1)
 	- [spakowany plik html - QRcode1.zip]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip "QRcode1.zip")
@@ -28,6 +32,8 @@ Ogólnie czytnik działa błyskawicznie. Tak jest zawsze, gdy przekazujemy plik 
 [folderów sieciowych, które są w danej chwili niedostępne](https://stackoverflow.com/questions/39990111/browser-freezing-after-selecting-file-in-input-field/66668358#answer-66668358). Po  odpięciu tych skrótów problem powinien zniknąć. Czasem 
 [odpięcie się nie udaje](https://www.winhelponline.com/blog/fix-quick-access-reset-pinned-shortcuts-stuck-not-working-windows-10/). Wtedy można w Eksploratorze \ Widok \ Opcje \ "Zmień opcje folderów i wyszukiwania" na chwilę odznaczyć "[_] Pokaż często używane foldery na pasku szybki dostęp" i udaje się odpiąć kłopotliwy skrót.
 </small>
+
+<br>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Edytor Markdown (marked.js) + MathJax (i1)
@@ -38,6 +44,7 @@ Edytor Markdown (marked.js) + wzory matematyczne MathJax.
 - Plik <https://github.com/andrzejQ/markdown-mathjax>
 - Demo <https://andrzejQ.github.io/markdown-mathjax/editor/md-mhj.html>
 
+<br>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Konwersja HTML -> Markdown (i1)
@@ -48,6 +55,7 @@ Tutaj to demo z włączonymi dodatkami (table, listy zadań, ...):
 - [spakowany plik html - turndown_html2md.zip]({{ site.url }}{{ site.baseurl }}/download/turndown_html2md.zip "turndown_html2md.zip")
 - [wypróbuj turndown_html2md.html]({{ site.url }}{{ site.baseurl }}/download/turndown_html2md.html)
 
+<br>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Zaawansowane zmiany w tekście - wyrażenia regularne (o1)
@@ -57,6 +65,7 @@ Tutaj to demo z włączonymi dodatkami (table, listy zadań, ...):
 	- [spakowany plik html - MultiRegExpRepl.zip]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.zip "MultiRegExpRepl.zip")
 	- [wypróbuj MultiRegExpRepl.html]({{ site.url }}{{ site.baseurl }}/download/MultiRegExpRepl.html)
 
+<br>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Edytor wizualny WYSIWYG html w przeglądarce (o1)
