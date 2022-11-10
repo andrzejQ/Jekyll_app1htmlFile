@@ -12,7 +12,8 @@
        .pokaz {}
        .ukryj {display: none}
     #githubLink {float: right; color:DarkBlue;font-size:0.8em; margin: 0 0 4px 4px; padding: 4px}
-    h3 {margin: 10px 0;}
+    h3 {margin: 10px;}
+    footer {margin: 0px 10px}
      </style>
   </head>
   <body onload="body_loadHander('qr')">
@@ -35,8 +36,8 @@
       <br /> 
       <br />
       <select name="cellSize" style='margin-right:0;' >
-        <option value=2 selected>2</option>
-        <option value=3>3</option>
+        <option value=2>2</option>
+        <option value=3 selected>3</option>
         <option value=4>4</option>
         <option value=5>5</option>
         <option value=6>6</option>
@@ -44,7 +45,7 @@
         <option value=8>8</option>
       </select>
       <span>px/komórkę, </span>
-      <span> obraz wy.:</span>
+      <span> format wy.:</span>
       <select name="img">
         <option value="GIF" selected>.GIF</option>
         <option value="SVG">.SVG</option>
@@ -69,7 +70,7 @@
           <option value="Byte" selected>Byte</option>
           <option value="Kanji">Kanji</option>
         </select>
-        <span>- </span>
+        <span>-  </span>
         <select name="mb">
           <option value="default">None</option>
           <!-- option value="SJIS">SJIS</option -->
@@ -90,6 +91,9 @@ działa w (dowolnej) przeglądarce w trybie off-line - nie wymaga dostępu do in
 <p><small>
 Czytniki QR na ogół już są w aplikacji aparatu telefonu - wystarczy włączyć aparat i objąć widokiem obrazek kodu, a pojawia się np. przycisk "Pokaż dane". Jeszcze wygodniejsze jest korzystanie z aplikacji np. "Czytnik QR" firmy TeaCapps (od razu pokazuje się tekst, a dodatkowo mamy zapamiętaną historię tekstów). Można też skorzystać z kamery komputera/laptopa: <a href="./jsQR_Demo1cam.html">jsQR_Demo1cam.html</a> (<a href="./jsQR_Demo1cam.zip">...zip</a>) albo z QR-kodu w pliku graficznym, np. skanie: <a href="./jsQR_Demo1img.html">jsQR_Demo1img.html</a> (<a href="./jsQR_Demo1img.zip">...zip</a>).
 </small></p>
+<p>
+Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale także czysty tekst składający się ze znaków blokowych, czy tabelę HTML z jasnym i ciemnym tłem komórek.
+</p>
 <p>
 Aby zakodować lokalizację geograficzną w QR-kodzie należy przed współrzędnymi dopisać "geo:" (uwaga - to musi być osobny obrazek QR-kodu), np.:
 <code style="border-bottom: 1px dotted;">geo:50.03758,22.00417</code> <br> 
