@@ -109,7 +109,7 @@ Skąd wziąć współrzędne?
 Link do strony internetowej powinien się rozpoczynać od "https://" lub "http://"
 </p>
 <p>
-Znaki alfanumeryczne QR-kodu to zbiór jak tu w nawiasach kwadratowych: <code>[0-9A-Z $%*+./:-]</code>, tj. cyfry, duże litery, spacja i kilka innych znaków. Jeżeli tekst, np. HTTPS://... da się zapisać takimi znakami, to warto zamiast trybu "Byte" wyrać "Alphanum." Rozmiar QR-kodu zmniejszy się znacząco.
+Znaki alfanumeryczne QR-kodu to zbiór jak tu w nawiasach kwadratowych: <code>[0-9A-Z $%*+./:-]</code>, tj. cyfry, duże litery, spacja i kilka innych znaków. Jeżeli tekst, np. HTTPS://... da się zapisać takimi znakami, to warto zamiast trybu "Byte" wybrać "Alphanum." Rozmiar QR-kodu zmniejszy się znacząco.
 </p>
 </footer>
 
@@ -164,7 +164,12 @@ var update_qrcode = function (idElem) {
   var mb = form.elements['mb'].value;
   var img = form.elements['img'].value;
   var cellSize = form.elements['cellSize'].value;
-  document.getElementById(idElem).innerHTML = create_qrcode(text, t, e, m, mb, img, cellSize);
+  var innerQR;
+  try {
+    innerQR = create_qrcode(text, t, e, m, mb, img, cellSize);
+  }
+  catch (err) {innerQR = '<p style="color:red;font-size:1.3em">'+err.toString()+'</p>' }
+  document.getElementById(idElem).innerHTML = innerQR;
 };
 
 createTableTagMin = function(qr_this, cellSize, margin) {
