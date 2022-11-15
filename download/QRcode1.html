@@ -8,7 +8,7 @@
     <style>
        div {float:left; padding:10px; margin:15px;}
        select {margin: 5px 10px 5px 0px;}
-       pre {font-family: consolas,monospace; font-size: 4px; line-height: 4.8px;} /* txt */
+       pre {font-family: consolas,monospace; font-size: 7.5px; line-height: 7.92px;} /* txt */
        .pokaz {}
        .ukryj {display: none}
     #githubLink {float: right; color:DarkBlue;font-size:0.8em; margin: 0 0 4px 4px; padding: 4px}
@@ -37,8 +37,8 @@
       <br />
       <select name="cellSize" style='margin-right:0;' >
         <option value=2>2</option>
-        <option value=3 selected>3</option>
-        <option value=4>4</option>
+        <option value=3>3</option>
+        <option value=4 selected>4</option>
         <option value=5>5</option>
         <option value=6>6</option>
         <option value=7>7</option>
@@ -92,7 +92,7 @@ działa w (dowolnej) przeglądarce w trybie off-line - nie wymaga dostępu do in
 Czytniki QR na ogół już są w aplikacji aparatu telefonu - wystarczy włączyć aparat i objąć widokiem obrazek kodu, a pojawia się np. przycisk "Pokaż dane". Jeszcze wygodniejsze jest korzystanie z aplikacji np. "Czytnik QR" firmy TeaCapps (od razu pokazuje się tekst, a dodatkowo mamy zapamiętaną historię tekstów). Można też skorzystać z kamery komputera/laptopa: <a href="./jsQR_Demo1cam.html">jsQR_Demo1cam.html</a> (<a href="./jsQR_Demo1cam.zip">...zip</a>) albo z QR-kodu w pliku graficznym, np. skanie: <a href="./jsQR_Demo1img.html">jsQR_Demo1img.html</a> (<a href="./jsQR_Demo1img.zip">...zip</a>).
 </small></p>
 <p>
-Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale także czysty tekst składający się ze znaków blokowych, czy tabelę HTML z jasnym i ciemnym tłem komórek.
+Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale także tabelę HTML z jasnym i ciemnym tłem komórek oraz czysty tekst składający się ze znaków blokowych (przy opcji mniej niż 7px/komórkę są to bloki o wysokości pół znaku).
 </p>
 <p>
 Aby zakodować lokalizację geograficzną w QR-kodzie należy przed współrzędnymi dopisać "geo:" (uwaga - to musi być osobny obrazek QR-kodu), np.:
@@ -107,6 +107,9 @@ Skąd wziąć współrzędne?
 </p>
 <p>
 Link do strony internetowej powinien się rozpoczynać od "https://" lub "http://"
+</p>
+<p>
+Znaki alfanumeryczne QR-kodu to zbiór jak tu w nawiasach kwadratowych: <code>[0-9A-Z $%*+./:-]</code>, tj. cyfry, duże litery, spacja i kilka innych znaków. Jeżeli tekst, np. HTTPS://... da się zapisać takimi znakami, to warto zamiast trybu "Byte" wyrać "Alphanum." Rozmiar QR-kodu zmniejszy się znacząco.
 </p>
 </footer>
 
@@ -146,8 +149,8 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
     return createTableTagMin(qr, cellSize);
   case 'txt':
     //qrcode.js 2018.12.11: _this.createASCII = function(cellSize, margin) {if (cellSize < 2) return _createHalfASCII(margin);
-    //zmniejszam rozmiar o 1, bo na liście jest 2, 3, 4, ....
-    return '<pre>' + qr.createASCII(cellSize-1) + '</pre>';
+    //zmniejszam rozmiar, żeby dla niskich rozmiaró działało _createHalfASCII(), czyli bloczki na wysokość połowy znaków
+    return '<pre>' + qr.createASCII( Math.ceil(cellSize/6)) + '</pre>';
   default: //img
     return qr.createImgTag(cellSize);
   }
@@ -165,6 +168,9 @@ var update_qrcode = function (idElem) {
 };
 
 createTableTagMin = function(qr_this, cellSize, margin) {
+  //AK 2022-11-14: Minimize html table cell to '<td/>' and '<td w/>' - almost 159/6=26.5 times smaller HTML.
+  //Auto-conversion in innerHTML=  :...<td></td> <td w=""></td>...
+  //  could be reverted with: .replace(/<td(( w)="")?><\/td>/g,'<td$2/>')
   cellSize = cellSize || 2;
   margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
   var qrHtml = '';
@@ -172,14 +178,13 @@ createTableTagMin = function(qr_this, cellSize, margin) {
     ' table#qrTbl {border: 0px none; border-collapse: collapse; padding: 0px; background-color: #000000;}'+
     ' table#qrTbl {table-layout: fixed; margin: ' + margin + 'px;}'+
     ' table#qrTbl td {padding: 0px; width:' + cellSize + 'px;'+' height:' + cellSize + 'px;}'+
-    //' .w {background-color: #ffffff !important;}'+
     '[w] {background-color: #ffffff !important;}'+
     '</style>\n'+
     '<table id="qrTbl"><tbody>';
   for (var r = 0; r < qr_this.getModuleCount(); r += 1) {
     qrHtml += '\n<tr>';
     for (var c = 0; c < qr_this.getModuleCount(); c += 1) {
-      qrHtml += qr_this.isDark(r, c)? '<td />' : '<td w />' // '<td class="w" />';
+      qrHtml += qr_this.isDark(r, c)? '<td />' : '<td w />';
     }
     qrHtml += '</tr>';
   }
@@ -204,8 +209,9 @@ var save_qrcode = function (idElem) {
     var innerQR = document.getElementById(idElem).innerHTML;
     var htmlH = '<!doctype html><html><head><meta http-equiv="Content-Type" content="text/html; charset=Utf-8"><title>QRCode - tabela</title></head><body><div>\n';
       var htmlF = '\n</div></body></html>';
-      //saveTextAsFile([htmlH + innerQR + htmlF], fName + '.html', 'text/plain;charset=utf-8');
-      saveTextAsFile([htmlH + innerQR.replace(/<td(( w)="")?><\/td>/g,'<td$2/>') + htmlF], fName + '.html', 'text/plain;charset=utf-8');
+      //saveTextAsFile([htmlH + innerQR + htmlF], fName + '.html', 'text/plain;charset=utf-8'); //...<td></td><td w=""></td>...
+      saveTextAsFile([htmlH + innerQR.replace(/<td(( w)="")?><\/td>/g,'<td$2/>') + htmlF], 
+        fName + '.html', 'text/plain;charset=utf-8'); // ...<td/><td w/>...
     break;
   case 'txt':
     var innerText = document.getElementById(idElem).innerText;
