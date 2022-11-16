@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html  lang="pl">
-  <head>
-    <meta charset="UTF-8">
-    <title>QRCode generator</title>
-    <meta name="description" content="QR Code Generator zobacz: Kazuhiko Arase">
-    <link rel="icon" type="image/x-icon" href="data:image/gif;base64,R0lGODlhEAAQAIAAAAAAAP///yH5BAEAAAEALAAAAAAQABAAAAImjI+pywv2oEQxhkofqLsf/E0XOFnc121lAqoqtV4NpFkM2eDzzhcAOw==">
-    <style>
-       div {float:left; padding:10px; margin:15px;}
-       select {margin: 5px 10px 5px 0px;}
-       pre {font-family: consolas,monospace; font-size: 7.5px; line-height: 7.92px;} /* txt */
-       .pokaz {}
-       .ukryj {display: none}
-    #githubLink {float: right; color:DarkBlue;font-size:0.8em; margin: 0 0 4px 4px; padding: 4px}
+<head>
+  <meta charset="UTF-8">
+  <title>QRCode generator</title>
+  <meta name="description" content="QR Code Generator zobacz: Kazuhiko Arase">
+  <link rel="icon" type="image/x-icon" href="data:image/gif;base64,R0lGODlhEAAQAIAAAAAAAP///yH5BAEAAAEALAAAAAAQABAAAAImjI+pywv2oEQxhkofqLsf/E0XOFnc121lAqoqtV4NpFkM2eDzzhcAOw==">
+  <style>
+    body {font-family: Roboto, "Segoe UI", Helvetica, Arial, sans-serif;}
+    div {float:left; padding:10px; margin:15px;}
+    #qr {border: 1px solid lightblue;}
+    select {margin: 5px 10px 5px 0px;}
+    pre {font-family: consolas,monospace; font-size: 7.5px; line-height: 7.92px;} /* txt */
+    p code {font-family: consolas,monospace; font-size: 0.95em; border-bottom: 1px dotted;}
+    .pokaz {}
+    .ukryj {display: none;}
+    #githubLink {float: right; color:DarkBlue;font-size:0.8em; margin: 0 0 4px 4px; padding: 4px;}
     h3 {margin: 10px;}
-    footer {margin: 0px 10px}
-     </style>
-  </head>
-  <body onload="body_loadHander('qr')">
+    #segmenty {padding: 0px 10px;}
+    footer {margin: 0px 10px;}
+  </style>
+</head>
+<body onload="body_loadHander('qr')">
 
-<div id="githubLink">
+<p id="githubLink">
   lic. <a href="https://pl.wikipedia.org/wiki/Licencja_MIT">MIT</a> - js. → <a href="https://github.com/kazuhikoarase">Kazuhiko Arase</a><br>
   <a href="http://www.denso-wave.com/qrcode/faqpatent-e.html"><b>QR code<sup>®</sup></b> Denso Wave Incorporated</a>
-</div>
+</p>
 <h3>QR Code - Generator</h3>
 
     <form name="qrForm">
@@ -33,6 +37,7 @@
       <br />
       <input type="button" value="Generuj QR-kod" onclick="update_qrcode('qr')" style="color:Blue; font-weight: bold;"/>
       <input type="button" value="Zapisz QR-kod w pliku" onclick="save_qrcode('qr')"/>
+      <span id="segmenty"></span>
       <br /> 
       <br />
       <select name="cellSize" style='margin-right:0;' >
@@ -96,7 +101,7 @@ Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale takż
 </p>
 <p>
 Aby zakodować lokalizację geograficzną w QR-kodzie należy przed współrzędnymi dopisać "geo:" (uwaga - to musi być osobny obrazek QR-kodu), np.:
-<code style="border-bottom: 1px dotted;">geo:50.03758,22.00417</code> <br> 
+<code>geo:50.03758,22.00417</code> <br> 
 <small>
 Skąd wziąć współrzędne? 
 <br>- Na mapie Google w Androidzie przytrzymujemy dłużej palec na miejscu, które nas interesuje, a współrzęne pojawią się w pasku adresu (musi to być w miejscu, które nie da się przełożyć na adres - np. w dużym powiększeniu miejsce między budynkami). 
@@ -109,12 +114,17 @@ Skąd wziąć współrzędne?
 Link do strony internetowej powinien się rozpoczynać od "https://" lub "http://"
 </p>
 <p>
-Znaki alfanumeryczne QR-kodu to zbiór jak tu w nawiasach kwadratowych: <code>[0-9A-Z $%*+./:-]</code>, tj. cyfry, duże litery, spacja i kilka innych znaków. Jeżeli tekst, np. HTTPS://... da się zapisać takimi znakami, to warto zamiast trybu "Byte" wybrać "Alphanum." Rozmiar QR-kodu zmniejszy się znacząco.
+<small>
+Znaki alfanumeryczne QR-kodu to zbiór jak tu w nawiasach kwadratowych: <code>[0-9A-Z $%*+./:-]</code>, tj. cyfry, duże litery, spacja i kilka innych znaków. Jeżeli tekst, np. HTTPS://... da się zapisać takimi znakami, to warto zamiast trybu "Byte" wybrać "Alphanum.", co zmniejszy rozmiar danych prawie do 11/16, a to może spowodować zmniejszenie wymiaru QR-kodu. Warto nawet zadbać o to, żeby fragmenty tekstu dało się zakodować jako znaki alfanumeryczne - większość kodeków potrafi podzielić dane na części i kodować je w osobnym trybie.
+</small>
 </p>
+<hr>
+<ul><li>
+Zob. <a href="https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/09/Aplikacje_html.1.html#qr-code---generator-i-czytnik-off-line">czytniki i generator działające w przeglądarce off-line</a>
+</li></ul>
 </footer>
 
 <script>
-
 /**
  * Minified using UglifyJS v3.17.4. --compress --mangle 
  * Original source https://kazuhikoarase.github.io/qrcode-generator/js/demo/ (v.js1.4.4 2019-09-17) QR Code® http://www.denso-wave.com/qrcode/faqpatent-e.html
@@ -142,6 +152,10 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   qr.addData(text, mode);
   qr.make();
   cellSize = cellSize * 1;
+  
+  var getModuleCount = qr.getModuleCount();
+  document.getElementById('segmenty').innerHTML = getModuleCount + ' x ' + getModuleCount;
+  
   switch (img) {
   case 'SVG':
     return qr.createSvgTag(cellSize);
@@ -150,11 +164,116 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   case 'txt':
     //qrcode.js 2018.12.11: _this.createASCII = function(cellSize, margin) {if (cellSize < 2) return _createHalfASCII(margin);
     //zmniejszam rozmiar, żeby dla niskich rozmiaró działało _createHalfASCII(), czyli bloczki na wysokość połowy znaków
-    return '<pre>' + qr.createASCII( Math.ceil(cellSize/6)) + '</pre>';
+    return '<pre>' + createASCII_BW(qr,   Math.ceil(cellSize/6)) + '</pre>'; //or qrcreateASCII()
   default: //img
     return qr.createImgTag(cellSize);
   }
 };
+
+//AK 2022-11-16 -------------------
+
+var _createHalfASCII_BW = function(qr_this,   margin) {
+  var cellSize = 1;
+  margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+  var size = qr_this.getModuleCount() * cellSize + margin * 2;
+  var min = margin;
+  var max = size - margin;
+
+  var y, x, r1, r2, p;
+
+  var blocks = {
+    '██': '█',
+    '█ ': '▀',
+    ' █': '▄',
+    '  ': ' '
+  };
+
+  var blocksLastLineNoMargin = { //?
+    '██': '▀',
+    '█ ': '▀',
+    ' █': ' ',
+    '  ': ' '
+  };
+
+  var ascii = '';
+  for (y = 0; y < size; y += 2) {
+    r1 = Math.floor((y - min) / cellSize);
+    r2 = Math.floor((y + 1 - min) / cellSize);
+    for (x = 0; x < size; x += 1) {
+      p = ' ';
+
+      if (min <= x && x < max && min <= y && y < max && qr_this.isDark(r1, Math.floor((x - min) / cellSize))) {
+        p = '█';
+      }
+
+      if (min <= x && x < max && min <= y+1 && y+1 < max && qr_this.isDark(r2, Math.floor((x - min) / cellSize))) {
+        p += '█';
+      }
+      else {
+        p += ' ';
+      }
+
+      // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
+      ascii += (margin < 1 && y+1 >= max) ? blocksLastLineNoMargin[p] : blocks[p];
+    }
+
+    ascii += '\n';
+  }
+
+  if (size % 2 && margin > 0) {
+    return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join(' ');
+  }
+
+  return ascii.substring(0, ascii.length-1);
+};
+
+var createASCII_BW = function(qr_this,   cellSize, margin) {
+  cellSize = cellSize || 1;
+
+  if (cellSize < 2) {
+    return _createHalfASCII_BW(qr_this,  margin);
+  }
+
+  cellSize -= 1;
+  margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+  var size = qr_this.getModuleCount() * cellSize + margin * 2;
+  var min = margin;
+  var max = size - margin;
+
+  var y, x, r, p;
+
+  var white = Array(cellSize+1).join('  ');
+  var black = Array(cellSize+1).join('██');
+
+  var ascii = '';
+  var line = '';
+  for (y = 0; y < size; y += 1) {
+    r = Math.floor( (y - min) / cellSize);
+    line = '';
+    for (x = 0; x < size; x += 1) {
+      p = 1;
+
+      if (min <= x && x < max && min <= y && y < max && qr_this.isDark(r, Math.floor((x - min) / cellSize))) {
+        p = 0;
+      }
+
+      // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
+      line += p ? white : black;
+    }
+
+    for (r = 0; r < cellSize; r += 1) {
+      ascii += line + '\n';
+    }
+  }
+
+  return ascii.substring(0, ascii.length-1);
+};
+
+//end. qr_this.createASCII_BW () -------------------
+
+
 var update_qrcode = function (idElem) {
   var form = document.forms['qrForm'];
   var text = form.elements['msg'].value.replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
