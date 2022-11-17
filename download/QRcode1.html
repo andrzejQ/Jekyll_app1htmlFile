@@ -109,7 +109,7 @@ działa w (dowolnej) przeglądarce w trybie off-line - nie wymaga dostępu do in
 Czytniki QR na ogół już są w aplikacji aparatu telefonu - wystarczy włączyć aparat i objąć widokiem obrazek kodu, a pojawia się np. przycisk "Pokaż dane". Jeszcze wygodniejsze jest korzystanie z aplikacji np. "Czytnik QR" firmy TeaCapps (od razu pokazuje się tekst, a dodatkowo mamy zapamiętaną historię tekstów). Można też skorzystać z kamery komputera/laptopa: <a href="./jsQR_Demo1cam.html">jsQR_Demo1cam.html</a> (<a href="./jsQR_Demo1cam.zip">...zip</a>) albo z QR-kodu w pliku graficznym, np. skanie: <a href="./jsQR_Demo1img.html">jsQR_Demo1img.html</a> (<a href="./jsQR_Demo1img.zip">...zip</a>).
 </small></p>
 <p>
-Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale także tabelę HTML z jasnym i ciemnym tłem komórek oraz czysty tekst składający się ze znaków blokowych (przy opcji mniej niż 7px/komórkę są to bloki o wysokości pół znaku).
+Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale także tabelę HTML z jasnym i ciemnym tłem komórek oraz czysty tekst składający się ze znaków blokowych (przy opcji mniej niż 5px/komórkę są to bloki o wysokości pół znaku).
 </p>
 <p>
 Aby zakodować lokalizację geograficzną w QR-kodzie należy przed współrzędnymi dopisać "geo:" (uwaga - to musi być osobny obrazek QR-kodu), np.:
@@ -167,6 +167,7 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   ////
 
 ///////////////////////////////////////////////
+
   qr.createTableTagMin = function (cellSize, margin) {
     //AK 2022-11-14: Minimize html table cell to '<td/>' and '<td w/>' - almost 159/6=26.5 times smaller HTML.
     //Auto-conversion in innerHTML=  :...<td></td> <td w=""></td>...
@@ -193,31 +194,72 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   } //qrcode.createTableTagMin(cellSize, margin)
   
   
-  qr.createASCII_B_W_ = function(cellSize, margin) {
-    cellSize = cellSize || 1;//z qrcode.js
-    
-    var isDark0 = this.isDark;
-    this.isDark = function(row, col) {
-      return ! isDark0(row, col);
-    };
-    var txt = this.createASCII(cellSize, 0);//white margin
+  qr.halfAscii = function(margin, invert=false) {
+  // zob. Python lib. qrcode main.py def print_ascii()
+  // Output the QR Code using ASCII characters.
+    margin = (typeof margin == 'undefined')? 4 : margin;
+    var out = ''; //if (this.data_cache is None) this.make()
 
-    //cellSize -= 1; //z qrcode.js - ale chyba tu jest coś nie tak
-    margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+    modcount = this.getModuleCount();
+    codes = [' ','▀','▄','█'];
+    if (invert) { codes.reverse(); }
 
-    txt = txt.replace(/ /g, ' ');//&nbsp;
-    this.isDark = isDark0;
-    if (margin > 0) {
-      var marginLR = 2 * margin;
-      /* console.log('cellSize',cellSize,'   margin',margin,'   marginLR',marginLR); /**/
-      var spMarg = Array(marginLR+1).join(' ');//&nbsp;
-      var txtArr = txt.split('\n');
-      var topLine = Array(txtArr[0].length+2*marginLR+1).join(' ');//&nbsp;
-      var topLines = Array(margin+1).join(topLine+'\n');
-      txt = topLines+spMarg+txtArr.join(spMarg+'\n'+spMarg)+spMarg+'\n'+topLines
+    var _this = this;
+    var get_module = function(x, y) {
+      if ( invert && (margin) && (Math.max(x, y) >= modcount+margin) )
+        return 1;
+      if ( (Math.min(x, y) < 0) || (Math.max(x, y) >= modcount) )
+        return 0;
+      return (_this.isDark(x, y));
     }
-    return txt;
-  }//qr.createASCII_B_W_(cellSize, margin)
+
+    for (var r = -margin; r < modcount+margin; r+=2) {
+      for (var c = -margin; c < modcount+margin; c++) {
+        var pos = get_module(r, c) + (get_module(r+1, c) << 1)
+        out += codes[pos]
+      }
+      out += '\n'
+    }
+    return out;
+  }//qr.halfAscii(margin, invert)
+
+  qr.outAscii_ = function(cellSize, margin, invert=false) {
+    cellSize = cellSize || 1;
+
+    if (cellSize < 2) {
+      return this.halfAscii(margin, invert)
+    }
+    
+    cellSize--; //1 -> half ascii; 2 - podwójny znak blokowy, 3 - 2x podwójny, 4 - 3x podwójny....
+    margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+    var out = ''; //if (this.data_cache is None) this.make()
+
+    modcount = this.getModuleCount();
+    var codes = [ Array(cellSize+1).join('  '), Array(cellSize+1).join('██')];
+    if (invert) { codes.reverse(); }
+
+    console.log( 'cellSize',cellSize,'    margin',margin); /**/
+
+    var _this = this;
+    var get_module = function(x, y) {
+      if ( (Math.min(x, y) < 0) || (Math.max(x, y) >= modcount) )
+        return 0;
+      return (0+_this.isDark(x, y));
+    }
+    
+    console.log( 'modcount',modcount,'    margin',margin); /**/
+    
+    for (var r = -margin; r < modcount+margin; r++) {
+      row1 = '';
+      for (var c = -margin; c < modcount+margin; c++) {
+        row1 += codes[ get_module(r, c) ];
+      }
+      row1 += '\n';
+      out += Array(cellSize+1).join(row1)
+    }
+    return out;
+  }//qr.outAscii_(cellSize, margin, invert=false)
+
 ///////////////////////////////////////////////
   
   qr.addData(text, mode);
@@ -235,7 +277,8 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   case 'txt':
     //qrcode.js 2018.12.11: _this.createASCII = function(cellSize, margin) {if (cellSize < 2) return _createHalfASCII(margin);
     //zmniejszam rozmiar, żeby dla niskich rozmiarów działało _createHalfASCII(), czyli bloczki na wysokość połowy znaków
-    return '<pre>' + qr.createASCII_B_W_(Math.ceil(cellSize/4)) + '</pre>'; //or qrcreateASCII()
+    //return '<pre>' + qr.createASCII_B_W_(Math.ceil(cellSize/4)) + '</pre>'; //or qrcreateASCII()
+    return '<pre>' + qr.outAscii_(Math.ceil(cellSize/4)) + '</pre>'; 
   default: //img
     return qr.createImgTag(cellSize);
   }
