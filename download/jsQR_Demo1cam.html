@@ -12,7 +12,8 @@ h3 {margin: 10px 0; text-align: center;}
 #loadingMessage {text-align: center; padding: 40px; background-color: #eee;}
 .centr {width: 60%;  margin: 0 auto;}
 #canvas {width: 100%;}
-#output {margin-top: 20px; background: #eee; padding: 10px; padding-bottom: 0;}
+#outputLog {text-align: center; color:Gray; margin: 10px 0px 2px 0px}
+#output {margin-top: 0px; background: #eee; padding: 10px; padding-bottom: 0;}
 #output div {padding-bottom: 10px; word-wrap: break-word;}
 #outputMessage {text-align: center;}
 .highlight {border: 5px solid red;}
@@ -24,7 +25,6 @@ h3 {margin: 10px 0; text-align: center;}
 <div id="githubLink">
   lic. <a href="https://pl.wikipedia.org/wiki/Licencja_MIT">MIT</a> poza
   <a href="https://github.com/cozmo/jsQR">bibl. ⇒ <b>cozmo/jsQR</b></a><br>
-                                                            
   <a href="http://www.denso-wave.com/qrcode/faqpatent-e.html"><b>QR code<sup>®</sup></b> Denso Wave Incorporated</a>
 </div>
 <input type="button" value="STOP" id="stopBtn"  hidden="">
@@ -36,6 +36,7 @@ h3 {margin: 10px 0; text-align: center;}
   <div class="centr">
   <canvas id="canvas" height="480" width="640"></canvas>
   </div>
+  <div id="outputLog">...</div>
   <div id="output">
     <div id="outputMessage">No QR code detected.</div>
     <div hidden="">
@@ -43,6 +44,10 @@ h3 {margin: 10px 0; text-align: center;}
       <div id="outputHistData"></div>
     </div>
   </div>
+  <hr>
+  <small><ul><li>
+  Zob. <a href="https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/09/Aplikacje_html.1.html#qr-code---generator-i-czytnik-off-line">QR-czytniki i generator działające w przeglądarce off-line</a>
+  </li></ul></small>
 </div>
 
 <script> 
@@ -59,6 +64,7 @@ var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var loadingMessage = document.getElementById("loadingMessage");
+var outputLog = document.getElementById("outputLog");
 var outputContainer = document.getElementById("output");
 var outputMessage = document.getElementById("outputMessage");
 var outputData = document.getElementById("outputData");
@@ -134,8 +140,16 @@ function tick() {
         , loc.bottomLeftCorner, loc.topLeftCorner], "#FF3B58", 4);
       outputMessage.hidden = true;
       outputHistData.parentElement.hidden = false;
+
+      var segmCnt = 17 + 4*(code.version||0);
+      var outLog = '' + segmCnt + ' x '+ segmCnt+' :';
+      code.chunks.forEach(function (el) {
+        outLog += ' ('+(el.text||'').length+')'+el.type;
+      })
+      outputLog.innerHTML = outLog;
+
       tmpActData = code.data.replace(/\r?\n/g, '<br>');
-      if ( tmpActData.match( /^(https?:\/\/|mailto:|geo:)/ ) ){
+      if ( tmpActData.match( /^(https?:\/\/|mailto:|geo:)/i ) ){
         tmpActData = '<a target="_blank" href="'+tmpActData+'">'+tmpActData+'</a>'
       }
       if (tmpLastData == tmpActData) {

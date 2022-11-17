@@ -71,6 +71,7 @@ var $ = function(id) { return document.getElementById(id); }
 
 var outputText = $("outputText")
   , errMsg = $("errMsg")
+  , oPliku = $("oPliku")
 ;
 function cleanOutput() {
   outputText.textContent = '';
@@ -183,6 +184,14 @@ img.onload = function(){
   var inputQR1 = ctx0.getImageData(xActive, yActive, wActive, hActive); /** console.log("inputQR1: ", inputQR1); /**/
   
   var outputQR = jsQR(inputQR1.data, inputQR1.width, inputQR1.height); /** console.log("outputQR: ", outputQR);/**/
+
+  var segmCnt = 17 + 4*(outputQR.version||0);
+  var outLog = '   ⇒ ' + segmCnt + ' x '+ segmCnt+' :';
+  outputQR.chunks.forEach(function (el) {
+    outLog += ' ('+(el.text||'').length+')'+el.type;
+  })
+  oPliku.innerHTML += outLog;
+
   if (outputQR) {
     drawQRborder(outputQR, {x:xActive, y:yActive}); 
     var tmpActData = outputQR.data.replace(/\r?\n/g, '<br>');
@@ -199,7 +208,7 @@ function readImg(){
   var file1 = files[0]; /** console.log(file1); /**/
   //File { name: "abc.png", lastModified: 1548415690671, webkitRelativePath: "", size: 352505, type: "image/png" }
   var date = new Date(file1.lastModified);
-  $('oPliku').textContent = 
+  oPliku.innerHTML = 
     [file1.size.toLocaleString('pl'), ' bajtów w "',file1.name,'" z ',date.toLocaleString('pl')].join('');
   cleanOutput();
   /*

@@ -10,7 +10,7 @@
     div {float:left; padding:10px; margin:15px;}
     #qr {border: 1px solid lightblue;}
     select {margin: 5px 10px 5px 0px;}
-    pre {font-family: consolas,monospace; font-size: 7.56px; line-height: 7.92px;} /* txt */
+    pre {font-family: "Source Code Pro",consolas,monospace; font-size: 7px; line-height: normal;} /* txt QR */
     p code {font-family: consolas,monospace; font-size: 0.95em; border-bottom: 1px dotted;}
     .pokaz {}
     .ukryj {display: none;}
@@ -101,13 +101,13 @@ Ten generator pozwala uzyskać w formacie wyjściowym nie tylko obraz, ale takż
 </p>
 <p>
 Aby zakodować lokalizację geograficzną w QR-kodzie należy przed współrzędnymi dopisać "geo:" (uwaga - to musi być osobny obrazek QR-kodu), np.:
-<code>geo:50.03758,22.00417</code> <br> 
+<code>geo:50.019562,21.989438</code> <br> 
 <small>
 Skąd wziąć współrzędne? 
 <br>- Na mapie Google w Androidzie przytrzymujemy dłużej palec na miejscu, które nas interesuje, a współrzęne pojawią się w pasku adresu (musi to być w miejscu, które nie da się przełożyć na adres - np. w dużym powiększeniu miejsce między budynkami). 
 <br>- W Windows na <a href="https://www.google.pl/maps/">mapie Google</a> prawy kl. myszy. 
-<br>- W <a href="https://www.openstreetmap.org/search?whereami=1&query=52.22873%2C21.00290">OpenStreetMap</a> prawy kl. myszy, menu "Pokaż adres".
-<br>- W <a href="http://mapy.geoportal.gov.pl/imap/?identifyAddress=Warszawa,Jerozolimskie%2054">geoportalu</a> współrzędne są pod aktualnym kursorem myszy.
+<br>- W <a href="https://www.openstreetmap.org/search?query=Rzeszów%20Aleja%20Powstańców%20Warszawy%2012#map=18/50.019562/21.989438">OpenStreetMap</a> prawy kl. myszy, menu "Pokaż adres".
+<br>- W <a href="https://mapy.geoportal.gov.pl/imap/Imgp_2.html?identifyAddress=Rzesz%C3%B3w,Aleja%20Powsta%C5%84c%C3%B3w%20Warszawy%2012">geoportalu</a> współrzędne są pod aktualnym kursorem myszy.
 </small>
 </p>
 <p>
@@ -120,11 +120,12 @@ Znaki alfanumeryczne QR-kodu to zbiór jak tu w nawiasach kwadratowych: <code>[0
 </p>
 <hr>
 <ul><li>
-Zob. <a href="https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/09/Aplikacje_html.1.html#qr-code---generator-i-czytnik-off-line">czytniki i generator działające w przeglądarce off-line</a>
+Zob. <a href="https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/09/Aplikacje_html.1.html#qr-code---generator-i-czytnik-off-line">QR-czytniki i generator działające w przeglądarce off-line</a>
 </li></ul>
 </footer>
 
 <script>
+
 /**
  * Minified using UglifyJS v3.17.4. --compress --mangle 
  * Original source https://kazuhikoarase.github.io/qrcode-generator/js/demo/ (v.js1.4.4 2019-09-17) QR Code® http://www.denso-wave.com/qrcode/faqpatent-e.html

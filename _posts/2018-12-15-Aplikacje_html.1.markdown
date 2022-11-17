@@ -24,14 +24,20 @@ QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode
 
 1. **Generator** [**(o1)**]({{ symb1 }})
 	- [spakowany plik html - QRcode1.zip]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip "QRcode1.zip")
-	- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)
+	- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)  
+<small>
+m.in. wyjście jako tekst - znaki blokowe i jako tabela html - puste komórki z białym lub czarnym tłem.
+</small>
 2. **Czytnik** z użyciem kamery koputera/laptopa [**(o1)**]({{ symb1 }})
 	- [spakowany plik html - jsQR_Demo1cam.zip]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.zip "jsQR_Demo1cam.zip")
-	- [wypróbuj jsQR_Demo1cam.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.html)
+	- [wypróbuj jsQR_Demo1cam.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.html)  
+<small>
+Po odczytaniu QR-kodu w tych czytnikach pokazywany jest tryb wszystkich zakodowanych fragmentów.
+</small>
 3. **Czytnik** odczytujący QR-kod z pliku graficznego, np. skanu. [**(o1)**]({{ symb1 }})
 - [spakowany plik html - jsQR_Demo1img.zip]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.zip "jsQR_Demo1img.zip")
-- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html)
-<br><small> 
+- [wypróbuj jsQR_Demo1img.html]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1img.html)  
+<small>
 Ogólnie czytnik działa błyskawicznie. Tak jest zawsze, gdy przekazujemy plik metodą "przeciągnij i upuść". Ale gdy wybieramy plik klikając [ Przeglądaj... ], to po otwarciu Eksploratora Windows zdarza się, że aplikacja zamraża się na ponad 5 sek. Przyczyną tego mogą być przypięte w "![SzybkiDostepIco.png]({{ site.baseurl }}/assets/img/SzybkiDostepIco.png "SzybkiDostepIco.png") Szybki dostęp" skróty do 
 [folderów sieciowych, które są w danej chwili niedostępne](https://stackoverflow.com/questions/39990111/browser-freezing-after-selecting-file-in-input-field/66668358#answer-66668358). Po  odpięciu tych skrótów problem powinien zniknąć. Czasem 
 [odpięcie się nie udaje](https://www.winhelponline.com/blog/fix-quick-access-reset-pinned-shortcuts-stuck-not-working-windows-10/). Wtedy można w Eksploratorze \ Widok \ Opcje \ "Zmień opcje folderów i wyszukiwania" na chwilę odznaczyć "[_] Pokaż często używane foldery na pasku szybki dostęp" i udaje się odpiąć kłopotliwy skrót.
