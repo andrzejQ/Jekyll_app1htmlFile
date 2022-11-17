@@ -48,6 +48,18 @@
         <option value=6>6</option>
         <option value=7>7</option>
         <option value=8>8</option>
+        <option value=9>9</option>
+        <option value=10>10</option>
+        <option value=11>11</option>
+        <option value=12>12</option>
+        <option value=13>13</option>
+        <option value=14>14</option>
+        <option value=15>15</option>
+        <option value=16>16</option>
+        <option value=17>17</option>
+        <option value=18>18</option>
+        <option value=19>19</option>
+        <option value=20>20</option>
       </select>
       <span>px/komórkę, </span>
       <span> format wy.:</span>
@@ -149,10 +161,68 @@ var draw_qrcode = function (text, typeNumber, errorCorrectionLevel) {
 };
 var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, img, cellSize) {
   qrcode.stringToBytes = qrcode.stringToBytesFuncs[mb];
+  
+  ////
   var qr = qrcode(typeNumber || 4, errorCorrectionLevel || 'M');
+  ////
+
+///////////////////////////////////////////////
+  qr.createTableTagMin = function (cellSize, margin) {
+    //AK 2022-11-14: Minimize html table cell to '<td/>' and '<td w/>' - almost 159/6=26.5 times smaller HTML.
+    //Auto-conversion in innerHTML=  :...<td></td> <td w=""></td>...
+    //  could be reverted with: .replace(/<td(( w)="")?><\/td>/g,'<td$2/>')
+    cellSize = cellSize || 2;
+    margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+    var qrHtml = '';
+    qrHtml += '<style>'+
+      ' table#qrTbl {border: 0px none; border-collapse: collapse; padding: 0px; background-color: #000000;}'+
+      ' table#qrTbl {table-layout: fixed; margin: ' + margin + 'px;}'+
+      ' table#qrTbl td {padding: 0px; width:' + cellSize + 'px;'+' height:' + cellSize + 'px;}'+
+      '[w] {background-color: #ffffff !important;}'+
+      '</style>\n'+
+      '<table id="qrTbl"><tbody>';
+    for (var r = 0; r < this.getModuleCount(); r += 1) {
+      qrHtml += '\n<tr>';
+      for (var c = 0; c < this.getModuleCount(); c += 1) {
+        qrHtml += this.isDark(r, c)? '<td />' : '<td w />';
+      }
+      qrHtml += '</tr>';
+    }
+    qrHtml += '</tbody></table>';
+    return qrHtml;
+  } //qrcode.createTableTagMin(cellSize, margin)
+  
+  
+  qr.createASCII_B_W_ = function(cellSize, margin) {
+    cellSize = cellSize || 1;//z qrcode.js
+    
+    var isDark0 = this.isDark;
+    this.isDark = function(row, col) {
+      return ! isDark0(row, col);
+    };
+    var txt = this.createASCII(cellSize, 0);//white margin
+
+    //cellSize -= 1; //z qrcode.js - ale chyba tu jest coś nie tak
+    margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+    txt = txt.replace(/ /g, ' ');//&nbsp;
+    this.isDark = isDark0;
+    if (margin > 0) {
+      var marginLR = 2 * margin;
+      /* console.log('cellSize',cellSize,'   margin',margin,'   marginLR',marginLR); /**/
+      var spMarg = Array(marginLR+1).join(' ');//&nbsp;
+      var txtArr = txt.split('\n');
+      var topLine = Array(txtArr[0].length+2*marginLR+1).join(' ');//&nbsp;
+      var topLines = Array(margin+1).join(topLine+'\n');
+      txt = topLines+spMarg+txtArr.join(spMarg+'\n'+spMarg)+spMarg+'\n'+topLines
+    }
+    return txt;
+  }//qr.createASCII_B_W_(cellSize, margin)
+///////////////////////////////////////////////
+  
   qr.addData(text, mode);
   qr.make();
-  cellSize = cellSize * 1;
+  //cellSize = cellSize * 1;
   
   var getModuleCount = qr.getModuleCount();
   document.getElementById('segmenty').innerHTML = getModuleCount + ' x ' + getModuleCount;
@@ -161,119 +231,15 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   case 'SVG':
     return qr.createSvgTag(cellSize);
   case 'table':
-    return createTableTagMin(qr, cellSize);
+    return qr.createTableTagMin(cellSize);
   case 'txt':
     //qrcode.js 2018.12.11: _this.createASCII = function(cellSize, margin) {if (cellSize < 2) return _createHalfASCII(margin);
-    //zmniejszam rozmiar, żeby dla niskich rozmiaró działało _createHalfASCII(), czyli bloczki na wysokość połowy znaków
-    return '<pre>' + createASCII_BW(qr,   Math.ceil(cellSize/6)) + '</pre>'; //or qrcreateASCII()
+    //zmniejszam rozmiar, żeby dla niskich rozmiarów działało _createHalfASCII(), czyli bloczki na wysokość połowy znaków
+    return '<pre>' + qr.createASCII_B_W_(Math.ceil(cellSize/4)) + '</pre>'; //or qrcreateASCII()
   default: //img
     return qr.createImgTag(cellSize);
   }
 };
-
-//AK 2022-11-16 -------------------
-
-var _createHalfASCII_BW = function(qr_this,   margin) {
-  var cellSize = 1;
-  margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
-
-  var size = qr_this.getModuleCount() * cellSize + margin * 2;
-  var min = margin;
-  var max = size - margin;
-
-  var y, x, r1, r2, p;
-
-  var blocks = {
-    '██': '█',
-    '█ ': '▀',
-    ' █': '▄',
-    '  ': ' '
-  };
-
-  var blocksLastLineNoMargin = { //?
-    '██': '▀',
-    '█ ': '▀',
-    ' █': ' ',
-    '  ': ' '
-  };
-
-  var ascii = '';
-  for (y = 0; y < size; y += 2) {
-    r1 = Math.floor((y - min) / cellSize);
-    r2 = Math.floor((y + 1 - min) / cellSize);
-    for (x = 0; x < size; x += 1) {
-      p = ' ';
-
-      if (min <= x && x < max && min <= y && y < max && qr_this.isDark(r1, Math.floor((x - min) / cellSize))) {
-        p = '█';
-      }
-
-      if (min <= x && x < max && min <= y+1 && y+1 < max && qr_this.isDark(r2, Math.floor((x - min) / cellSize))) {
-        p += '█';
-      }
-      else {
-        p += ' ';
-      }
-
-      // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
-      ascii += (margin < 1 && y+1 >= max) ? blocksLastLineNoMargin[p] : blocks[p];
-    }
-
-    ascii += '\n';
-  }
-
-  if (size % 2 && margin > 0) {
-    return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join(' ');
-  }
-
-  return ascii.substring(0, ascii.length-1);
-};
-
-var createASCII_BW = function(qr_this,   cellSize, margin) {
-  cellSize = cellSize || 1;
-
-  if (cellSize < 2) {
-    return _createHalfASCII_BW(qr_this,  margin);
-  }
-
-  cellSize -= 1;
-  margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
-
-  var size = qr_this.getModuleCount() * cellSize + margin * 2;
-  var min = margin;
-  var max = size - margin;
-
-  var y, x, r, p;
-
-  var white = Array(cellSize+1).join('  ');
-  var black = Array(cellSize+1).join('██');
-
-  var ascii = '';
-  var line = '';
-  for (y = 0; y < size; y += 1) {
-    r = Math.floor( (y - min) / cellSize);
-    line = '';
-    for (x = 0; x < size; x += 1) {
-      p = 1;
-
-      if (min <= x && x < max && min <= y && y < max && qr_this.isDark(r, Math.floor((x - min) / cellSize))) {
-        p = 0;
-      }
-
-      // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
-      line += p ? white : black;
-    }
-
-    for (r = 0; r < cellSize; r += 1) {
-      ascii += line + '\n';
-    }
-  }
-
-  return ascii.substring(0, ascii.length-1);
-};
-
-//end. qr_this.createASCII_BW () -------------------
-
 
 var update_qrcode = function (idElem) {
   var form = document.forms['qrForm'];
@@ -292,31 +258,7 @@ var update_qrcode = function (idElem) {
   document.getElementById(idElem).innerHTML = innerQR;
 };
 
-createTableTagMin = function(qr_this, cellSize, margin) {
-  //AK 2022-11-14: Minimize html table cell to '<td/>' and '<td w/>' - almost 159/6=26.5 times smaller HTML.
-  //Auto-conversion in innerHTML=  :...<td></td> <td w=""></td>...
-  //  could be reverted with: .replace(/<td(( w)="")?><\/td>/g,'<td$2/>')
-  cellSize = cellSize || 2;
-  margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
-  var qrHtml = '';
-  qrHtml += '<style>'+
-    ' table#qrTbl {border: 0px none; border-collapse: collapse; padding: 0px; background-color: #000000;}'+
-    ' table#qrTbl {table-layout: fixed; margin: ' + margin + 'px;}'+
-    ' table#qrTbl td {padding: 0px; width:' + cellSize + 'px;'+' height:' + cellSize + 'px;}'+
-    '[w] {background-color: #ffffff !important;}'+
-    '</style>\n'+
-    '<table id="qrTbl"><tbody>';
-  for (var r = 0; r < qr_this.getModuleCount(); r += 1) {
-    qrHtml += '\n<tr>';
-    for (var c = 0; c < qr_this.getModuleCount(); c += 1) {
-      qrHtml += qr_this.isDark(r, c)? '<td />' : '<td w />';
-    }
-    qrHtml += '</tr>';
-  }
-  qrHtml += '</tbody></table>';
 
-  return qrHtml;
-};
 
 var save_qrcode = function (idElem) {
   update_qrcode(idElem);
