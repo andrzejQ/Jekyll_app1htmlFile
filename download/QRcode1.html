@@ -156,9 +156,6 @@ var body_loadHander = function (idElem) {
   t.value = '0';
   update_qrcode(idElem);
 };
-var draw_qrcode = function (text, typeNumber, errorCorrectionLevel) {
-  document.write(create_qrcode(text, typeNumber, errorCorrectionLevel));
-};
 var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, img, cellSize) {
   qrcode.stringToBytes = qrcode.stringToBytesFuncs[mb];
   
@@ -224,13 +221,13 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
   }//qr.halfAscii(margin, invert)
 
   qr.outAscii_ = function(cellSize, margin, invert=false) {
-    cellSize = cellSize || 1;
+  //cellSize: 0 -> halfAscii; 1 - podwójny znak blokowy, 2 - 2x podwójny, 3 - 3x podwójny....
 
-    if (cellSize < 2) {
+    if ((cellSize||0) < 1) { //cellSize==0 
       return this.halfAscii(margin, invert)
     }
     
-    cellSize--; //1 -> half ascii; 2 - podwójny znak blokowy, 3 - 2x podwójny, 4 - 3x podwójny....
+    cellSize = cellSize || 1; 
     margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
     var out = ''; //if (this.data_cache is None) this.make()
 
@@ -278,7 +275,7 @@ var create_qrcode = function (text, typeNumber, errorCorrectionLevel, mode, mb, 
     //qrcode.js 2018.12.11: _this.createASCII = function(cellSize, margin) {if (cellSize < 2) return _createHalfASCII(margin);
     //zmniejszam rozmiar, żeby dla niskich rozmiarów działało _createHalfASCII(), czyli bloczki na wysokość połowy znaków
     //return '<pre>' + qr.createASCII_B_W_(Math.ceil(cellSize/4)) + '</pre>'; //or qrcreateASCII()
-    return '<pre>' + qr.outAscii_(Math.ceil(cellSize/4)) + '</pre>'; 
+    return '<pre>' + qr.outAscii_(Math.ceil(cellSize/4)-1) + '</pre>'; 
   default: //img
     return qr.createImgTag(cellSize);
   }
