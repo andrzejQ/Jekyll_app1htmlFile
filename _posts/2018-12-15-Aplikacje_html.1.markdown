@@ -4,9 +4,6 @@ title:  "Aplikacje html.1"
 date:   2020-09-09 10:21:59 +0100
 categories: jekyll onefileapp
 ---
-{% capture symb1 %}
-{% if jekyll.environment=="production" %}{{ site.baseurl }}{% endif %}{% post_url 2018-12-17-Kategorie_aplikacji %}
-{% endcapture %}
 
 Aplikacje w postaci pliku HTML<br>
  [1.&nbsp;QR Code - generator i czytnik off-line (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#qr-code---generator-i-czytnik-off-line) <br>
@@ -15,6 +12,9 @@ Aplikacje w postaci pliku HTML<br>
  [4.&nbsp;Edytor wizualny WYSIWYG html w przeglądarce (o1)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edytor-wizualny-wysiwyg-html-w-przeglądarce-o1)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+{% capture symb1 %}
+{% if jekyll.environment=="production" %}{{ site.baseurl }}{% endif %}{% post_url 2018-12-17-Kategorie_aplikacji %}
+{% endcapture %}
 
 ### QR Code - generator i czytnik off-line
 
@@ -23,8 +23,8 @@ QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode
 </small>
 
 1. **Generator** [**(o1)**]({{ symb1 }})
-	- [spakowany plik html - QRcode1.zip]({{ site.url }}{{ site.baseurl }}/download/QRcode1.zip "QRcode1.zip")
-	- [wypróbuj QRcode1.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode1.html)  
+	- [spakowany plik html - QRcode01.zip]({{ site.url }}{{ site.baseurl }}/download/QRcode01.zip "QRcode01.zip")
+	- [wypróbuj QRcode01.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode01.html)  
 <small>
 m.in. wyjście jako tekst - znaki blokowe i jako tabela html - puste komórki z białym lub czarnym tłem.
 </small>
