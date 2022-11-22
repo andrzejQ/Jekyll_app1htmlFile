@@ -112,6 +112,8 @@ function stopStreamedVideo() {
   cancelAnimationFrame(animFrameId);
 }
 
+var modeStr = {alphanumeric:'AZ09', byte:'8bit', numeric:'0..9', kanji:'Kanji', eci:'eci'}
+
 function tick() {
   loadingMessage.innerText = "? Loading video..."
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
@@ -143,8 +145,10 @@ function tick() {
 
       var segmCnt = 17 + 4*(code.version||0);
       var outLog = '' + segmCnt + ' x '+ segmCnt+' :';
+//ᐧᴬᶻ⁰⁹    ᐧ⁰ᐧᐧ⁹  ᐧ⁸ᵇⁱᵗ   ᐧᴷᵃⁿʲⁱ
       code.chunks.forEach(function (el) {
-        outLog += ' ('+(el.text||'').length+')'+el.type;
+        outLog += /*nbsp*/" "+' '+(el.text||'').length+'<sub>.'+
+          modeStr[el.type] +'</sub>';
       })
       outputLog.innerHTML = outLog;
 

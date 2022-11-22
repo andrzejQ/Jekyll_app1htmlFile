@@ -150,6 +150,8 @@ img.onload = function(){
     ctx.clearRect(0,0,canvasW,canvasH);
     drawRect({x:xActive, y:yActive}, {dx:wActive, dy:hActive}, 'rgba(0, 0, 255, 0.4)', (canvasW+canvasH)/400);  //Blue, alpha=0.4
   }
+
+  var modeStr = {alphanumeric:'AZ09', byte:'8bit', numeric:'0..9', kanji:'Kanji', eci:'eci'}
   
   function drawRect(topLeft, size, color, lineWidth) {//({x: ,y: },{dx: ,dy: },
     ctx.beginPath();
@@ -187,8 +189,10 @@ img.onload = function(){
 
   var segmCnt = 17 + 4*(outputQR.version||0);
   var outLog = '   ⇒ ' + segmCnt + ' x '+ segmCnt+' :';
+//ᐧᴬᶻ⁰⁹    ᐧ⁰ᐧᐧ⁹  ᐧ⁸ᵇⁱᵗ   ᐧᴷᵃⁿʲⁱ
   outputQR.chunks.forEach(function (el) {
-    outLog += ' ('+(el.text||'').length+')'+el.type;
+    outLog += /*nbsp*/" "+' '+(el.text||'').length+'<sub>.'+
+          modeStr[el.type] +'</sub>';
   })
   oPliku.innerHTML += outLog;
 
