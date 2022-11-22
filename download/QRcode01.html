@@ -145,7 +145,7 @@ var QRCode=function(t){"use strict";var r,e=function(){return"function"==typeof 
 /*global QRCode*/
 //https://github.com/soldair/node-qrcode
 
-var body_loadHander = function (idElem) {
+const body_loadHander = function (idElem) {
   //ver.opt. 1..40
   const versionEl = document.forms['qrForm'].elements['version'];
   for (let v = 1; v <= 40; v++) {
@@ -156,7 +156,7 @@ var body_loadHander = function (idElem) {
   update_qrcode(idElem);
 };
 
-var create_qrcode = function (text, options) {
+const create_qrcode = function (text, options) {
   //qrcode.stringToBytes = qrcode.stringToBytesFuncs[mb];
   ////
   const qr = QRCode.create(text,options);
@@ -169,9 +169,9 @@ var create_qrcode = function (text, options) {
     data: Uint8Array(8) [ 65, 76, 65, … ]
     mode: Object { id: "Byte", bit: 4, ccBits: (3) […] }
   1: Object { mode: {…}, data: "12345" }
-​    data: "12345"
-​    mode: Object { id: "Numeric", bit: 1, ccBits: (3) […] }
-​​*/
+  data: "12345"
+  mode: Object { id: "Numeric", bit: 1, ccBits: (3) […] }
+*/
   const modeStr = {Alphanumeric:'AZ09', Byte:'8bit', Numeric:'0..9', Kanji:'Kanji'}
 
   qr.isDark = function (r, c){
@@ -183,12 +183,11 @@ var create_qrcode = function (text, options) {
     return this.isDark(r, c);
   }
 
-  var moduleCount = qr.modules.size;
-  var segmStr = moduleCount + ' x ' + moduleCount +',';
+  let moduleCount = qr.modules.size;
+  let segmStr = moduleCount + ' x ' + moduleCount +',';
   qr.segments.forEach(function(segm) {
-  segmStr += `  ${segm.data.length}<sub>.${modeStr[segm.mode.id]}</sub>`;
+  segmStr += /*nbsp*/" "+` ${segm.data.length}<sub>.${modeStr[segm.mode.id]}</sub>`;
   }) 
-//    segmStr += '  '+modeStr[segm.mode.id]+'('+segm.data.length+')';
   document.getElementById('segmenty').innerHTML = segmStr;
 ///////////////////////////////////////////////
 
@@ -209,9 +208,9 @@ table#qrTbl td {padding: 0px; width:${cellSize}px; height:${cellSize}px;}
 div[w] {margin:0px; padding:0px; float:left;}
 </style>
 <div w><table id="qrTbl"><tbody>`
-    for (var r = 0; r < moduleCount; r += 1) {
+    for (let r = 0; r < moduleCount; r += 1) {
       qrHtml += '\n<tr>';
-      for (var c = 0; c < moduleCount; c += 1) {
+      for (let c = 0; c < moduleCount; c += 1) {
         qrHtml += this.isDark(r, c)? '<td />' : '<td w />';
       }
       qrHtml += '</tr>';
@@ -276,7 +275,7 @@ div[w] {margin:0px; padding:0px; float:left;}
     //cellSize, margin, alt, title
       let cellSize = (typeof opts.scale == 'undefined') ? 2 : +opts.scale;
       let margin = (typeof opts.margin == 'undefined')? 4 : +opts.margin;
-      let title = (typeof opts.title == 'undefined')? 'Obraz wektorowy SVG QR-kodu' : +opts.title;
+      let title = (typeof opts.title == 'undefined')? 'Obraz wektorowy SVG QR-kodu' : opts.title;
       
       margin = cellSize * margin;
 
@@ -342,7 +341,7 @@ const update_qrcode = function (idElem, saveF) {
   let lightColor = form.elements['lightColor'].value;
   let darkColor = form.elements['darkColor'].value;
   if (mode !== 'Auto') text = [{ data: text, mode: mode }];
-  //Manual mode: https://github.com/soldair/node-qrcode#manual-mode
+    //Manual mode: https://github.com/soldair/node-qrcode#manual-mode
   
   let innerQR;
   try {
@@ -370,40 +369,44 @@ const nowDT = function  () { //date_time -> YYYY-MM-dd_HH.mm
 
 const save_qrcode = function (idElem) { //callback dla update_qrcode
   //update_qrcode(idElem);
-  var fName = 'QRkod_'+nowDT();
-  var BOM = '\ufeff'; //by encoding utf8: -> EF BB BF in the file
-    var img = document.forms['qrForm'].elements['img'].value;
+  let fName = 'QRkod_'+nowDT();
+  const BOM = '\ufeff'; //by encoding utf8: -> EF BB BF in the file
+    let img = document.forms['qrForm'].elements['img'].value;
   switch (img) {
-  case 'SVG':
-    var innerQR = document.getElementById(idElem).innerHTML;
-    var svgH = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
-      var svgF = '';
-      saveTextAsFile([svgH + innerQR + svgF], fName + '.svg', 'text/plain;charset=utf-8');
-    break;
-  case 'table':
-    var innerQR = document.getElementById(idElem).innerHTML;
-    var htmlH = '<!doctype html><html><head><meta http-equiv="Content-Type" content="text/html; charset=Utf-8"><title>QRCode - tabela</title></head><body><div>\n';
-      var htmlF = '\n</div></body></html>';
-      //saveTextAsFile([htmlH + innerQR + htmlF], fName + '.html', 'text/plain;charset=utf-8'); //...<td></td><td w=""></td>...
-      saveTextAsFile([htmlH + innerQR.replace(/<td(( w)="")?><\/td>/g,'<td$2/>') + htmlF], 
-        fName + '.html', 'text/plain;charset=utf-8'); // ...<td/><td w/>...
-    break;
-  case 'txt':
-    var innerText = document.getElementById(idElem).innerText;
-    saveTextAsFile([BOM + innerText], fName + '.txt', 'text/plain;charset=utf-8');
-    break;
-  default: //img (PNG) 
-    var innerImg = document.getElementById(idElem).firstChild.getAttribute('src');
-    innerImg = innerImg.substring('data:image/png;base64,'.length);
-    saveTextAsFile(b64toByteArrays(innerImg), fName + '.png', 'image/png');
-    break;
+    case 'SVG': {
+      let innerQR = document.getElementById(idElem).innerHTML;
+      let svgH = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+        let svgF = '';
+        saveTextAsFile([svgH + innerQR + svgF], fName + '.svg', 'text/plain;charset=utf-8');
+      break;
+    }
+    case 'table': {
+      let innerQRtbl = document.getElementById(idElem).innerHTML;
+      let htmlH = '<!doctype html><html><head><meta http-equiv="Content-Type" content="text/html; charset=Utf-8"><title>QRCode - tabela</title></head><body><div>\n';
+        let htmlF = '\n</div></body></html>';
+        //saveTextAsFile([htmlH + innerQRtbl + htmlF], fName + '.html', 'text/plain;charset=utf-8'); //...<td></td><td w=""></td>...
+        saveTextAsFile([htmlH + innerQRtbl.replace(/<td(( w)="")?><\/td>/g,'<td$2/>') + htmlF], 
+          fName + '.html', 'text/plain;charset=utf-8'); // ...<td/><td w/>...
+      break;
+    }
+    case 'txt': {
+      let innerText = document.getElementById(idElem).innerText;
+      saveTextAsFile([BOM + innerText], fName + '.txt', 'text/plain;charset=utf-8');
+      break;
+    }
+    default: { //img (PNG) 
+      let innerImg = document.getElementById(idElem).firstChild.getAttribute('src');
+      innerImg = innerImg.substring('data:image/png;base64,'.length);
+      saveTextAsFile(b64toByteArrays(innerImg), fName + '.png', 'image/png');
+      break;
+    }
   }
 };
 function saveTextAsFile(arraysToSave, fileNameToSaveAs, typeBlob) {
-  var toSaveAsBlob = new Blob(arraysToSave, {type:typeBlob, endings:"native"});
+  const toSaveAsBlob = new Blob(arraysToSave, {type:typeBlob, endings:"native"});
     //endings:"native" - działa , .replace(/([^\r])\n/g, "$1\r\n") - nie działa
-  var urlToSaveAs = window.URL.createObjectURL(toSaveAsBlob);
-  var downloadLink = document.createElement("a");
+  const urlToSaveAs = window.URL.createObjectURL(toSaveAsBlob);
+  const downloadLink = document.createElement("a");
   downloadLink.download = fileNameToSaveAs;
   downloadLink.innerHTML = "Download File";
   downloadLink.href = urlToSaveAs;
@@ -419,15 +422,15 @@ function destroyClickedElement(event) {document.body.removeChild(event.target);}
 // https://gist.github.com/jdnichollsc/78a6eb093731cf3e8dfd536dbe4befb3
 function b64toByteArrays(b64Data, sliceSize) {
   sliceSize = sliceSize || 512;
-  var byteCharacters = atob(b64Data);
-  var byteArrays = [];
-  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-    var slice = byteCharacters.slice(offset, offset + sliceSize);
-    var byteNumbers = new Array(slice.length);
-    for (var i = 0; i < slice.length; i++) {
+  let byteCharacters = atob(b64Data);
+  let byteArrays = [];
+  for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    let slice = byteCharacters.slice(offset, offset + sliceSize);
+    let byteNumbers = new Array(slice.length);
+    for (let i = 0; i < slice.length; i++) {
       byteNumbers[i] = slice.charCodeAt(i);
     }
-    var byteArray = new Uint8Array(byteNumbers);
+    let byteArray = new Uint8Array(byteNumbers);
     byteArrays.push(byteArray);
   }
   return byteArrays;
