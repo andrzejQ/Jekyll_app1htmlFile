@@ -8,22 +8,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {font-family: Roboto, "Segoe UI", Helvetica, Arial, sans-serif; background-color: ghostwhite;}
-    div {float:left; padding:10px; margin:15px;}
-    #qr {border: 1px solid lightblue; padding:0px}
+    div {padding:10px; margin:10px;}
+    .floatL {float:left;}
+    #qr {border: 1px solid lightblue; margin:1px; padding:0px;}
+    #qr {float:left;} /*przydatne dla tabeli - wypełnienie i obramowanie*/
     #qr>img, #qr>svg {display: block;} /*inaczej div#qr miał mały dodatkowy margines wewn. na dole */
+    textarea {width: 460px; margin: 1px 0px}
+    @media all and (orientation:portrait) { 
+      .pokaz {display: none;} 
+      textarea {width: 360px;} 
+      div.floatL, body {padding:2px; margin:2px;}
+    }
     select {margin: 5px 5px 5px 0px;}
     pre {font-family: "Source Code Pro",consolas,monospace; font-size: 7px; line-height: normal; padding: 0px; margin: 0px} /* txt QR */
     p code {font-family: consolas,monospace; font-size: 0.95em; border-bottom: 1px dotted;}
     .pokaz {}
     .ukryj {display: none;}
-    #githubLink {float: right; color:DarkBlue;font-size:0.8em; margin: 0 0 4px 4px; padding: 4px;}
-    h3 {margin: 10px;}
+    #githubLink {float: right; color:DarkBlue;font-size:0.7em; margin: 0 0 4px 4px; padding: 4px;}
+    h3 {margin: 15px;}
     #segmenty {padding: 0px 10px; font-size:0.8em; }
     footer {margin: 0px 10px;}
     #cellSize, #margin {margin-right:0; width:44px;}
     #darkColor, #lightColor {width:22px;height:22px;}
-    textarea {width: 460px;}
-    @media all and (orientation:portrait) { .pokaz {display: none;} textarea {width: 380px;} }
   </style>
 </head>
 <body onload="body_loadHander('qr')">
@@ -38,7 +44,7 @@
 <h3>QR Code - Generator</h3>
 
     <form name="qrForm">
-    <div>
+    <div class="floatL">
       <textarea name="msg" rows="10" cols="56" style="color:Blue;">WPISZ/WKLEJ TEKST ...
 1. ĄĆĘŁŃÓŚŻŹ
 2. ąćęłńóśźż
@@ -87,8 +93,10 @@
       </span>
     </div>
     
-    <div id="qr">
+    <div class="floatL">
+      <div id="qr">
 
+      </div>
     </div>
     
     </form>
@@ -119,7 +127,7 @@ Skąd wziąć współrzędne?
 <ul>
      <li> Link do strony internetowej powinien się rozpoczynać od "https://" lub "http://"
 </li><li> Margines powinien mieć szerokość co najmniej 4 x ■. Ale może to być też osiągnięte przez odpowiednie otoczenie QR-kodu.
-</li><li> Obraz wektorowy SVG ma przeźroczyste tło - czyli tylko kolor pierwszego planu ma znaczenie.
+</li><li> Obraz wektorowy SVG może mieć przeźroczyste tło - można w treści tekstowej SVG w &lt;rect fill-opacity="1.0" zamienić "1.0" na "0.0".
 </li></ul>
 
 <p>
@@ -284,7 +292,7 @@ div[w] {margin:0px; padding:0px; float:left;}
       qrSvg += `<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
 width="${size}px" height="${size}px" viewBox="0 0 ${size} ${size}" preserveAspectRatio="xMinYMin meet" >
 <title>${title}</title>
-<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>
+<rect fill-opacity="1.0" fill="${opts.color.light}" width="100%" height="100%" cx="0" cy="0" stroke-width="0px" stroke="transparent"></rect>
 <path d="`;
 
       for (r = 0; r < modCnt; r += 1) {
@@ -296,7 +304,7 @@ width="${size}px" height="${size}px" viewBox="0 0 ${size} ${size}" preserveAspec
           }
         }
       }
-      qrSvg += `" stroke="transparent" fill="${opts.color.dark}"/></svg>`;       //console.log(qrSvg)
+      qrSvg += `" stroke-width="0px" stroke="transparent" fill="${opts.color.dark}"/></svg>`;       //console.log(qrSvg)
 
       return qrSvg;
     };
@@ -351,7 +359,7 @@ const update_qrcode = function (idElem, saveF) {
       img: img
     });
   }
-  catch (err) {innerQR = '<p style="color:red;font-size:1.2em">'+err.toString()+'</p>'; throw err; }
+  catch (err) {innerQR = '<p style="color:red;font-size:1.1em">'+err.toString()+'</p>'}//; throw err; }
   document.getElementById(idElem).innerHTML = innerQR;
   
   if (typeof saveF === 'function') { saveF(idElem) } // saveF===save_qrcode
