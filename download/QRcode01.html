@@ -5,6 +5,7 @@
   <title>QR Code generator</title>
   <meta name="description" content="QR Code Generator zobacz: Kazuhiko Arase">
   <link rel="icon" type="image/x-icon" href="data:image/gif;base64,R0lGODlhEAAQAIAAAAAAAP///yH5BAEAAAEALAAAAAAQABAAAAImjI+pywv2oEQxhkofqLsf/E0XOFnc121lAqoqtV4NpFkM2eDzzhcAOw==">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {font-family: Roboto, "Segoe UI", Helvetica, Arial, sans-serif; background-color: ghostwhite;}
     div {float:left; padding:10px; margin:15px;}
@@ -21,6 +22,8 @@
     footer {margin: 0px 10px;}
     #cellSize, #margin {margin-right:0; width:44px;}
     #darkColor, #lightColor {width:22px;height:22px;}
+    textarea {width: 460px;}
+    @media all and (orientation:portrait) { .pokaz {display: none;} textarea {width: 380px;} }
   </style>
 </head>
 <body onload="body_loadHander('qr')">
@@ -47,11 +50,8 @@
       <br /> 
       <br /> 
 
-      <input id="cellSize" type="number" name="cellSize" min="2" value="4" />
-
-      <span>px/■ ; </span>
-      <span> format wy.:</span>
-      <select name="img">
+      <input id="cellSize" type="number" name="cellSize" min="2" value="4" />&nbsp;<span>px/■ ; </span>
+      <span> <span class="pokaz">format</span> wy.:</span>&nbsp;<select name="img">
         <option value="PNG" selected>.PNG</option>
         <option value="SVG">.SVG</option>
         <option value="table">table</option>
@@ -59,30 +59,26 @@
       </select>
       <span>; </span>
       
-        <input id="darkColor" type="color" name="darkColor" value="#000000" />
-        / 
-        <input id="lightColor" type="color" name="lightColor" value="#ffffff" />
+        <input id="darkColor" type="color" name="darkColor" value="#000000" />&nbsp;/&nbsp;<input id="lightColor" type="color" name="lightColor" value="#ffffff" />
       
-      <span id="opcjeDod" class="pokaz">
-        <span>; typ:</span>
-        <select id="version" name="version">
-          <option value="Auto">autom.</option>
+      <span class="pokaz">
+        <span>; typ:</span>&nbsp;<select id="version" name="version">
+          <option value="Auto">auto. R×R</option>
         </select>
         <br />
+      </span>
 
-        <input id="margin" type="number" name="margin" min="0" value="4" />
-        <span>■ margines ; </span>
+        <input id="margin" type="number" name="margin" min="0" value="4" />&nbsp;<span>■ m<span class="pokaz">argines ; </span> </span>
 
-        <span>korekcja bł.:</span>
-        <select name="errorLevel">
+      <span id="opcjeDod" class="pokaz">
+        <span>korekcja bł.:</span>&nbsp;<select name="errorLevel">
           <option value="L">L(7%)</option>
           <option value="M" selected="selected">M(15%)</option>
           <option value="Q">Q(25%)</option>
           <option value="H">H(30%)</option>
         </select>
-        <span>; tryb:</span>
-        <select name="mode">
-          <option value="Auto" selected>autom.</option>
+        <span>; tryb:</span>&nbsp;<select name="mode">
+          <option value="Auto" selected>auto. ᴬᶻ⁰⁹</option>
           <option value="Numeric">Numeric</option>
           <option value="Alphanumeric">Alphanum.</option>
           <option value="Byte">Byte</option>
