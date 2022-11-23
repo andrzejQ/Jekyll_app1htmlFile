@@ -134,8 +134,8 @@ function tick() {
     var imageData = canvas.getImageData(x, y, w, w);
 
     var code = jsQR(imageData.data, imageData.width, imageData.height, {
-      inversionAttempts: "dontInvert",
-    });
+      inversionAttempts: "attemptBoth",
+    });//"attemptBoth" (default), "dontInvert", "invertFirst", "onlyInvert"
     if (code) {
       var loc = code.location;
       drawPath({x:x, y:y}, [loc.topLeftCorner, loc.topRightCorner, loc.bottomRightCorner
