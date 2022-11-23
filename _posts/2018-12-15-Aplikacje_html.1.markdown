@@ -26,7 +26,8 @@ QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode
 	- [spakowany plik html - QRcode01.zip]({{ site.url }}{{ site.baseurl }}/download/QRcode01.zip "QRcode01.zip")
 	- [wypróbuj QRcode01.html (+instrukcja)]({{ site.url }}{{ site.baseurl }}/download/QRcode01.html)  
 <small>
-m.in. wyjście jako tekst - znaki blokowe i jako tabela html - puste komórki z białym lub czarnym tłem.
+m.in. wyjście jako tekst - znaki blokowe i jako tabela html - puste komórki z białym lub czarnym tłem.<br>
+Pokazywany jest podział zakodowanych w różnych trybach fragmentów, co pozwala na optymalizację rozmiaru QR-kodu.
 </small>
 2. **Czytnik** z użyciem kamery koputera/laptopa [**(o1)**]({{ symb1 }})
 	- [spakowany plik html - jsQR_Demo1cam.zip]({{ site.url }}{{ site.baseurl }}/download/jsQR_Demo1cam.zip "jsQR_Demo1cam.zip")
