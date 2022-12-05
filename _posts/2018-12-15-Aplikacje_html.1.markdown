@@ -19,7 +19,7 @@ Aplikacje w postaci pliku HTML<br>
 ### QR Code - generator i czytnik off-line
 
 QR Code [<sup>® Denso Wave Incorporated</sup>](http://www.denso-wave.com/qrcode/faqpatent-e.html) - kody QR działające off-line z wykorzystaniem silnika przeglądarki. <br>
-<small>Można je używać do przenoszenia tekstów pomiędzy telefonem, a laptopem nawet gdy nie ma zasięgu sieci. Aplikacje JavaScript są w pojedynczych plikach HTML, które można zapamiętać na dysku lokalnym i uruchamiać w swojej przeglądarce.
+<small>Można je używać do przenoszenia tekstów pomiędzy telefonem, a laptopem nawet gdy nie ma zasięgu sieci. Aplikacje JavaScript są w pojedynczych plikach HTML, które można zapamiętać na dysku lokalnym lub urządzeniu mobilnym i uruchamiać w przeglądarce bez potrzeby instalacji dodatkowych aplikacji.
 </small>
 
 1. **Generator** [**(o1)**]({{ symb1 }})
