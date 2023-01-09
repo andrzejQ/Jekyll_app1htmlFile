@@ -4,8 +4,10 @@
   <div class="wrapper">
 
     {%- if page.comments == true -%}
-		<p style="font-size:small"> Włącz się do dyskusji. Komentarze są moderowane - będą się pokazywały te, które jakoś dotyczą treści na blogu. </p>
-      {%- include comments.html -%}
+      <p style="font-size:small"> Włącz się do dyskusji. 
+      Będą zachowane te komentarze, które jakoś dotyczą treści na blogu. 
+      <br> Na początek trzeba mieć (darmowe) konto na   <a href="https://github.com/">GitHub</a>.</p>
+      {%- include giscus_js.html -%}
     {%- endif -%}
 
     <h2 class="footer-heading">{{ site.title | escape }}</h2>
