@@ -7,16 +7,16 @@ categories: jekyll onefileapp
 
 [**Skryptozakładki**](https://pl.wikipedia.org/wiki/Skryptozak%C5%82adka) to małe 1-wierszowe aplikacje Javascript, które można umieszczać w pasku zakładek swojej przeglądarki internetowej - **przeciągając wybraną skryptozakładkę do paska zakładek** <small>(wideo)</small>.
 
-<video src="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.mp4" poster="{{ site.baseurl }}/assets/img/skryptozakladka_do_paska_zakladek.jpg" height="200" style="float:right"  controls preload></video>
+<video src="{{site.baseurl}}/assets/img/skryptozakladka_do_paska_zakladek.mp4" poster="{{site.baseurl}}/assets/img/skryptozakladka_do_paska_zakladek.jpg" height="200" style="float:right"  controls preload></video>
 
-* [1. Biblioteki skryptozakładek]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-biblioteki-skryptozakładek-)
-* [2. Kopiowanie fragmentów strony www]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-kopiowanie-fragmentów-strony-www-b1)
-* [3. Konwersja strony HTML na Markdown]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-konwersja-strony-html-na-markdown-b1-i1)
-* [4. Lista członków grup MS Teams]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-lista-członków-grup-ms-teams-b1)
-* [5. JOOMLA galeria SIGPLUS]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-joomla-galeria-sigplus-b1)
+* [1. Biblioteki skryptozakładek]({{site.url}}{{site.baseurl}}{{page.url}}#1-biblioteki-skryptozakładek-)
+* [2. Kopiowanie fragmentów strony www]({{site.url}}{{site.baseurl}}{{page.url}}#2-kopiowanie-fragmentów-strony-www-b1)
+* [3. Konwersja strony HTML na Markdown]({{site.url}}{{site.baseurl}}{{page.url}}#3-konwersja-strony-html-na-markdown-b1-i1)
+* [4. Lista członków grup MS Teams]({{site.url}}{{site.baseurl}}{{page.url}}#4-lista-członków-grup-ms-teams-b1)
+* [5. JOOMLA galeria SIGPLUS]({{site.url}}{{site.baseurl}}{{page.url}}#5-joomla-galeria-sigplus-b1)
 
 <small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W&nbsp;starszych wersjach Firefox - klikając prawym klawiszem na ikonę "Odśwież" (rys.)</small>
-![Firefox-pasek-zakladek.png]({{ site.baseurl }}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){:style="float:right;width:252px;"}
+![Firefox-pasek-zakladek.png]({{site.baseurl}}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){: style="float:right;width:252px;"}
 
 
 **Przywrócenie** pierwotnej strony po użyciu skryptozakładki:  
@@ -40,14 +40,14 @@ Poniższe skrytozakładki oznaczają obszar strony podczas poruszaniu nad nią m
 - Skryptozakładka
 [\[ovHsrc\]](javascript:(function(){var d=document;var lastEl=null;var ov=d.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});d.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=d.elementFromPoint(ev.clientX,ev.clientY);if(ev.shiftKey){var el0=el,i=4;while((el0)&&(i--)){el=el0;el0=el.parentElement;}} ov.style.pointerEvents='auto';return el;} d.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;lastEl=el;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0,128,255,0.25)',outline:'1px solid rgba(0,128,255,0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});ov.addEventListener('click',function(ev){var tx=(lastEl||getEl(ev)).outerHTML;d.body.removeChild(ov);if(!(ev.ctrlKey)){navigator.clipboard.writeText(tx);}else{lastEl.remove();}});})()){: .favlet}
 kopiuje tekst źródła html oznaczonego obszaru 
-<small>([ovHsrc.js]({{ site.url }}{{ site.baseurl }}/download/ovHsrc.js.html))</small>.
+<small>([ovHsrc.js]({{site.url}}{{site.baseurl}}/download/ovHsrc.js.html))</small>.
 Można go skopiować do notatnika i zapisać jako `*.html`, po czym otworzyć w przeglądarce internetowej i dalej kopiować do aplikacji biurowych.  
 - Skryptozakładki
 [\[ovCp1\]](javascript:(function(){var d=document;var lastEl=null;var ov=d.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});d.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=d.elementFromPoint(ev.clientX,ev.clientY);if(ev.shiftKey){var el0=el,i=4;while((el0)&&(i--)){el=el0;el0=el.parentElement;}} ov.style.pointerEvents='auto';return el;} d.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;lastEl=el;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0,128,255,0.25)',outline:'1px solid rgba(0,128,255,0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});function cpToClp1(el){window.getSelection().removeAllRanges();var range=d.createRange();range.selectNode(el);window.getSelection().addRange(range);d.execCommand('copy');window.getSelection().removeAllRanges();} ov.addEventListener('click',function(ev){var el=lastEl||getEl(ev);d.body.removeChild(ov);if(!(ev.ctrlKey)){cpToClp1(el);}else{lastEl.remove();}});})()){: .favlet}
 ,
 [\[ovCp2\]](javascript:(function(){var d=document;var lastEl=null;var ov=d.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});d.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=d.elementFromPoint(ev.clientX,ev.clientY);if(ev.shiftKey){var el0=el,i=4;while((el0)&&(i--)){el=el0;el0=el.parentElement;}} ov.style.pointerEvents='auto';return el;} d.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;lastEl=el;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0,128,255,0.25)',outline:'1px solid rgba(0,128,255,0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});function cpToClp2(el){var x=window.scrollX,y=window.scrollY;var aux=d.createElement('div');aux.setAttribute("contentEditable","true");aux.innerHTML=el.outerHTML;aux.setAttribute("onfocus","document.execCommand('selectAll',false,null)");d.body.appendChild(aux);aux.focus();d.execCommand('copy');d.body.removeChild(aux);window.scrollTo(x,y);} ov.addEventListener('click',function(ev){var el=lastEl||getEl(ev);d.body.removeChild(ov);if(!(ev.ctrlKey)){cpToClp2(el);}else{lastEl.remove();}});})()){: .favlet} 
 kopiują treść oznaczonego obszaru, którą można wkleić wprost do aplikacji biurowych
-<small>([ovCp1.js]({{ site.url }}{{ site.baseurl }}/download/ovCp1.js.html), [ovCp2.js]({{ site.url }}{{ site.baseurl }}/download/ovCp2.js.html) - poprawiona wersja 24.10.2020)</small>.
+<small>([ovCp1.js]({{site.url}}{{site.baseurl}}/download/ovCp1.js.html), [ovCp2.js]({{site.url}}{{site.baseurl}}/download/ovCp2.js.html) - poprawiona wersja 24.10.2020)</small>.
 Można próbować te różne wersje w różnych przeglądarkach (nie zawsze działają skutecznie).
 	* Uwagi:
 		* [Ctrl]+klik - zamiast skopiowania następuje usunięcie obszaru z aktualnego widoku, np. zbędnego obszaru, denerwującej animacji
@@ -80,44 +80,44 @@ można konwertować całe strony HTML na dokument Markdown.
 to skryptozakładka z przykładu na
 [reddit.com](https://www.reddit.com/r/RoamResearch/comments/hsitd3/bookmarklet_copy_all_the_page_content_to_the/#CommentTopMeta--Created--t1_fz0j2r4)
 z włączonymi dodatkami (table, listy zadań, ...)
-<small>([TurnDownAll.js]({{ site.url }}{{ site.baseurl }}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
+<small>([TurnDownAll.js]({{site.url}}{{site.baseurl}}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
 Nie zawsze to działa idealnie...
 
 
 #### 4. Lista członków grup **MS Teams** (b1)
 
 Jest to jeden ze sposobów pobrania listy członków grup z nazwami i loginami Office365. Opiera się na wyłuskiwaniu danych ze strony HTML, czyli zakłada uruchomienie Teams w przeglądarce:  
-![TeamsApp.png]({{ site.baseurl }}/assets/img/TeamsApp.png "TeamsApp.png"){:style="width:25px;"} <https://teams.microsoft.com/>.  
+![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>.  
 <small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - obie wersje mogą działać równolegle).</small>  
 
 Trzeba w oknie głównym widzieć listę "Właściciele" i "Członkowie i goście" (można rozwinąć obie listy):
 
-![ZarzadzanieZespolem.png]({{ site.baseurl }}/assets/img/ZarzadzanieZespolem.png "ZarzadzanieZespolem.png"){:style="float:right;width:50%;"}
+![ZarzadzanieZespolem.png]({{site.baseurl}}/assets/img/ZarzadzanieZespolem.png "ZarzadzanieZespolem.png"){: style="float:right;width:50%;"}
 
-Menu zespołu: ![3kropki.png]({{ site.baseurl }}/assets/img/3kropki.png "3kropki.png"){:style="width:25px;"} \ "Zarządzanie zespołem" 
+Menu zespołu: ![3kropki.png]({{site.baseurl}}/assets/img/3kropki.png "3kropki.png"){: style="width:25px;"} \ "Zarządzanie zespołem" 
 
 albo 
 
-![i_.png]({{ site.baseurl }}/assets/img/i_.png "i_.png"){:style="width:20px;"} w prawym górnym rogu \ "Wyświetl wszystkich członków" (łącze na samym dole listy)  
-![i_PokazInfOKanale.png]({{ site.baseurl }}/assets/img/i_PokazInfOKanale.png "i_PokazInfOKanale.png"){:style="width:39%;"}
+![i_.png]({{site.baseurl}}/assets/img/i_.png "i_.png"){: style="width:20px;"} w prawym górnym rogu \ "Wyświetl wszystkich członków" (łącze na samym dole listy)  
+![i_PokazInfOKanale.png]({{site.baseurl}}/assets/img/i_PokazInfOKanale.png "i_PokazInfOKanale.png"){: style="width:39%;"}
 
 
 **I sposób - skryptozakładka** (zalecane)
 
 Po kliknięciu skryptozakładki 
 [\[TeamsLst\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
-<small>([TeamsLst.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLst.js.html))</small>
+<small>([TeamsLst.js]({{site.url}}{{site.baseurl}}/download/TeamsLst.js.html))</small>
 strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela.  
-<small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli (zob. niżej) widzimy błąd `x is null`{:style="font-size:smaller;"}, albo `Cannot read property of null`{:style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
+<small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli (zob. niżej) widzimy błąd `x is null`{: style="font-size:smaller;"}, albo `Cannot read property of null`{: style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
 
 Aby powrócić do pierwotnego wyglądu, trzeba odświeżyć stronę np. naciskając [F5].
 
 Skryptozakładki 
 [\[TeamsLi\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?" upn="(.*?)"[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['o365','name','title','loc','role'].join("</th><th>")+("</th></tr>\n")+y.join("")+'</table>';})();){: .favlet} 
-<small>([TeamsLi.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLi.js.html))</small>
+<small>([TeamsLi.js]({{site.url}}{{site.baseurl}}/download/TeamsLi.js.html))</small>
 i
 [\[TeamsLImg\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+'</th></tr></thead>\n'+y.join("")+'</table>';})();){: .favlet} 
-<small>([TeamsLImg.js]({{ site.url }}{{ site.baseurl }}/download/TeamsLImg.js.html))</small>
+<small>([TeamsLImg.js]({{site.url}}{{site.baseurl}}/download/TeamsLImg.js.html))</small>
 działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabelę wraz z awatarami do Worda/Excela trzeba najpierw zapisać całą stronę jako HTML na lokalnym dysku, otworzyć (Firefox działa w tym przypadku najlepiej) i wtedy kopiować.</small>
 
 
@@ -153,15 +153,15 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 - - - -
 
 **Dopisywanie wielu osób do zespołu Teams:**
-![Add_Users_Bulk_import.png]({{ site.baseurl }}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){:style="float:right;width:362px; position:relative;top:12px;"}
+![Add_Users_Bulk_import.png]({{site.baseurl}}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){: style="float:right;width:362px; position:relative;top:12px;"}
 
 Gdy mamy listę loginów użytkowników (wraz z "@" jak w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych znakami nowego wiersza lub średnikami (a inne białe znaki okalające są pomijane), co pozwala dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
-"**Refined Microsoft Teams**" do przeglądarki Google Chrome, Microsoft Edge (Chromium) lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import]**. Alternatywnie można korzystać z portalu Microsoft Azure Active Directory lub ze skryptów PowerShell. [Zobacz instrukcję]({{ site.url }}{{ site.baseurl }}/download/Teams-dodawanie_listy_osob.pdf).
+"**Refined Microsoft Teams**" do przeglądarki Google Chrome, Microsoft Edge (Chromium) lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import]**. Alternatywnie można korzystać z portalu Microsoft Azure Active Directory lub ze skryptów PowerShell. [Zobacz instrukcję]({{site.url}}{{site.baseurl}}/download/Teams-dodawanie_listy_osob.pdf).
 
 
 - - - -
 .  
-**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować według [tej instrukcji]({{ site.url }}{{ site.baseurl }}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
+**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować według [tej instrukcji]({{site.url}}{{site.baseurl}}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
 
 
 **Teams - odświeżanie danych:**
@@ -177,8 +177,20 @@ Gdy mamy listę loginów użytkowników (wraz z "@" jak w kolumnie "o365") to mo
 
 Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
 Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera, który zawiera obrazy do galerii i kliknąć `[sig+]`.  
-<small>(Zob. też [plik źródłowy img2sigplus.js]({{ site.url }}{{ site.baseurl }}/download/img2sigplus.js.html) )</small>
+<small>(Zob. też [plik źródłowy img2sigplus.js]({{site.url}}{{site.baseurl}}/download/img2sigplus.js.html) )</small>
 
 
 <style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px} pre.highlight code{font-size:smaller;}</style>
 
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img');
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->
