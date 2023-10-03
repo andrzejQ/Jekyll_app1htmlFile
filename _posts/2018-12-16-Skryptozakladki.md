@@ -152,14 +152,6 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 
 
 ...  
-- - - -
-
-**Dopisywanie wielu osób do zespołu Teams:**
-![Add_Users_Bulk_import.png]({{site.baseurl}}/assets/img/Add_Users_Bulk_import.png "Add_Users_Bulk_import.png"){: style="float:right;width:362px; position:relative;top:12px;"}
-
-Gdy mamy listę loginów użytkowników (wraz z "@" jak w kolumnie "o365") to można przygotować zestaw loginów rozdzielonych znakami nowego wiersza lub średnikami (a inne białe znaki okalające są pomijane), co pozwala dodawać na raz więcej osób do (kolejnego) zespołu korzystając z dodatku  
-"**Refined Microsoft Teams**" do przeglądarki Google Chrome, Microsoft Edge (Chromium) lub Firefox. Dodatek zmienia nieco okno dodawania użytkownika, gdzie pojawia się dodatkowe pole z przyciskiem **[Bulk import]**. Alternatywnie można korzystać z portalu Microsoft Azure Active Directory lub ze skryptów PowerShell. [Zobacz instrukcję]({{site.url}}{{site.baseurl}}/download/Teams-dodawanie_listy_osob.pdf).
-
 
 - - - -
 .  
