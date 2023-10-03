@@ -86,6 +86,8 @@ Nie zawsze to działa idealnie...
 
 #### 4. Lista członków grup **MS Teams** (b1)
 
+<small> (2023-10-03. Przywrócono działanie poniższych skryptozakładek po zmianach w MS Teams. Na starszych wersjach: prawy klawisz myszy, "Usuń zakładkę" i ponownie zaciągamy nowsze skryptozakładki.) </small>
+
 Jest to jeden ze sposobów pobrania listy członków grup z nazwami i loginami Office365. Opiera się na wyłuskiwaniu danych ze strony HTML, czyli zakłada uruchomienie Teams w przeglądarce:  
 ![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>.  
 <small>(Równocześnie można mieć uruchomioną aplikację klasyczną Teams - obie wersje mogą działać równolegle).</small>  
@@ -105,7 +107,7 @@ albo
 **I sposób - skryptozakładka** (zalecane)
 
 Po kliknięciu skryptozakładki 
-[\[TeamsLst\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
+[\[TeamsLst\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name.*?aria\-label="(.*?)[\,"].*?upn="(.*?)"/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a[2]+"</td><td>"+a[1]+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>o365</th><th>name</th></tr>\n'+y.join("")+"</table>";})();){: .favlet} 
 <small>([TeamsLst.js]({{site.url}}{{site.baseurl}}/download/TeamsLst.js.html))</small>
 strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można kopiować do Notatnika, Worda czy Excela.  
 <small>Jeśli nic się nie dzieje po kliknięcu, a w konsoli (zob. niżej) widzimy błąd `x is null`{: style="font-size:smaller;"}, albo `Cannot read property of null`{: style="font-size:smaller;"}, to znaczy, że to nie jest właściwa strona Teams na której jest lista osób.</small>
@@ -113,10 +115,10 @@ strona z listą osób w MS Teams powinna się zmienić w tabelę, którą można
 Aby powrócić do pierwotnego wyglądu, trzeba odświeżyć stronę np. naciskając [F5].
 
 Skryptozakładki 
-[\[TeamsLi\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?" upn="(.*?)"[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['o365','name','title','loc','role'].join("</th><th>")+("</th></tr>\n")+y.join("")+'</table>';})();){: .favlet} 
+[\[TeamsLi\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name.*?" upn="(.*?)"[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['o365','name','title','loc','role'].join("</th><th>")+("</th></tr>\n")+y.join("")+'</table>';})();){: .favlet} 
 <small>([TeamsLi.js]({{site.url}}{{site.baseurl}}/download/TeamsLi.js.html))</small>
 i
-[\[TeamsLImg\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name".*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+'</th></tr></thead>\n'+y.join("")+'</table>';})();){: .favlet} 
+[\[TeamsLImg\]](javascript:(function(){var x=document.querySelector("div[class^='td-members-']");var t=x.innerHTML;var re=/<div class="td\-member\-name.*?(<img .+?" upn="(.*?)".+?>)[\s\S]+?\<div class="td-member-display-name"><span .*?>(.*?)<\/span>.+?"::teamMember.jobTitle" aria-label=(?:"undefined|")(.*?)[\,"](?:.*?::teamMember.userLocation" aria-label=(?:"undefined|")(.*?)[\,"])?.+?\-member\-role.+?<span .+?>(.*)<\/span>(?:<\/div>)?<!----><!---->/g;var y=[...t.matchAll(re)].map(function(a){return"<tr><td>"+a.slice(1,).join("</td><td>")+"</td></tr>\n";});document.body.innerHTML='<table border="1" style="display:block;overflow:auto;height:'+window.innerHeight+'px;width:100%;"><tr><th>'+['img','o365','name','title','loc','role'].join("</th><th>")+'</th></tr></thead>\n'+y.join("")+'</table>';})();){: .favlet} 
 <small>([TeamsLImg.js]({{site.url}}{{site.baseurl}}/download/TeamsLImg.js.html))</small>
 działają podobnie, a dają więcej kolumn tabeli. <small>Aby skopiować tabelę wraz z awatarami do Worda/Excela trzeba najpierw zapisać całą stronę jako HTML na lokalnym dysku, otworzyć (Firefox działa w tym przypadku najlepiej) i wtedy kopiować.</small>
 
@@ -136,7 +138,7 @@ Wklejamy poniższy kod i uruchamiamy ([Enter], czasem [Ctrl+Enter], albo ikonka 
 
 <div><pre><code style="font-size:smaller;">var x = document.querySelector(&quot;div[class^=&apos;td-members-&apos;]&quot;) ;
 var t = x.innerHTML;
-var re =/&lt;div class=&quot;td\-member\-name&quot;.*?aria\-label=&quot;(.*?)[\,&quot;].*?upn=&quot;(.*?)&quot;/g;
+var re =/&lt;div class=&quot;td\-member\-name.*?aria\-label=&quot;(.*?)[\,&quot;].*?upn=&quot;(.*?)&quot;/g;
 var y = [...t.matchAll(re)].map(function(a) {return a[2]+&quot;\t&quot;+a[1];});
 document.body.innerHTML = &apos;&lt;pre&gt;&apos;+y.join(&quot;\n&quot;)+&apos;&lt;/pre&gt;&apos;;
 </code></pre></div>
