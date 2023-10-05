@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="en" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>addTeamsMb.js</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc2 {
+	color: #008000;
+}
+.sc3 {
+	color: #008080;
+}
+.sc4 {
+	color: #FF8000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc14 {
+	font-weight: bold;
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc3">/***************************************************
+Skryptozakładka:
+Lista użytkowników o365 dodawana hurtowo do MS Teams
+***************************************************/</span><span class="sc0">
+
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">dely</span><span class="sc10">=</span><span class="sc4">1000</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc2">//pomiędzy kolejnymi osobami
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">msgPrpt</span><span class="sc10">=</span><span class="sc0"> </span><span class="sc7">'To podaj (wklej) listę członków:'</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">liSep</span><span class="sc10">=</span><span class="sc14">/[,;\s]+/</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc2">//lista rozdzielona przecinkami, średnikami i dowolnymi białymi znakami, w tym nowego wiersza
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">msgOpenW</span><span class="sc10">=</span><span class="sc0"> </span><span class="sc7">'Otwórz okno "Dodawanie członków do zespołu"'</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">msgNtFnd</span><span class="sc10">=</span><span class="sc0"> </span><span class="sc7">'!! Chyba nie można znaleźć/dodać: '</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">msgNtClk</span><span class="sc10">=</span><span class="sc0"> </span><span class="sc7">'!!! Nie można kliknąć "Dodaj" dla: '</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">sInp</span><span class="sc10">=</span><span class="sc7">'div.ts-people-picker input[data-tid="peoplePicker"]'</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">sDrop</span><span class="sc10">=</span><span class="sc7">'div[data-tid="peoplepicker-dropdown"]'</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">sAdd</span><span class="sc10">=</span><span class="sc7">'button.ts-btn[data-tid="createTeam-AddMembers"]'</span><span class="sc10">;</span><span class="sc0">
+
+</span><span class="sc2">//rslv==resolve, rjct==reject
+</span><span class="sc0">
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">checkElem</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">fnTrue</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">tmOut</span><span class="sc10">=</span><span class="sc4">2500</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+  </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc5">new</span><span class="sc0"> </span><span class="sc11">Promise</span><span class="sc10">((</span><span class="sc11">rslv</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">rjct</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">setTimeout</span><span class="sc10">(()</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+      </span><span class="sc2">// rjct(`err: $('${sel}')`) // to stop in catch(err){}
+</span><span class="sc0">      </span><span class="sc11">rslv</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc7">''</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">},</span><span class="sc0"> </span><span class="sc11">tmOut</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc2">//https://stackoverflow.com/questions/16149431/make-function-wait-until-element-exists#answer-53269990
+</span><span class="sc0">    </span><span class="sc10">(</span><span class="sc5">async</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+      </span><span class="sc5">while</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc0"> </span><span class="sc10">!(</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">).</span><span class="sc11">length</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">fnTrue</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">))</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc5">await</span><span class="sc0"> </span><span class="sc5">new</span><span class="sc0"> </span><span class="sc11">Promise</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">rslv</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0">  </span><span class="sc11">requestAnimationFrame</span><span class="sc10">(</span><span class="sc11">rslv</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0">
+      </span><span class="sc10">};</span><span class="sc0">
+      </span><span class="sc11">rslv</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">);</span><span class="sc0"> 
+    </span><span class="sc10">})();</span><span class="sc0">
+  </span><span class="sc10">});</span><span class="sc0">
+</span><span class="sc10">};</span><span class="sc0">
+
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">$inp</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sInp</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span class="sc0"> </span><span class="sc11">$inp</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc11">msgOpenW</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+  </span><span class="sc5">try</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc10">(</span><span class="sc5">async</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+      </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">users</span><span class="sc10">=</span><span class="sc19">prompt</span><span class="sc10">(</span><span class="sc11">msgPrpt</span><span class="sc10">).</span><span class="sc11">split</span><span class="sc10">(</span><span class="sc11">liSep</span><span class="sc10">);</span><span class="sc0">
+      </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">user</span><span class="sc0"> </span><span class="sc5">of</span><span class="sc0"> </span><span class="sc11">users</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">user</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc0"> </span><span class="sc10">&gt;=</span><span class="sc0"> </span><span class="sc4">4</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+          </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc7">'===== user ===== '</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">user</span><span class="sc10">);</span><span class="sc0">
+          </span><span class="sc5">await</span><span class="sc0"> </span><span class="sc11">checkElem</span><span class="sc10">(</span><span class="sc11">sAdd</span><span class="sc10">,(</span><span class="sc11">sel</span><span class="sc10">)=&gt;</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">).</span><span class="sc11">prop</span><span class="sc10">(</span><span class="sc7">'disabled'</span><span class="sc10">));</span><span class="sc0"> </span><span class="sc2">//w gotowości do wpisywania, tj, 'disabled'
+</span><span class="sc0">          </span><span class="sc11">$inp</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sInp</span><span class="sc10">);</span><span class="sc0">
+          </span><span class="sc11">$inp</span><span class="sc10">.</span><span class="sc19">focus</span><span class="sc10">().</span><span class="sc11">val</span><span class="sc10">(</span><span class="sc11">user</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc2">//pokazuje się tekst w &lt;input&gt;
+</span><span class="sc0">          </span><span class="sc11">$inp</span><span class="sc10">.</span><span class="sc11">change</span><span class="sc10">();</span><span class="sc0"> </span><span class="sc2">//zaraz pojawi się lista wyboru
+</span><span class="sc0">          </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">selDrop</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">await</span><span class="sc0"> </span><span class="sc11">checkElem</span><span class="sc10">(</span><span class="sc11">sDrop</span><span class="sc10">,(</span><span class="sc11">sel</span><span class="sc10">)=&gt;</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">).</span><span class="sc19">text</span><span class="sc10">().</span><span class="sc11">trim</span><span class="sc10">(),</span><span class="sc4">7000</span><span class="sc10">);</span><span class="sc0">
+          </span><span class="sc2">//console.log  ('selDrop= ',selDrop);
+</span><span class="sc0">          </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span class="sc0"> </span><span class="sc11">selDrop</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc11">msgNtFnd</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">user</span><span class="sc10">)}</span><span class="sc0">
+          </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc2">//jest lista i zawiera jakiś niepusty tekst $down.text().trim() //np. "Centrum E-learningu CEL2" 
+</span><span class="sc0">            </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sInp</span><span class="sc10">).</span><span class="sc11">trigger</span><span class="sc10">({</span><span class="sc11">type</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'keydown'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">which</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc4">9</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">keyCode</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc4">9</span><span class="sc10">});</span><span class="sc0"> </span><span class="sc2">//naciskam kl. &lt;tab&gt; -  przycisk Dodaj staje sie niebieski
+</span><span class="sc0">            </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">selAdd</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">await</span><span class="sc0"> </span><span class="sc11">checkElem</span><span class="sc10">(</span><span class="sc11">sAdd</span><span class="sc10">,(</span><span class="sc11">sel</span><span class="sc10">)=&gt;!</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">).</span><span class="sc11">prop</span><span class="sc10">(</span><span class="sc7">'disabled'</span><span class="sc10">));</span><span class="sc0"> </span><span class="sc2">//sprawdzam, że nie jest 'disabled'
+</span><span class="sc0">            </span><span class="sc2">//console.log  ('selAdd= ',selAdd);
+</span><span class="sc0">            </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span class="sc0"> </span><span class="sc11">selAdd</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc11">msgNtClk</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">user</span><span class="sc10">)}</span><span class="sc0">
+            </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+              </span><span class="sc11">selAdd</span><span class="sc10">.</span><span class="sc11">click</span><span class="sc10">();</span><span class="sc0">
+              </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sInp</span><span class="sc10">).</span><span class="sc19">focus</span><span class="sc10">();</span><span class="sc0"> </span><span class="sc2">//tak dla zabicia czasu
+</span><span class="sc0">              </span><span class="sc5">await</span><span class="sc0"> </span><span class="sc5">new</span><span class="sc0"> </span><span class="sc11">Promise</span><span class="sc10">(</span><span class="sc11">rslv</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc19">setTimeout</span><span class="sc10">(</span><span class="sc11">rslv</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">dely</span><span class="sc10">));</span><span class="sc0"> </span><span class="sc2">//jeszcze więcej zabijania czasu
+</span><span class="sc0">              </span><span class="sc5">await</span><span class="sc0"> </span><span class="sc11">checkElem</span><span class="sc10">(</span><span class="sc11">sAdd</span><span class="sc10">,(</span><span class="sc11">sel</span><span class="sc10">)=&gt;</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">sel</span><span class="sc10">).</span><span class="sc11">prop</span><span class="sc10">(</span><span class="sc7">'disabled'</span><span class="sc10">));</span><span class="sc0"> </span><span class="sc2">//zrobione = Add 'disabled'
+</span><span class="sc0">            </span><span class="sc10">}</span><span class="sc0">
+          </span><span class="sc10">}</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc2">//if
+</span><span class="sc0">      </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc2">//for
+</span><span class="sc0">    </span><span class="sc10">})();</span><span class="sc0"> </span><span class="sc2">//async
+</span><span class="sc0">  </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">catch</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">err</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">alert</span><span class="sc10">(</span><span class="sc7">'!! '</span><span class="sc10">+</span><span class="sc11">err</span><span class="sc10">);</span><span class="sc0">
+  </span><span class="sc10">}</span><span class="sc0">
+</span><span class="sc10">}</span><span class="sc0">
+</span></div></body>
+</html>

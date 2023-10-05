@@ -11,9 +11,10 @@ categories: jekyll onefileapp
 
 * [1. Biblioteki skryptozakładek]({{site.url}}{{site.baseurl}}{{page.url}}#1-biblioteki-skryptozakładek-)
 * [2. Kopiowanie fragmentów strony www]({{site.url}}{{site.baseurl}}{{page.url}}#2-kopiowanie-fragmentów-strony-www-b1)
-* [3. Konwersja strony HTML na Markdown]({{site.url}}{{site.baseurl}}{{page.url}}#3-konwersja-strony-html-na-markdown-b1-i1)
+* [3. Hurtowe dodawanie członków w MS Teams]({{site.url}}{{site.baseurl}}{{page.url}}#3-hurtowe-dodawanie-członków-w-ms-teams-b1)
 * [4. Lista członków grup MS Teams]({{site.url}}{{site.baseurl}}{{page.url}}#4-lista-członków-grup-ms-teams-b1)
-* [5. JOOMLA galeria SIGPLUS]({{site.url}}{{site.baseurl}}{{page.url}}#5-joomla-galeria-sigplus-b1)
+* [5. Konwersja strony HTML na Markdown]({{site.url}}{{site.baseurl}}{{page.url}}#5-konwersja-strony-html-na-markdown-b1-i1)
+* [6. JOOMLA galeria SIGPLUS]({{site.url}}{{site.baseurl}}{{page.url}}#6-joomla-galeria-sigplus-b1)
 
 <small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W&nbsp;starszych wersjach Firefox - klikając prawym klawiszem na ikonę "Odśwież" (rys.)</small>
 ![Firefox-pasek-zakladek.png]({{site.baseurl}}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){: style="float:right;width:252px;"}
@@ -72,16 +73,20 @@ nagłówek | tabeli | z formatowaniem
   3      | 4      | *5*
 
 
-#### 3. Konwersja strony HTML na Markdown (b1, i1)
 
-Z pomocą konwertera HTML -> Markdown "**turndown**" (<https://github.com/domchristie/turndown>) autorstwa Dom Christie 
-można konwertować całe strony HTML na dokument Markdown.  
-[\[TD-\]](javascript:Promise.all([import('https://unpkg.com/turndown?module'),import('https://unpkg.com/@tehshrike/readability@0.2.0'),]).then(async([{default:TDs},{default:Rdby}])=>{const{title,byline,content}=new Rdby(document.cloneNode(true)).parse();const tdPlg=await import('https://unpkg.com/turndown-plugin-gfm?module');const tdSrv=new TDs({headingStyle:'atx',hr:'- - -',bulletListMarker:'*',codeBlockStyle:'fenced',emDelimiter:'_',});tdSrv.use(tdPlg.gfm);const markdown=tdSrv.turndown(content);const roamText=`* [${title}](${document.URL})\n\n${markdown}`;document.body.innerHTML='<pre></pre>';document.body.children[0].innerText=roamText;})){: .favlet} 
-to skryptozakładka z przykładu na
-[reddit.com](https://www.reddit.com/r/RoamResearch/comments/hsitd3/bookmarklet_copy_all_the_page_content_to_the/#CommentTopMeta--Created--t1_fz0j2r4)
-z włączonymi dodatkami (table, listy zadań, ...)
-<small>([TurnDownAll.js]({{site.url}}{{site.baseurl}}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
-Nie zawsze to działa idealnie...
+#### 3. Hurtowe dodawanie członków w **MS Teams** (b1)
+
+<small> (2023-10-05. UWAGA - to bardzo wczesna wersja alfa skryptozakładki. Można sobie modyfikować kod źródłowy `addTeamsMb.js`, poddawać minimalizacji, np. w Notatniku++/JSTool i przekształcać w <https://katanya.co.uk/labs/bookmarklet-generator> )</small>
+
+1. Przeciągnij skryptozkładkę 
+[\[TeamsMb\]](javascript:(function()%7Bvar%20dely%3D1000%3Bvar%20msgPrpt%3D'To%20podaj%20(wklej)%20list%C4%99%20cz%C5%82onk%C3%B3w%3A'%3Bvar%20liSep%3D%2F%5B%2C%3B%5Cs%5D%2B%2F%3Bvar%20msgOpenW%3D'Otw%C3%B3rz%20okno%20%22Dodawanie%20cz%C5%82onk%C3%B3w%20do%20zespo%C5%82u%22'%3Bvar%20msgNtFnd%3D'!!%20Chyba%20nie%20mo%C5%BCna%20znale%C5%BA%C4%87%2Fdoda%C4%87%3A%20'%3Bvar%20msgNtClk%3D'!!!%20Nie%20mo%C5%BCna%20klikn%C4%85%C4%87%20%22Dodaj%22%20dla%3A%20'%3Bvar%20sInp%3D'div.ts-people-picker%20input%5Bdata-tid%3D%22peoplePicker%22%5D'%3Bvar%20sDrop%3D'div%5Bdata-tid%3D%22peoplepicker-dropdown%22%5D'%3Bvar%20sAdd%3D'button.ts-btn%5Bdata-tid%3D%22createTeam-AddMembers%22%5D'%3Bvar%20checkElem%3D(sel%2CfnTrue%2CtmOut%3D2500)%3D%3E%7Breturn%20new%20Promise((rslv%2Crjct)%3D%3E%7BsetTimeout(()%3D%3E%7Brslv(%24(''))%3B%7D%2CtmOut)%3B(async()%3D%3E%7Bwhile(!(%24(sel).length%26%26fnTrue(sel)))%7Bawait%20new%20Promise(rslv%3D%3ErequestAnimationFrame(rslv))%3B%7D%3Brslv(%24(sel))%3B%7D)()%3B%7D)%3B%7D%3Bvar%20%24inp%3D%24(sInp)%3Bif(!%24inp.length)alert(msgOpenW)%3Belse%7Btry%7B(async()%3D%3E%7Bconst%20users%3Dprompt(msgPrpt).split(liSep)%3Bfor(const%20user%20of%20users)%7Bif(user.length%3E%3D4)%7Bconsole.log('%3D%3D%3D%3D%3D%20user%20%3D%3D%3D%3D%3D%20'%2Buser)%3Bawait%20checkElem(sAdd%2C(sel)%3D%3E%24(sel).prop('disabled'))%3B%24inp%3D%24(sInp)%3B%24inp.focus().val(user)%3B%24inp.change()%3Bconst%20selDrop%3Dawait%20checkElem(sDrop%2C(sel)%3D%3E%24(sel).text().trim()%2C7000)%3Bif(!selDrop.length)%7Balert(msgNtFnd%2Buser)%7Delse%7B%24(sInp).trigger(%7Btype%3A'keydown'%2Cwhich%3A9%2CkeyCode%3A9%7D)%3Bconst%20selAdd%3Dawait%20checkElem(sAdd%2C(sel)%3D%3E!%24(sel).prop('disabled'))%3Bif(!selAdd.length)%7Balert(msgNtClk%2Buser)%7Delse%7BselAdd.click()%3B%24(sInp).focus()%3Bawait%20new%20Promise(rslv%3D%3EsetTimeout(rslv%2Cdely))%3Bawait%20checkElem(sAdd%2C(sel)%3D%3E%24(sel).prop('disabled'))%3B%7D%7D%7D%7D%7D)()%3B%7Dcatch(err)%7Balert('!!%20'%2Berr)%3B%7D%7D%7D)()){: .favlet}
+<small>([addTeamsMb.js]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html))</small>
+do swojego paska zakładek.
+2. Przygotuj listę adresów e-mail użytkowników, których chcesz dodać do zespołu (powinni to być nowi użytkownicy). Np. w kolumnie Excela. Pomijane będą wszystkie napisy krótsze niż 4 znaki - więc tak można nazwać kolumnę.
+5. Otwórz MS Teams w przeglądarce, ![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>. Zaloguj się, i otórz okno dodawania członków zespołu (tak można dodać pojedynczą osobę).
+6. Kliknij skryptozakładkę **[TeamsMb]** i wyskakującym oknie wklej listę osób do dodania. Lista być rozdzielana przecinkami, średnikami i dowolnymi białymi znakami, w tym nowego wiersza, czyli można ją wprost skopiować np. z Excela.
+7. Powinno nastąpić dodawanie kolejnych członków. 
+
 
 
 #### 4. Lista członków grup **MS Teams** (b1)
@@ -167,7 +172,20 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 	- Usuń wszystko z `%AppData%\Microsoft\Teams`
 
 
-#### 5. JOOMLA galeria SIGPLUS (b1)
+#### 5. Konwersja strony HTML na Markdown (b1, i1)
+
+Z pomocą konwertera HTML -> Markdown "**turndown**" (<https://github.com/domchristie/turndown>) autorstwa Dom Christie 
+można konwertować całe strony HTML na dokument Markdown.  
+[\[TD-\]](javascript:Promise.all([import('https://unpkg.com/turndown?module'),import('https://unpkg.com/@tehshrike/readability@0.2.0'),]).then(async([{default:TDs},{default:Rdby}])=>{const{title,byline,content}=new Rdby(document.cloneNode(true)).parse();const tdPlg=await import('https://unpkg.com/turndown-plugin-gfm?module');const tdSrv=new TDs({headingStyle:'atx',hr:'- - -',bulletListMarker:'*',codeBlockStyle:'fenced',emDelimiter:'_',});tdSrv.use(tdPlg.gfm);const markdown=tdSrv.turndown(content);const roamText=`* [${title}](${document.URL})\n\n${markdown}`;document.body.innerHTML='<pre></pre>';document.body.children[0].innerText=roamText;})){: .favlet} 
+to skryptozakładka z przykładu na
+[reddit.com](https://www.reddit.com/r/RoamResearch/comments/hsitd3/bookmarklet_copy_all_the_page_content_to_the/#CommentTopMeta--Created--t1_fz0j2r4)
+z włączonymi dodatkami (table, listy zadań, ...)
+<small>([TurnDownAll.js]({{site.url}}{{site.baseurl}}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
+Nie zawsze to działa idealnie...
+
+
+
+#### 6. JOOMLA galeria SIGPLUS (b1)
 
 Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
 Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera, który zawiera obrazy do galerii i kliknąć `[sig+]`.  
