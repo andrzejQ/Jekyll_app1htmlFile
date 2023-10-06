@@ -15,6 +15,7 @@ categories: jekyll onefileapp
 * [4. Lista członków grup MS Teams]({{site.url}}{{site.baseurl}}{{page.url}}#4-lista-członków-grup-ms-teams-b1)
 * [5. Konwersja strony HTML na Markdown]({{site.url}}{{site.baseurl}}{{page.url}}#5-konwersja-strony-html-na-markdown-b1-i1)
 * [6. JOOMLA galeria SIGPLUS]({{site.url}}{{site.baseurl}}{{page.url}}#6-joomla-galeria-sigplus-b1)
+* [7. Skryptozakładki - notatki]({{site.url}}{{site.baseurl}}{{page.url}}#7-skryptozakładki---notatki)
 
 <small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W&nbsp;starszych wersjach Firefox - klikając prawym klawiszem na ikonę "Odśwież" (rys.)</small>
 ![Firefox-pasek-zakladek.png]({{site.baseurl}}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){: style="float:right;width:252px;"}
@@ -200,6 +201,28 @@ Nie zawsze to działa idealnie...
 Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
 Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera, który zawiera obrazy do galerii i kliknąć `[sig+]`.  
 <small>(Zob. też [plik źródłowy img2sigplus.js]({{site.url}}{{site.baseurl}}/download/img2sigplus.js.html) )</small>
+
+
+#### 7. Skryptozakładki - notatki
+
+A. [Tworzenie skryptozakładki](https://www.freecodecamp.org/news/what-are-bookmarklets/): 
+1. Plik "*.js" musi przestrzegać ściśle składni `{..}` i `;`. Stosuj krótkie nazwy zmiennych i funkcji. Nie oszczędzaj na komentarzach.
+2. Otocz kod anonimową funkcją: `javascript: (() => {` ... `})();` (automatycznie uruchamianą).
+3. Testowanie: przeglądarka \ [F12] \ Konsola. Wklej kod JavaScript. Uruchom.
+4. Minimalizacja do 1 wiersza, np. Notatniku++/JSTool. Trzeba dopisać średniki na końcu wierszy, gdy wynik jest wielowierszowy.
+5. Wklej jako treść nowej zakładki.
+
+
+B. Drobne problemy z umieszczaniem skryptozakładek na stronach HTML.
+
+1. Skryptozakładkę można zamieścić na stronie HTML jako odnośnik: `<a href="javascript:(()=>{` ...  `})();">nazwa</a>`.
+2. Na stronach generowanych z pomocą MarkDown również można zamieszczać ją w składni: `[nazwa](javascript:(()=>{` ...  `})();)`. Może się zdarzyć, że niektóre fragmenty kodu mogą zaburzyć interpretację MarkDown. Wtedy można skorzystać z konwersji URL encode. (Błąd objawia się "wyciekaniem" kodu js na tekst strony).
+3. Można też po prostu unikać niektórych sformułowań języka. Kilka przykładów do omijania w przypadku MarkDown na stronach Jekyll (nie jest to dokładnie przetestowane): 
+	* jest problem z `'tekst '`, czyli gdy jest spacja przed zamykającycm apostrofem; pomaga np. `'tekst -'`.
+	* chyba nie można wstawić: `' " " '` ale działa `' [ " " ]'`
+
+Odnośniki:
+* <https://www.freecodecamp.org/news/what-are-bookmarklets/>
 
 
 <style>.favlet{background-color:Lavender;font-weight:bold;padding:0 3px} pre.highlight code{font-size:smaller;}</style>
