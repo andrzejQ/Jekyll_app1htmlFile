@@ -76,17 +76,26 @@ nagłówek | tabeli | z formatowaniem
 
 #### 3. Hurtowe dodawanie członków w **MS Teams** (b1)
 
-<small> (2023-10-05. UWAGA - to bardzo wczesna wersja alfa skryptozakładki. Można sobie modyfikować kod źródłowy `addTeamsMb.js`, poddawać minimalizacji, np. w Notatniku++/JSTool i przekształcać w <https://katanya.co.uk/labs/bookmarklet-generator> )</small>
+<small> (2023-10-05. UWAGA - to bardzo wczesna wersja skryptozakładki. Można sobie modyfikować kod źródłowy 
+[**addTeamsMb.js**]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html)
+, poddawać minimalizacji, np. w Notatniku++/JSTool i edytując zakładkę wkleić jako nową treść</small>
 
 1. Przeciągnij skryptozkładkę 
-[\[TeamsMb\]](javascript:(function()%7Bvar%20dely%3D1000%3Bvar%20msgPrpt%3D'To%20podaj%20(wklej)%20list%C4%99%20cz%C5%82onk%C3%B3w%3A'%3Bvar%20liSep%3D%2F%5B%2C%3B%5Cs%5D%2B%2F%3Bvar%20msgOpenW%3D'Otw%C3%B3rz%20okno%20%22Dodawanie%20cz%C5%82onk%C3%B3w%20do%20zespo%C5%82u%22'%3Bvar%20msgNtFnd%3D'!!%20Chyba%20nie%20mo%C5%BCna%20znale%C5%BA%C4%87%2Fdoda%C4%87%3A%20'%3Bvar%20msgNtClk%3D'!!!%20Nie%20mo%C5%BCna%20klikn%C4%85%C4%87%20%22Dodaj%22%20dla%3A%20'%3Bvar%20sInp%3D'div.ts-people-picker%20input%5Bdata-tid%3D%22peoplePicker%22%5D'%3Bvar%20sDrop%3D'div%5Bdata-tid%3D%22peoplepicker-dropdown%22%5D'%3Bvar%20sAdd%3D'button.ts-btn%5Bdata-tid%3D%22createTeam-AddMembers%22%5D'%3Bvar%20checkElem%3D(sel%2CfnTrue%2CtmOut%3D2500)%3D%3E%7Breturn%20new%20Promise((rslv%2Crjct)%3D%3E%7BsetTimeout(()%3D%3E%7Brslv(%24(''))%3B%7D%2CtmOut)%3B(async()%3D%3E%7Bwhile(!(%24(sel).length%26%26fnTrue(sel)))%7Bawait%20new%20Promise(rslv%3D%3ErequestAnimationFrame(rslv))%3B%7D%3Brslv(%24(sel))%3B%7D)()%3B%7D)%3B%7D%3Bvar%20%24inp%3D%24(sInp)%3Bif(!%24inp.length)alert(msgOpenW)%3Belse%7Btry%7B(async()%3D%3E%7Bconst%20users%3Dprompt(msgPrpt).split(liSep)%3Bfor(const%20user%20of%20users)%7Bif(user.length%3E%3D4)%7Bconsole.log('%3D%3D%3D%3D%3D%20user%20%3D%3D%3D%3D%3D%20'%2Buser)%3Bawait%20checkElem(sAdd%2C(sel)%3D%3E%24(sel).prop('disabled'))%3B%24inp%3D%24(sInp)%3B%24inp.focus().val(user)%3B%24inp.change()%3Bconst%20selDrop%3Dawait%20checkElem(sDrop%2C(sel)%3D%3E%24(sel).text().trim()%2C7000)%3Bif(!selDrop.length)%7Balert(msgNtFnd%2Buser)%7Delse%7B%24(sInp).trigger(%7Btype%3A'keydown'%2Cwhich%3A9%2CkeyCode%3A9%7D)%3Bconst%20selAdd%3Dawait%20checkElem(sAdd%2C(sel)%3D%3E!%24(sel).prop('disabled'))%3Bif(!selAdd.length)%7Balert(msgNtClk%2Buser)%7Delse%7BselAdd.click()%3B%24(sInp).focus()%3Bawait%20new%20Promise(rslv%3D%3EsetTimeout(rslv%2Cdely))%3Bawait%20checkElem(sAdd%2C(sel)%3D%3E%24(sel).prop('disabled'))%3B%7D%7D%7D%7D%7D)()%3B%7Dcatch(err)%7Balert('!!%20'%2Berr)%3B%7D%7D%7D)()){: .favlet}
-<small>([addTeamsMb.js]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html))</small>
+[\[TeamsMb\]](javascript:(()=>{const dely=1000;const liSep=/[,;\s]+/;const uTst=/.@.../;const msgOpenW='!\nNajpierw otwórz okno: Dodawanie członków do zespołu... \nFirst, open the window: Add members to team...';const msgPrpt='Tu wklej listę członków: * Paste member list here:';const msgCdnt='!!\nNie można znaleźć/dodać:\nCould not find/add:\n!!\n';const sInp='div.ts-people-picker input[data-tid="peoplePicker"]';const sDrop='div[data-tid="peoplepicker-dropdown"]';const sAdd='button.ts-btn[data-tid="createTeam-AddMembers"]';const checkElem=(sel,fnTrue,tmOut=2500)=>{return new Promise((rslv,rjct)=>{setTimeout(()=>{rslv($(''));},tmOut);(async()=>{while(!($(sel).length&&fnTrue(sel))){await new Promise(rslv=>requestAnimationFrame(rslv));};rslv($(sel));})();});};let $inp=$(sInp);if(!$inp.length){alert(msgOpenW);return;};try{(async()=>{const users=prompt(msgPrpt).split(liSep);for(const user of users){if(uTst.test(user)){console.log('====='+user);await checkElem(sAdd,(sel)=>$(sel).prop('disabled'));$inp=$(sInp);$inp.focus().val(user);$inp.change();let selDrop=await checkElem(sDrop,(sel)=>$(sel).text().trim(),7000);if(!selDrop.length)alert(msgCdnt+user);else{$(sInp).trigger({type:'keydown',which:9,keyCode:9});let selAdd=await checkElem(sAdd,(sel)=>!$(sel).prop('disabled'));if(!selAdd.length)alert(msgCdnt+user);else{selAdd.click();$(sInp).focus();await new Promise(rslv=>setTimeout(rslv,dely));await checkElem(sAdd,(sel)=>$(sel).prop('disabled'));}}}}})();}catch(err){alert(err);}})();){:.favlet}
+<small>(kod źródłowy: [addTeamsMb.js]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html))</small>
 do swojego paska zakładek.
-2. Przygotuj listę adresów e-mail użytkowników, których chcesz dodać do zespołu (powinni to być nowi użytkownicy). Np. w kolumnie Excela. Pomijane będą wszystkie napisy krótsze niż 4 znaki - więc tak można nazwać kolumnę.
-5. Otwórz MS Teams w przeglądarce, ![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>. Zaloguj się, i otórz okno dodawania członków zespołu (tak można dodać pojedynczą osobę).
-6. Kliknij skryptozakładkę **[TeamsMb]** i wyskakującym oknie wklej listę osób do dodania. Lista być rozdzielana przecinkami, średnikami i dowolnymi białymi znakami, w tym nowego wiersza, czyli można ją wprost skopiować np. z Excela.
-7. Powinno nastąpić dodawanie kolejnych członków. 
+2. Przygotuj listę adresów e-mail użytkowników (powinni to być nowi użytkownicy), których chcesz dodać do zespołu, np. w kolumnie Excela. Komórki nie zawierające "@" będą pomijane.
+5. Otwórz MS Teams **w przeglądarce**: ![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>. Zaloguj się, i **otwórz okno dodawania członków zespołu** (tak, że można by dodać pojedynczą osobę).
+6. Kliknij skryptozakładkę **[TeamsMb]** i wyskakującym oknie wklej listę osób do dodania. Lista może być rozdzielana przecinkami, średnikami i dowolnymi białymi znakami, w tym nowego wiersza, czyli można ją wprost skopiować np. z kolumny Excela.
+7. Po `[OK]` powinno nastąpić dodawanie kolejnych członków. 
 
+<small> Na początku w skryptozakładce widać kilka parametrów, które można zmieniać po prostu edytując tekst zakładki: </small>
+````js
+const dely=1000; //(ms) odczekanie pomiędzy kolejnymi osobami 
+const liSep=/[,;\s]+/; //(regexp) lista rozdzielona przecinkami, średnikami 
+                       // i dowolnymi białymi znakami = \s, w tym nowego wiersza 
+const uTst=/.@.../; //(regexp) wzorzec do walidacji - czyli @ i kilka dowolnych znaków dookoła 
+````
 
 
 #### 4. Lista członków grup **MS Teams** (b1)
