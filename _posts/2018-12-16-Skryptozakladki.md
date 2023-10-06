@@ -50,9 +50,8 @@ Można go skopiować do notatnika i zapisać jako `*.html`, po czym otworzyć w 
 [\[ovCp2\]](javascript:(function(){var d=document;var lastEl=null;var ov=d.createElement('div');Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999999,background:'transparent',cursor:'crosshair'});d.body.append(ov);function getEl(ev){ov.style.pointerEvents='none';var el=d.elementFromPoint(ev.clientX,ev.clientY);if(ev.shiftKey){var el0=el,i=4;while((el0)&&(i--)){el=el0;el0=el.parentElement;}} ov.style.pointerEvents='auto';return el;} d.addEventListener('mousemove',function(ev){var el=getEl(ev);if(!el)return;lastEl=el;var po=el.getBoundingClientRect();Object.assign(ov.style,{background:'rgba(0,128,255,0.25)',outline:'1px solid rgba(0,128,255,0.5)',top:''+po.top+'px',left:''+po.left+'px',width:''+po.width+'px',height:''+po.height+'px'});});function cpToClp2(el){var x=window.scrollX,y=window.scrollY;var aux=d.createElement('div');aux.setAttribute("contentEditable","true");aux.innerHTML=el.outerHTML;aux.setAttribute("onfocus","document.execCommand('selectAll',false,null)");d.body.appendChild(aux);aux.focus();d.execCommand('copy');d.body.removeChild(aux);window.scrollTo(x,y);} ov.addEventListener('click',function(ev){var el=lastEl||getEl(ev);d.body.removeChild(ov);if(!(ev.ctrlKey)){cpToClp2(el);}else{lastEl.remove();}});})()){: .favlet} 
 kopiują treść oznaczonego obszaru, którą można wkleić wprost do aplikacji biurowych
 <small>([ovCp1.js]({{site.url}}{{site.baseurl}}/download/ovCp1.js.html), [ovCp2.js]({{site.url}}{{site.baseurl}}/download/ovCp2.js.html) - poprawiona wersja 24.10.2020)</small>.
-Można próbować te różne wersje w różnych przeglądarkach (nie zawsze działają skutecznie).
 	* Uwagi:
-		* [Ctrl]+klik - zamiast skopiowania następuje usunięcie obszaru z aktualnego widoku, np. zbędnego obszaru, denerwującej animacji
+		* [Ctrl]+klik - zamiast skopiowania następuje usunięcie obszaru z aktualnego widoku, np. denerwującej animacji
 		* `ovHsrc` działa stosunkowo skutecznie nawet na stronach z zablokowanym zaznaczaniem/kopiowaniem. Jest praktycznie odpowiednikiem operacji "Zbadaj element" \ "kopiuj zewnętrzny html"
 		* `ovCp1` - często skuteczna, ale raczej nie działa na zablokowanych stronach
 		* `ovCp2` - [nie działa w FF](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#Security); gdy już działa to raczej działa na zablokowanych stronach (np. w Chrome).
@@ -61,17 +60,19 @@ Można próbować te różne wersje w różnych przeglądarkach (nie zawsze dzia
 		- **pogrubienie**, *pochylenie*, ~~przekreślenie~~
 		- lista spraw i tabela (można próbować kopiowania także treści nad tabelą razem z całą tabelą)
 
-<p></p>
-- [x] coś
-	- [ ] tam
-	- [x] trzeba
-- [ ] zrobić
-
-
 nagłówek | tabeli | z formatowaniem
 ---------|-------:|:---------------:
   0      |      1 | **2**
   3      | 4      | *5*
+  
+<style>table{float:right;width:50%} ul>li ul>li ul{font-size:smaller;}</style>
+
+<p> &nbsp; </p>
+- [x] coś
+	- [ ] tam
+	- [x] trzeba
+- [ ] zrobić
+<p> &nbsp; </p>
 
 
 
