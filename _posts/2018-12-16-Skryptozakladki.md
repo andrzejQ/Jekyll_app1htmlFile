@@ -83,9 +83,9 @@ nagłówek | tabeli | z formatowaniem
 , poddawać minimalizacji, np. w Notatniku++/JSTool i edytując zakładkę wkleić jako nową treść</small>
 
 1. Przeciągnij skryptozkładkę 
-[\[TeamsMb\]](javascript:(()=>{const dely=1000;const liSep=/[,;\s]+/;const uTst=/.@.../;const msgOpenW='!\nNajpierw otwórz okno: Dodawanie członków do zespołu... \nFirst, open the window: Add members to team...';const msgPrpt='Tu wklej listę członków: * Paste member list here:';const msgCdnt='!!\nNie można znaleźć/dodać:\nCould not find/add:\n!!\n';const sInp='div.ts-people-picker input[data-tid="peoplePicker"]';const sDrop='div[data-tid="peoplepicker-dropdown"]';const sAdd='button.ts-btn[data-tid="createTeam-AddMembers"]';const checkElem=(sel,fnTrue,tmOut=2500)=>{return new Promise((rslv,rjct)=>{setTimeout(()=>{rslv($(''));},tmOut);(async()=>{while(!($(sel).length&&fnTrue(sel))){await new Promise(rslv=>requestAnimationFrame(rslv));};rslv($(sel));})();});};let $inp=$(sInp);if(!$inp.length){alert(msgOpenW);return;};try{(async()=>{const users=prompt(msgPrpt).split(liSep);for(const user of users){if(uTst.test(user)){console.log('====='+user);await checkElem(sAdd,(sel)=>$(sel).prop('disabled'));$inp=$(sInp);$inp.focus().val(user);$inp.change();let selDrop=await checkElem(sDrop,(sel)=>$(sel).text().trim(),7000);if(!selDrop.length)alert(msgCdnt+user);else{$(sInp).trigger({type:'keydown',which:9,keyCode:9});let selAdd=await checkElem(sAdd,(sel)=>!$(sel).prop('disabled'));if(!selAdd.length)alert(msgCdnt+user);else{selAdd.click();$(sInp).focus();await new Promise(rslv=>setTimeout(rslv,dely));await checkElem(sAdd,(sel)=>$(sel).prop('disabled'));}}}}})();}catch(err){alert(err);}})();){: .favlet}
-<small>(kod źródłowy: [addTeamsMb.js]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html))</small>
-do swojego paska zakładek.
+[\[TeamsMb\]](javascript:(()=>{const dely=1000;const liSep=/[,;\s]+/;const uTst=/.@.../;const lang=(document.documentElement.lang.startsWith('pl'))?1:0;const msgOpenW='!\n'+['On https://teams.microsoft.com\n'+'open the window: Add members to team...','Na https://teams.microsoft.com\n'+'otwórz okno: Dodawanie członków do zespołu...'][lang];const msgPrpt=['Paste member list here:','Tu wklej listę członków:'][lang];const msgCdnt='!!\n'+['Could not find/add:','Nie można znaleźć/dodać:'][lang]+'\n!!\n';const sInp='div.ts-people-picker input[data-tid="peoplePicker"]';const sDrop='div[data-tid="peoplepicker-dropdown"]';const sAdd='button.ts-btn[data-tid="createTeam-AddMembers"]';const checkElem=(sel,fnTrue,tmOut=2500)=>{return new Promise((rslv,rjct)=>{setTimeout(()=>{rslv($(''));},tmOut);(async()=>{while(!($(sel).length&&fnTrue(sel))){await new Promise(rslv=>requestAnimationFrame(rslv));};rslv($(sel));})();});};if(!((window.jQuery)&&$(sInp).length)){alert(msgOpenW);return;};try{(async()=>{const users=prompt(msgPrpt).split(liSep);for(const user of users){if(uTst.test(user)){console.log('====='+user);await checkElem(sAdd,(sel)=>$(sel).prop('disabled'));let $inp=$(sInp);$inp.focus().val(user);$inp.change();let selDrop=await checkElem(sDrop,(sel)=>$(sel).text().trim(),7000);if(!selDrop.length)alert(msgCdnt+user);else{$(sInp).trigger({type:'keydown',which:9,keyCode:9});let selAdd=await checkElem(sAdd,(sel)=>!$(sel).prop('disabled'));if(!selAdd.length)alert(msgCdnt+user);else{selAdd.click();$(sInp).focus();await new Promise(rslv=>setTimeout(rslv,dely));await checkElem(sAdd,(sel)=>$(sel).prop('disabled'));}}}}})();}catch(err){alert(err);}})();){: .favlet}
+do swojego paska zakładek.  
+<small>(kod źródłowy: [addTeamsMb.js]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html), propozycje lepszych rozwiązań zgłoś na: [github](https://github.com/andrzejQ/Import-users-to-MS-Teams-))</small>
 2. Przygotuj listę adresów e-mail użytkowników (powinni to być nowi użytkownicy), których chcesz dodać do zespołu, np. w kolumnie Excela. Komórki nie zawierające "@" będą pomijane.
 3. ![TeamsHurtoweDodawanieCzlonkow.png]({{site.baseurl}}/assets/img/TeamsHurtoweDodawanieCzlonkow.png "TeamsHurtoweDodawanieCzlonkow.png"){: style="float:right;width:50%;"}
 Otwórz MS Teams **w przeglądarce**: ![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>. Zaloguj się, i **otwórz okno dodawania członków zespołu** (tak, że można by dodać pojedynczą osobę).
@@ -94,10 +94,14 @@ Otwórz MS Teams **w przeglądarce**: ![TeamsApp.png]({{site.baseurl}}/assets/im
 
 <small> Na początku w skryptozakładce widać kilka parametrów, które można zmieniać po prostu edytując tekst zakładki: </small>
 ````js
-const dely=1000; //(ms) odczekanie pomiędzy kolejnymi osobami 
-const liSep=/[,;\s]+/; //(regexp) lista rozdzielona przecinkami, średnikami 
-                       // i dowolnymi białymi znakami = \s, w tym nowego wiersza 
-const uTst=/.@.../; //(regexp) wzorzec do walidacji - czyli @ i kilka dowolnych znaków dookoła 
+const dely=1000;      // delay after user added
+        //(ms)        //pl: opóźnienie po dodaniu użytkownika 
+const liSep=/[,;\s]+/;// separator of a list separated by commas, semicolons 
+        //(regexp)    // and any whitespace characters = \s, including newline
+                      //pl: separator listy rozdzielonej przecinkami, średnikami 
+                      // i dowolnymi białymi znakami = \s, w tym nowego wiersza 
+const uTst=/.@.../;   // validation pattern - i.e. @ and a few arbitrary characters around it
+        //(regexp)    //pl: wzorzec do walidacji - czyli @ i kilka dowolnych znaków dookoła 
 ````
 
 
