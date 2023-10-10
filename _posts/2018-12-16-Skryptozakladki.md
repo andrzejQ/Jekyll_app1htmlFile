@@ -24,8 +24,11 @@ categories: jekyll onefileapp
 **Przywrócenie** pierwotnej strony po użyciu skryptozakładki:  
 **[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
 
-#### 1. Biblioteki skryptozakładek ...
+<details markdown=1><summary markdown="span">
 
+<b> 1. Biblioteki skryptozakładek </b> <br>         ... 
+
+</summary>
 
 Wiele przykładów, można znaleźć m.in. na  
 [100+ Useful Bookmarklets](https://www.hongkiat.com/blog/100-useful-bookmarklets-for-better-productivity-ultimate-list/),   
@@ -34,7 +37,15 @@ Wiele przykładów, można znaleźć m.in. na
 - możliwość edycji stron www wyświetlanych w przeglądarce (dopisywanie / usuwanie tekstu / usuwanie obrazków) [\[Edit Website\]](javascript:document.body.contentEditable='true';document.designMode='on';void(0);){: .favlet},
 - zmiana kontrastu tekstu na czarno na białym: [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}.
 
-#### 2. **Kopiowanie fragmentów strony www** (b1)
+</details>
+
+<br>
+
+<details markdown=1><summary markdown="span">
+
+<b> 2. Kopiowanie fragmentów strony www</b> (b1) <br>         ... 
+
+</summary>
 
 Kopiowanie może być utrudnione w rozbudowanych aplikacjach. Może też być trudność w kopiowaniu tabel - gdy mamy niezbyt starannie napisaną stronę www z tabelami zawierającymi komórki wypełnione kolejnymi tabelami, to może pomóc ich skopiowanie do Excela czy Worda, gdzie można je dalej przetwarzać.  
 Poniższe skrytozakładki oznaczają obszar strony podczas poruszaniu nad nią myszą. Przytrzymując `Shift` podczas poruszania myszą oznaczane są obszary o 3 poziomy wyżej - co jest przydatne podczas zaznaczania całych tabel. Po kliknięciu kopiują oznaczony obszar do schowka.
@@ -74,7 +85,9 @@ nagłówek | tabeli | z formatowaniem
 - [ ] zrobić
 <p> &nbsp; </p>
 
+</details>
 
+<br>
 
 #### 3. Hurtowe dodawanie członków w **MS Teams** (b1)
 
