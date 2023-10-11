@@ -99,17 +99,17 @@ do swojego paska zakładek.
 2. Przygotuj listę adresów e-mail użytkowników (powinni to być nowi użytkownicy), których chcesz dodać do zespołu, np. w kolumnie Excela. Komórki nie zawierające "@" będą pomijane.
 3. ![TeamsHurtoweDodawanieCzlonkow.png]({{site.baseurl}}/assets/img/TeamsHurtoweDodawanieCzlonkow.png "TeamsHurtoweDodawanieCzlonkow.png"){: style="float:right;width:50%;"}
 Otwórz MS Teams **w przeglądarce**: ![TeamsApp.png]({{site.baseurl}}/assets/img/TeamsApp.png "TeamsApp.png"){: style="width:25px;"} <https://teams.microsoft.com/>. Zaloguj się, i **otwórz okno dodawania członków zespołu** (tak, że można by dodać pojedynczą osobę).
-4. Kliknij skryptozakładkę **[TeamsMb]** i wyskakującym oknie wklej listę osób do dodania. Lista może być rozdzielana przecinkami, średnikami i dowolnymi białymi znakami, w tym nowego wiersza, czyli można ją wprost skopiować np. z kolumny Excela.
+4. Kliknij skryptozakładkę **[TeamsMb]** i wyskakującym oknie wklej listę osób do dodania. Lista może być rozdzielana przecinkami, średnikami lub dowolnymi białymi znakami, w tym nowego wiersza, czyli można ją wprost skopiować np. z kolumny Excela.
 5. Po `[OK]` powinno nastąpić dodawanie kolejnych członków. 
 
 <small> Gdy wybierzesz opcję "**Edytuj zakładkę**" (pr.kl.myszy) to możesz sobie zmienić **kilka parametrów**: </small>
 ````js
 const dely=1000;      // delay after user added
         //(ms)        //pl: opóźnienie po dodaniu użytkownika 
-const liSep=/[,;\s]+/;// separator of a list separated by commas, semicolons 
-        //(regexp)    // and any whitespace characters = \s, including newline
-                      //pl: separator listy rozdzielonej przecinkami, średnikami 
-                      // i dowolnymi białymi znakami = \s, w tym nowego wiersza 
+const liSep=/[,;\s]+/;// separator of a list separated by commas or semicolons 
+        //(regexp)    // or any whitespace characters = \s, including newline
+                      //pl: separator listy rozdzielonej przecinkami lub średnikami 
+                      // lub dowolnymi białymi znakami = \s, w tym nowego wiersza 
 const uTst=/.@.../;   // validation pattern - i.e. @ and a few arbitrary characters around it
         //(regexp)    //pl: wzorzec do walidacji - czyli @ i kilka dowolnych znaków dookoła 
 ````

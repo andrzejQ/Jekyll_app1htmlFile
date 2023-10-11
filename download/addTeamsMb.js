@@ -7,10 +7,10 @@ javascript: (() => { //https://www.freecodecamp.org/news/what-are-bookmarklets/
 //config.:
 const dely=1000;      // delay after user added
         //(ms)        //pl: opóźnienie po dodaniu użytkownika 
-const liSep=/[,;\s]+/;// separator of a list separated by commas, semicolons 
-        //(regexp)    // and any whitespace characters = \s, including newline
-                      //pl: separator listy rozdzielonej przecinkami, średnikami 
-                      // i dowolnymi białymi znakami = \s, w tym nowego wiersza 
+const liSep=/[,;\s]+/;// separator of a list separated by commas or semicolons 
+        //(regexp)    // or any whitespace characters = \s, including newline
+                      //pl: separator listy rozdzielonej przecinkami lub średnikami 
+                      // lub dowolnymi białymi znakami = \s, w tym nowego wiersza 
 const uTst=/.@.../;   // validation pattern - i.e. @ and a few arbitrary characters around it
         //(regexp)    //pl: wzorzec do walidacji - czyli @ i kilka dowolnych znaków dookoła 
   const lang=(document.documentElement.lang.startsWith('pl')) ? 1 : 0;   // lang=($('html').attr('lang').startsWith('pl')) ? 1 : 0;
