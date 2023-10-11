@@ -17,12 +17,11 @@ categories: jekyll onefileapp
 * [6. JOOMLA galeria SIGPLUS]({{site.url}}{{site.baseurl}}{{page.url}}#6-joomla-galeria-sigplus-b1)
 * [7. Skryptozakładki - notatki]({{site.url}}{{site.baseurl}}{{page.url}}#7-skryptozakładki---notatki)
 
-<small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. W&nbsp;starszych wersjach Firefox - klikając prawym klawiszem na ikonę "Odśwież" (rys.)</small>
-![Firefox-pasek-zakladek.png]({{site.baseurl}}/assets/img/Firefox-pasek-zakladek.png "Firefox-pasek-zakladek.png"){: style="float:right;width:252px;"}
+<small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. 
 
 
 **Przywrócenie** pierwotnej strony po użyciu skryptozakładki:  
-**[F5]** lub [Ctrl+F5] (dogłębne przeładowanie strony).
+**[F5]** lub **[Ctrl+F5]** (dogłębne przeładowanie strony).
 
 <details markdown=1><summary markdown="span">
 
@@ -39,11 +38,9 @@ Wiele przykładów, można znaleźć m.in. na
 
 </details>
 
-<br>
-
 <details markdown=1><summary markdown="span">
 
-<b> 2. Kopiowanie fragmentów strony www</b> (b1) <br>         ... 
+<b> 2. Kopiowanie fragmentów strony www</b> (b1) <br>          ...      <small>(+ wyłączanie denerwujących animacji)</small>
 
 </summary>
 
@@ -62,7 +59,7 @@ Można go skopiować do notatnika i zapisać jako `*.html`, po czym otworzyć w 
 kopiują treść oznaczonego obszaru, którą można wkleić wprost do aplikacji biurowych
 <small>([ovCp1.js]({{site.url}}{{site.baseurl}}/download/ovCp1.js.html), [ovCp2.js]({{site.url}}{{site.baseurl}}/download/ovCp2.js.html) - poprawiona wersja 24.10.2020)</small>.
 	* Uwagi:
-		* [Ctrl]+klik - zamiast skopiowania następuje usunięcie obszaru z aktualnego widoku, np. denerwującej animacji
+		* **[Ctrl]+klik** - zamiast skopiowania następuje usunięcie obszaru z aktualnego widoku, np. denerwującej animacji
 		* `ovHsrc` działa stosunkowo skutecznie nawet na stronach z zablokowanym zaznaczaniem/kopiowaniem. Jest praktycznie odpowiednikiem operacji "Zbadaj element" \ "kopiuj zewnętrzny html"
 		* `ovCp1` - często skuteczna, ale raczej nie działa na zablokowanych stronach
 		* `ovCp2` - [nie działa w FF](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#Security); gdy już działa to raczej działa na zablokowanych stronach (np. w Chrome).
@@ -87,9 +84,9 @@ nagłówek | tabeli | z formatowaniem
 
 </details>
 
-<br>
 
-#### 3. Hurtowe dodawanie członków w **MS Teams** (b1)
+#### **3.** Hurtowe dodawanie członków w **MS Teams** (b1)
+{: style="margin-top:15px;"}
 
 <small> (2023-10-05. UWAGA - to bardzo wczesna wersja skryptozakładki. Można sobie modyfikować kod źródłowy 
 [**addTeamsMb.js**]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html)
@@ -105,7 +102,7 @@ Otwórz MS Teams **w przeglądarce**: ![TeamsApp.png]({{site.baseurl}}/assets/im
 4. Kliknij skryptozakładkę **[TeamsMb]** i wyskakującym oknie wklej listę osób do dodania. Lista może być rozdzielana przecinkami, średnikami i dowolnymi białymi znakami, w tym nowego wiersza, czyli można ją wprost skopiować np. z kolumny Excela.
 5. Po `[OK]` powinno nastąpić dodawanie kolejnych członków. 
 
-<small> Na początku w skryptozakładce widać kilka parametrów, które można zmieniać po prostu edytując tekst zakładki: </small>
+<small> Gdy wybierzesz opcję "**Edytuj zakładkę**" (pr.kl.myszy) to możesz sobie zmienić **kilka parametrów**: </small>
 ````js
 const dely=1000;      // delay after user added
         //(ms)        //pl: opóźnienie po dodaniu użytkownika 
@@ -118,7 +115,7 @@ const uTst=/.@.../;   // validation pattern - i.e. @ and a few arbitrary charact
 ````
 
 
-#### 4. Lista członków grup **MS Teams** (b1)
+#### **4.** Lista członków grup **MS Teams** (b1)
 
 <small> (2023-10-03. Przywrócono działanie poniższych skryptozakładek po zmianach w MS Teams. Na starszych wersjach: prawy klawisz myszy, "Usuń zakładkę" i ponownie zaciągamy nowsze skryptozakładki.) </small>
 
