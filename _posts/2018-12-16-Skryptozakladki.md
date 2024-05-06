@@ -15,7 +15,8 @@ categories: jekyll onefileapp
 * [4. Lista członków grup MS Teams]({{site.url}}{{site.baseurl}}{{page.url}}#4-lista-członków-grup-ms-teams-b1)
 * [5. Konwersja strony HTML na Markdown]({{site.url}}{{site.baseurl}}{{page.url}}#5-konwersja-strony-html-na-markdown-b1-i1)
 * [6. JOOMLA galeria SIGPLUS]({{site.url}}{{site.baseurl}}{{page.url}}#6-joomla-galeria-sigplus-b1)
-* [7. Skryptozakładki - notatki]({{site.url}}{{site.baseurl}}{{page.url}}#7-skryptozakładki---notatki)
+* [7. Rozwiń wszystkie szczegóły]({{site.url}}{{site.baseurl}}{{page.url}}#7-rozwiń-wszystkie-szczegóły-b1)
+* [n. Skryptozakładki - notatki]({{site.url}}{{site.baseurl}}{{page.url}}#n-skryptozakładki---notatki)
 
 <small>Pasek zakładek (Bookmarks Toolbar) można włączać/wył. w przeglądarce **Google Chrome**, **Firefox** lub w **Microsoft Edge** (Chromium)  za pomocą klawiszy **[Ctrl+Shift+B]**. 
 
@@ -218,10 +219,21 @@ Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera
 <small>(Zob. też [plik źródłowy img2sigplus.js]({{site.url}}{{site.baseurl}}/download/img2sigplus.js.html) )</small>
 
 
-#### 7. Skryptozakładki - notatki
+#### 7. Rozwiń wszystkie szczegóły (b1)
+
+Skryptozakładka [\[summ+\]](javascript:void%20function(){document.querySelectorAll('details').forEach((detail)=>{detail.open = true;});}();){: .favlet} 
+rozwija wszystkie napotkane na stronie panele `<details> - <summary>`: 
+<details>
+<summary> Test ... </summary>
+Szczegóły...
+</details>
+
+.
+
+#### n. Skryptozakładki - notatki
 
 A. [Tworzenie skryptozakładki](https://www.freecodecamp.org/news/what-are-bookmarklets/): 
-1. Plik "*.js" musi przestrzegać ściśle składni `{..}` i `;`. Stosuj krótkie nazwy zmiennych i funkcji. Nie oszczędzaj na komentarzach.
+1. Plik "*.js" musi przestrzegać ściśle składni `{..}` i `;`. Stosuj krótkie nazwy zmiennych i funkcji. Nie oszczędzaj na komentarzach. Stosuj wcięcia.
 2. Otocz kod anonimową funkcją: `javascript: (() => {` ... `})();` (automatycznie uruchamianą).
 3. Testowanie: przeglądarka \ [F12] \ Konsola. Wklej kod JavaScript. Uruchom.
 4. Minimalizacja do 1 wiersza, np. Notatniku++/JSTool. Trzeba dopisać średniki na końcu wierszy, gdy wynik jest wielowierszowy.
@@ -230,8 +242,11 @@ A. [Tworzenie skryptozakładki](https://www.freecodecamp.org/news/what-are-bookm
 
 B. Drobne problemy z umieszczaniem skryptozakładek na stronach HTML.
 
-1. Skryptozakładkę można zamieścić na stronie HTML jako odnośnik: `<a href="javascript:(()=>{` ...  `})();">nazwa</a>`.
-2. Na stronach generowanych z pomocą MarkDown również można zamieszczać ją w składni: `[nazwa](javascript:(()=>{` ...  `})();)`. Może się zdarzyć, że niektóre fragmenty kodu mogą zaburzyć interpretację MarkDown. Wtedy można skorzystać z konwersji URL encode. (Błąd objawia się "wyciekaniem" kodu js na tekst strony).
+1. Skryptozakładkę można zamieścić na stronie HTML jako odnośnik:  
+   `<a href="javascript:(()=>{` ...  `})();">nazwa</a>`
+2. Na stronach generowanych z pomocą MarkDown również można zamieszczać ją w składni:  
+   `[nazwa](javascript:(()=>{` ...  `})();)`  
+   Może się zdarzyć, że niektóre fragmenty kodu mogą zaburzyć interpretację MarkDown. Wtedy można skorzystać z konwersji URL encode. (Błąd objawia się "wyciekaniem" kodu js na tekst strony).
 3. Można też po prostu unikać niektórych sformułowań języka. Kilka przykładów do omijania w przypadku MarkDown na stronach Jekyll (nie jest to dokładnie przetestowane): 
 	* jest problem z `'tekst '`, czyli gdy jest spacja przed zamykającycm apostrofem; pomaga np. `'tekst -'`.
 	* chyba nie można wstawić: `' " " '` ale działa `' [ " " ]'`
