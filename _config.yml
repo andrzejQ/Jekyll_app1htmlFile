@@ -23,6 +23,9 @@
 minima:
   date_format: "%d.%m.%Y"
 
+sass: 
+  quiet_deps: true
+
 show_excerpts: true
 # - UWAGA - gdy końce wierszy: \r\n to fatalnie działa w jekyll - wyświetla całe artykuły; muszą być \n na końcu
 
