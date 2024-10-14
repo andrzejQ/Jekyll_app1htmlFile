@@ -187,8 +187,6 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 
 - - - -
 .  
-**Wpisanie czy korekta imienia i nazwiska** - w Teams/Office365 nie zawsze jest możliwe, ale można próbować według [tej instrukcji]({{site.url}}{{site.baseurl}}/download/Wpisanie_imienia_i_nazwiska-Office365.pdf).
-
 
 **Teams - odświeżanie danych:**
 
