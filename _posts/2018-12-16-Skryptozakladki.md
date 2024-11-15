@@ -86,8 +86,14 @@ nagłówek | tabeli | z formatowaniem
 </details>
 
 
-#### **3.** Hurtowe dodawanie członków w **MS Teams** (b1)
+#### **3.** <s>Hurtowe dodawanie członków w **MS Teams**</s> (b1)
 {: style="margin-top:15px;"}
+
+<details markdown=1><summary markdown="span" style="color:red">
+
+2024-11-15: <b> Uwaga to już nie działa ! </b> <br>         ... 
+
+</summary>
 
 <small> (2023-10-05. UWAGA - to bardzo wczesna wersja skryptozakładki. Można sobie modyfikować kod źródłowy 
 [**addTeamsMb.js**]({{site.url}}{{site.baseurl}}/download/addTeamsMb.js.html)
@@ -114,9 +120,16 @@ const liSep=/[,;\s]+/;// separator of a list separated by commas or semicolons
 const uTst=/.@.../;   // validation pattern - i.e. @ and a few arbitrary characters around it
         //(regexp)    //pl: wzorzec do walidacji - czyli @ i kilka dowolnych znaków dookoła 
 ````
+</details>
 
+#### **4.** <s>Lista członków grup **MS Teams**</s> (b1)
 
-#### **4.** Lista członków grup **MS Teams** (b1)
+<details markdown=1><summary markdown="span" style="color:red">
+
+2024-11-15: <b> Uwaga to już nie działa ! </b> <br>         ... 
+
+</summary>
+
 
 <small> (2023-10-03. Przywrócono działanie poniższych skryptozakładek po zmianach w MS Teams. Na starszych wersjach: prawy klawisz myszy, "Usuń zakładkę" i ponownie zaciągamy nowsze skryptozakładki.) </small>
 
@@ -187,6 +200,8 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 
 - - - -
 .  
+
+</details>
 
 **Teams - odświeżanie danych:**
 
