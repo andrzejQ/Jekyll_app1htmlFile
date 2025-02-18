@@ -33,11 +33,20 @@ categories: jekyll onefileapp
 Wiele przykładów, można znaleźć m.in. na  
 [100+ Useful Bookmarklets](https://www.hongkiat.com/blog/100-useful-bookmarklets-for-better-productivity-ultimate-list/),   
 [7is7.com_Bookmarklets](http://7is7.com/software/bookmarklets/),  
-[bookmarklets.org](http://bookmarklets.org/):
-- możliwość edycji stron www wyświetlanych w przeglądarce (dopisywanie / usuwanie tekstu / usuwanie obrazków) [\[Edit Website\]](javascript:document.body.contentEditable='true';document.designMode='on';void(0);){: .favlet},
-- zmiana kontrastu tekstu na czarno na białym: [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}.
+[bookmarklets.org](http://bookmarklets.org/)
 
 </details>
+
+- Możliwość edycji stron www wyświetlanych w przeglądarce (dopisywanie / usuwanie tekstu / usuwanie obrazków) 
+  [\[Edit Website\]](javascript:document.body.contentEditable='true';document.designMode='on';void(0);){: .favlet}, 
+  zmiana kontrastu tekstu na czarno na białym: 
+  [\[B/W\]](javascript:(function(){var newSS,styles='*{background:white!important;color:black!important}:link,:link*{color:#0000EE!important}:visited,:visited*{color:#551A8B!important}';newSS=document.createElement('link');newSS.rel='stylesheet';newSS.href='data:text/css,'+escape(styles);document.getElementsByTagName('head')[0].appendChild(newSS);})();){: .favlet}.
+- Przesunięcie strony w lewo (aby potem skorzystać z dodatku "WAVE Evaluation Tool", które wysuwa ją w prawo)
+  [\[m-190\]](javascript:(()=>{document.body.setAttribute('style','margin-left:-190px;');})();){: .favlet}. 
+  Natomiast skryptozakładka (jQuery)
+  [\[main\]](javascript:(()=>{let s1='div.right-side';let $c1=$(s1);$c1.css({'padding-left':'20px','width':'calc(100% - 500px)'});$('body').html('<main><h1>'+$(document).attr('title')+'</h1><p>'+$(location).attr('href')+'</p></main>');$('main').append($c1);})();){: .favlet}
+  wydziela fragment strony - tu z selektorem `div.right-side`, ten fragment można potem poddać audytowi dostępności, np. z pomocą WAVE Evaluation Tool co pozwala skupiać się na części zależnej od redaktora. Selektor można sobie edytować w zakładce.
+
 
 <details markdown=1><summary markdown="span">
 
