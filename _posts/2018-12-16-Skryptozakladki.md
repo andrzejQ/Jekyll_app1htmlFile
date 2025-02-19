@@ -46,11 +46,12 @@ Wiele przykładów, można znaleźć m.in. na
   Natomiast skryptozakładka (jQuery)
   [\[main\]](javascript:(()=>{let s1='div.right-side';let $c1=$(s1);$c1.css({'padding-left':'20px','width':'calc(100% - 500px)'});$('body').html('<main><h1>'+$(document).attr('title')+'</h1><p>'+$(location).attr('href')+'</p></main>');$('main').append($c1);})();){: .favlet}
   wydziela fragment strony - tu z selektorem `div.right-side`, ten fragment można potem poddać audytowi dostępności, np. z pomocą WAVE Evaluation Tool co pozwala skupiać się na części zależnej od redaktora. Selektor można sobie edytować w zakładce.
+{: style="font-size: smaller;"}
 
 
 <details markdown=1><summary markdown="span">
 
-<b> 2. Kopiowanie fragmentów strony www</b> (b1) <br>          ...      <small>(+ wyłączanie denerwujących animacji)</small>
+<b> 2. Kopiowanie fragmentów strony www</b> (b1) <br>          ...      <small>(w tym całych tabel; także wyłączanie denerwujących animacji)</small>
 
 </summary>
 
@@ -210,7 +211,6 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 - - - -
 .  
 
-</details>
 
 **Teams - odświeżanie danych:**
 
@@ -219,7 +219,8 @@ Listę, która powinna pojawić sie na stronie www kopiujemy do Notatnika (potem
 * albo w ostateczności: wyczyść dane podręczne (cache) aplikacji klasycznej MS Teams:
 	- Zamknij aplikację Teams (także w zasobniku obok zegara)
 	- Usuń wszystko z `%AppData%\Microsoft\Teams`
-
+	
+</details>
 
 #### 5. Konwersja strony HTML na Markdown (b1, i1)
 
@@ -232,14 +233,19 @@ z włączonymi dodatkami (table, listy zadań, ...)
 <small>([TurnDownAll.js]({{site.url}}{{site.baseurl}}/download/TurnDownAll.js.html))</small>. Po kliknięciu skryptozakładki strona zmienia się w swój tekst Markdown (cierpliwie poczekaj...). Można sobie skopiować dowolny fragment. Na koniec [F5].  
 Nie zawsze to działa idealnie...
 
-
+* Zob. też [MarkDown - zastosowania »](https://andrzejq.github.io/El_Prog/programowanie/2024/03/11/MarkDown-zastosowania.html)
 
 #### 6. JOOMLA galeria SIGPLUS (b1)
 
-Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
+<details markdown=1><summary markdown="span">   Skryptozakładka dla edytora HTML w JOOMLA z dodatkiem SIGPLUS ...  </summary>
+
+ [\[sig+\]](javascript:void%20function(){var%20e=document.querySelector(%22textarea%23jform_articletext%22);if(!e)return%20void%20alert(%221.%20Coś%20jest%20nie%20tak%20\n%20-%20musisz%20być%20w%20trybie%20edycji%20html%22);document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click();var%20t=e.value,r=t.replace(/%3Cimg%20src=%22images\/(.*%3F)\/[^/]+\/%3E/,'{gallery%20maxcount=1%20alignment=%22after-float%22%20preview_width=120%20preview_height=160}$1{/gallery}');return%20r===t%3Fvoid%20alert(%222.%20Coś%20jest%20nie%20tak%20\n%20-%20może%20nie%20ma%20wstawionego%20obrazka...\n%20-%20a%20może%20edytor%20nie%20jest%20trybie%20HTML%22):(e.value=r,void%20document.querySelector(%22span%23wf_editor_jform_articletext_toggle%22).parentNode.click())}();){: .favlet} zamienia pierwsze napotkane łącze obrazka `<img src="images...` na łącze galerii obrazów `{gallery.../gallery}` umieszczonych w tym samym folderze co `<img`.  
 Należy więc do swojego dokumentu Joomla wstawić jakikolwiek obrazek z foldera, który zawiera obrazy do galerii i kliknąć `[sig+]`.  
 <small>(Zob. też [plik źródłowy img2sigplus.js]({{site.url}}{{site.baseurl}}/download/img2sigplus.js.html) )</small>
 
+</details>
+
+.
 
 #### 7. Rozwiń wszystkie szczegóły (b1)
 
