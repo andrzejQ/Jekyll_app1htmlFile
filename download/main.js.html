@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="pl" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>main.js</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc2 {
+	color: #008000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc7 {
+	color: #808080;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc19 {
+	font-weight: bold;
+	color: #804000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc11">javascript</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc10">(()</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+</span><span class="sc1">/*
+* Skryptozakładka, która wydziela fragment strony - tu z selektorem 'div.right-side'
+* Można go potem poddać audytowi dostępności, np. z pomocą WAVE Evaluation Tool.
+*/</span><span class="sc0">
+</span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">s1</span><span class="sc10">=</span><span class="sc7">'div.right-side'</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc2">//selektor CSS głównego fragmentu strony poza menu, nagłówkiem itp.
+</span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">$c1</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc11">s1</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc2">//można by też zapamiętać inne fragmenty i potem przywrócić poprzez .append()
+</span><span class="sc11">$c1</span><span class="sc10">.</span><span class="sc11">css</span><span class="sc10">({</span><span class="sc7">'padding-left'</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'20px'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc7">'width'</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc7">'calc(100% - 500px)'</span><span class="sc10">});</span><span class="sc0"> 
+</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc7">'body'</span><span class="sc10">).</span><span class="sc11">html</span><span class="sc10">(</span><span class="sc7">'&lt;main&gt;&lt;h1&gt;'</span><span class="sc10">+</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc19">document</span><span class="sc10">).</span><span class="sc11">attr</span><span class="sc10">(</span><span class="sc7">'title'</span><span class="sc10">)+</span><span class="sc7">'&lt;/h1&gt;&lt;p&gt;'</span><span class="sc10">+</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc19">location</span><span class="sc10">).</span><span class="sc11">attr</span><span class="sc10">(</span><span class="sc7">'href'</span><span class="sc10">)+</span><span class="sc7">'&lt;/p&gt;&lt;/main&gt;'</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc11">$</span><span class="sc10">(</span><span class="sc7">'main'</span><span class="sc10">).</span><span class="sc11">append</span><span class="sc10">(</span><span class="sc11">$c1</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">})();</span></div></body>
+</html>
