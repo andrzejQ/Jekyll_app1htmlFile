@@ -47,7 +47,9 @@ Wiele przykładów, można znaleźć m.in. na
   Natomiast skryptozakładka (jQuery)
   [\[main\]](javascript:(()=>{let s1='div.right-side';let $c1=$(s1);$c1.css({'padding-left':'20px','width':'calc(100% - 500px)'});$('body').html('<main><h1>'+$(document).attr('title')+'</h1><p>'+$(location).attr('href')+'</p></main>');$('main').append($c1);})();){: .favlet}
   ([main.js]({{site.url}}{{site.baseurl}}/download/main.js.html))
-  wydziela fragment strony - tu z selektorem `div.right-side`, ten fragment można potem poddać audytowi dostępności, np. z pomocą WAVE Evaluation Tool co pozwala skupiać się na części zależnej od redaktora. Selektor można sobie edytować w zakładce. 
+  wydziela fragment strony - tu z selektorem `div.right-side`, ten fragment można potem poddać audytowi dostępności, np. z pomocą WAVE Evaluation Tool co pozwala skupiać się na części zależnej od redaktora. Selektor można sobie edytować w zakładce.  
+  (I jeszcze kolorowanie fragmentów deklaracji dostępności wyświetlanej z pliku *.md: 
+  [\[md_js\]](javascript:(function(){const cS={};cS['Pozytywna']='sp';cS['Negatywna']='sn';cS['Nie dotyczy']='snd';const strng=document.getElementsByTagName('strong');for(let i=0;i<strng.length;i++){let el=strng[i],c=cS[el.innerText]||'';if(c)el.classList.add(c);};const cE={};cE['Pozytywna']='ep';cE['Negatywna']='en';cE['Nie dotyczy']='end';cE['(p+)']='ep';cE['(n-)']='en';cE['(#+)']='end';cE['(?)']='eq';cE['(??)']='eq';cE['(p)']='sp';cE['(n)']='sn';cE['(#)']='snd';const%20em=document.getElementsByTagName('em');for(let%20i=0;i<em.length;i++){let%20el=em[i],c=cE[el.innerText]||'';if(c)el.classList.add(c);}})();){: .favlet} )
 {: style="font-size: smaller;"}
 
 
